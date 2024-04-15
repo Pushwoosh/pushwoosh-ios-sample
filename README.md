@@ -10,9 +10,11 @@
 ### 2. Replace the Bundle Identifier in the main target and in the Notification Service Extension with yours.
    <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/BundleID.png" alt="Alt text" width="700">
    <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/BundleIDExtension.png" alt="Alt text" width="700">
+   
 ### 3. Add your group to App Groups, tied to your Bundle ID.
    ![Alt](https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/AppGroups.png)
 ### 4. Add the group name to the info.plist of the main target and Notification Service Extension.
+
 ```
 ...
 <key>PW_APP_GROUPS_NAME</key>
