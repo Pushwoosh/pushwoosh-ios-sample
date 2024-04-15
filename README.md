@@ -2,12 +2,11 @@
 
 # To launch and utilize a sample with Pushwoosh iOS SDK integration, clone or download the repository archive.
 
-   ![Alt](https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/Screen2.png) ![Alt](https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/Screen1.png) 
-
+ <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/Screen2.png" alt="Alt text" width="300">
+ <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/Screen1.png" alt="Alt text" width="300">
+ 
 ### 1. Update the dependency to the latest SDK version (File -> Packages -> Update To Latest Package Version).
    ![Alt Dependencies](https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/Screenshot%202024-04-15%20at%2019.09.31.png)
-   <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/Screen2.png" alt="Alt text" width="300">
-   <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/Screen1.png" alt="Alt text" width="300">
 
 ### 2. Replace the Bundle Identifier in the main target and in the Notification Service Extension with yours.
    ![Alt Main Target](https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/BundleID.png)
