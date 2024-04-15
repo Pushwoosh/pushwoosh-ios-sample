@@ -1,1 +1,1 @@
-# pushwoosh-ios-sample
+# iOS SAMPLE
