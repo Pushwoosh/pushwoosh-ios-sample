@@ -1,6 +1,8 @@
 # iOS SAMPLE 🍏
 
-# To launch and utilize a sample with Pushwoosh iOS SDK integration, clone or download the repository archive.
+## To launch and utilize a sample with Pushwoosh iOS SDK integration, clone or download the repository archive.
+
+[![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
 
  <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/Screen2.png" alt="Alt text" width="300"> <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/Screen1.png" alt="Alt text" width="300">
  
