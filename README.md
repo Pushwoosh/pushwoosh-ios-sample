@@ -30,4 +30,10 @@
 ...
 ```
 
-## You can read the complete instruction for integrating Pushwoosh iOS SDK [here](https://docs.pushwoosh.com/platform-docs/pushwoosh-sdk/ios-push-notifications/setting-up-pushwoosh-ios-sdk/swift-package-manager-setup).
+## The guide for SDK integration is available on Pushwoosh [website](https://docs.pushwoosh.com/platform-docs/pushwoosh-sdk/ios-push-notifications/setting-up-pushwoosh-ios-sdk/swift-package-manager-setup).
+
+Documentation:
+https://github.com/Pushwoosh/pushwoosh-ios-sdk/tree/master/Documentation
+
+Pushwoosh team
+http://www.pushwoosh.com
