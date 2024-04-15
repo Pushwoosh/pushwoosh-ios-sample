@@ -33,11 +33,11 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     }
 
     func pushwoosh(_ pushwoosh: Pushwoosh, onMessageOpened message: PWMessage) {
-        print("Push Opened: \(message.payload!)")
+        print("Push Opened: \(message.payload ?? ["" : ""])")
     }
 
     func pushwoosh(_ pushwoosh: Pushwoosh, onMessageReceived message: PWMessage) {
-        print("Push Received: \(message.payload!)")
+        print("Push Received: \(message.payload ?? ["" : ""])")
     }
 }
 
