@@ -22,6 +22,6 @@
 ```
 ...
 <key>Pushwoosh_APPID</key>
-	<string>XXXXX-XXXXX</string>
+<string>XXXXX-XXXXX</string>
 ...
 ```
