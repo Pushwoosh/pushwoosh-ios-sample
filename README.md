@@ -12,4 +12,10 @@
 ### 3. Add your group to App Groups, tied to your Bundle ID.
    ![Alt](https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/AppGroups.png)
 ### 4. Add the group name to the info.plist of the main target and Notification Service Extension.
+```
+...
+<key>PW_APP_GROUPS_NAME</key>
+<string>group.com.example.demo_group</string>
+...
+```
 ### 5. In the info.plist of the main project, add your Pushwoosh_APPID.
