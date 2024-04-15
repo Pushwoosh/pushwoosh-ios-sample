@@ -19,3 +19,9 @@
 ...
 ```
 ### 5. In the info.plist of the main project, add your Pushwoosh_APPID.
+```
+...
+<key>Pushwoosh_APPID</key>
+	<string>XXXXX-XXXXX</string>
+...
+```
