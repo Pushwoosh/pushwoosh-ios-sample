@@ -29,3 +29,5 @@
 <string>XXXXX-XXXXX</string>
 ...
 ```
+
+## You can read the complete instruction for integrating Pushwoosh iOS SDK [here](https://docs.pushwoosh.com/platform-docs/pushwoosh-sdk/ios-push-notifications/setting-up-pushwoosh-ios-sdk/swift-package-manager-setup).
