@@ -5,7 +5,7 @@
  <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/Screen2.png" alt="Alt text" width="300"> <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/Screen1.png" alt="Alt text" width="300">
  
 ### 1. Update the dependency to the latest SDK version (File -> Packages -> Update To Latest Package Version).
- <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/UpdateDependencies.png" alt="Alt text" width="300">
+ <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/UpdateDependencies.png" alt="Alt text" width="600" height="300">
  
 ### 2. Replace the Bundle Identifier in the main target and in the Notification Service Extension with yours.
    ![Alt Main Target](https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/BundleID.png)
