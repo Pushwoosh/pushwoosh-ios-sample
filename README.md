@@ -6,8 +6,24 @@
 
  <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/Screen2.png" alt="Alt text" width="300"> <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/Screen1.png" alt="Alt text" width="300">
  
-### 1. Update the dependency to the latest SDK version (File -> Packages -> Update To Latest Package Version).
- <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/UpdateDependencies.png" alt="Alt text" width="700">
+### 1. In this project, we use the Pushwoosh iOS SDK as a submodule. To fetch the dependency, follow these steps:
+
+1.1 Navigate to the sample folder via the terminal and enter the following command:
+
+```
+git submodule update --init --recursive
+```
+1.2 You can check the status of the submodules to ensure they have been successfully fetched:
+
+```
+git submodule status
+```
+
+1.3 If you have already cloned the repository and want to update the submodules to the latest commits, you can use:
+
+```
+git submodule update --recursive --remote
+```
  
 ### 2. Replace the Bundle Identifier in the main target and in the Notification Service Extension with yours.
    <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/BundleID.png" alt="Alt text" width="700">
