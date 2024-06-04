@@ -1,5 +1,6 @@
 # iOS SAMPLE 🍏
 
+        - 30
 ## To launch and utilize a sample with Pushwoosh iOS SDK integration, clone or download the repository archive.
 
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
