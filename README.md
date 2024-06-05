@@ -1,6 +1,5 @@
 # iOS SAMPLE 🍏
 
-        - 30
 ## To launch and utilize a sample with Pushwoosh iOS SDK integration, clone or download the repository archive.
 
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
@@ -8,6 +7,8 @@
  <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/Screen2.png" alt="Alt text" width="300"> <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/Screen1.png" alt="Alt text" width="300">
  
 ### 1. In this project, we use the Pushwoosh iOS SDK as a submodule. To fetch the dependency, follow these steps:
+
+### Adding Pushwoosh iOS SDK as a source code project
 
 1.1 Navigate to the sample folder via the terminal and enter the following command:
 
@@ -25,6 +26,15 @@ git submodule status
 ```
 git submodule update --recursive --remote
 ```
+
+### Adding Pushwoosh iOS SDK via Swift Package Manager
+
+If you don't want to use a submodule, you can add the Pushwoosh iOS SDK as a dependency via Swift Package Manager.
+
+1.1 Add Dependencies via Swift Package Manager
+
+<img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/SPM.png" alt="Alt text" width="700">
+
  
 ### 2. Replace the Bundle Identifier in the main target and in the Notification Service Extension with yours.
    <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/BundleID.png" alt="Alt text" width="700">
