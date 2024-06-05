@@ -31,7 +31,7 @@ git submodule update --recursive --remote
 
 If you don't want to use a submodule, you can add the Pushwoosh iOS SDK as a dependency via Swift Package Manager.
 
-1.1 Add Dependencies via Swift Package Manager
+1.1 Add Dependencies via Swift Package Manager. Use this link https://github.com/Pushwoosh/Pushwoosh-XCFramework
 
 <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/SPM.png" alt="Alt text" width="700">
 
