@@ -19,6 +19,8 @@
 	<string>group.com.example.demo_group</string>
 	<key>Pushwoosh_APPID</key>
 	<string>XXXXX-XXXXX</string>
+	<key>PW_API_TOKEN</key>
+	<string>XXXXX</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

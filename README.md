@@ -59,6 +59,15 @@ If you don't want to use a submodule, you can add the Pushwoosh iOS SDK as a dep
 ...
 ```
 
+### 6. In the info.plist of the main project, add your PW_API_TOKEN - the API key from the Pushwoosh control panel.
+
+```
+...
+<key>PW_API_TOKEN</key>
+<string>XXXXX</string>
+...
+```
+
 ## The guide for SDK integration is available on Pushwoosh [website](https://docs.pushwoosh.com/platform-docs/pushwoosh-sdk/ios-push-notifications/setting-up-pushwoosh-ios-sdk/swift-package-manager-setup).
 
 Documentation:
