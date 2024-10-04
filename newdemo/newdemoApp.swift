@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Pushwoosh
+import PushwooshFramework
 
 class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate, PWMessagingDelegate {
     

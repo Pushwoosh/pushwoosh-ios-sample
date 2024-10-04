@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4433841C2C0E041D00C476DD /* Pushwoosh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4433840F2C0E037F00C476DD /* Pushwoosh.framework */; };
-		4433841D2C0E041D00C476DD /* Pushwoosh.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4433840F2C0E037F00C476DD /* Pushwoosh.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4433841C2C0E041D00C476DD /* PushwooshFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4433840F2C0E037F00C476DD /* PushwooshFramework.framework */; };
+		4433841D2C0E041D00C476DD /* PushwooshFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4433840F2C0E037F00C476DD /* PushwooshFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		443384222C0E0A2500C476DD /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443384212C0E0A2500C476DD /* SettingsTests.swift */; };
 		44556FD72BC96D6000E92413 /* newdemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44556FD62BC96D6000E92413 /* newdemoApp.swift */; };
 		44556FD92BC96D6000E92413 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44556FD82BC96D6000E92413 /* ContentView.swift */; };
@@ -23,6 +23,8 @@
 		44EDFF272BCDA35800ED242F /* NotificationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EDFF262BCDA35800ED242F /* NotificationsTest.swift */; };
 		44EDFF2F2BCDA55500ED242F /* newdemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EDFF2E2BCDA55500ED242F /* newdemoUITests.swift */; };
 		44EDFF312BCDA55500ED242F /* newdemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EDFF302BCDA55500ED242F /* newdemoUITestsLaunchTests.swift */; };
+		44FE0D4E2CB01E2E001C34FD /* PushwooshFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4433840F2C0E037F00C476DD /* PushwooshFramework.framework */; };
+		44FE0D4F2CB01E2E001C34FD /* PushwooshFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4433840F2C0E037F00C476DD /* PushwooshFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,7 +114,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4433841D2C0E041D00C476DD /* Pushwoosh.framework in Embed Frameworks */,
+				4433841D2C0E041D00C476DD /* PushwooshFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,6 +128,17 @@
 				44EDFF0A2BC98BB200ED242F /* NotificationService.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44FE0D502CB01E2E001C34FD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				44FE0D4F2CB01E2E001C34FD /* PushwooshFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -160,7 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4433841C2C0E041D00C476DD /* Pushwoosh.framework in Frameworks */,
+				4433841C2C0E041D00C476DD /* PushwooshFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +181,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44FE0D4E2CB01E2E001C34FD /* PushwooshFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				4433840D2C0E037F00C476DD /* libPushwoosh.a */,
-				4433840F2C0E037F00C476DD /* Pushwoosh.framework */,
+				4433840F2C0E037F00C476DD /* PushwooshFramework.framework */,
 				443384112C0E037F00C476DD /* libPushwoosh.a */,
 				443384132C0E037F00C476DD /* Pushwoosh.framework */,
 				443384152C0E037F00C476DD /* libPushwoosh.watchOS.a */,
@@ -327,6 +341,7 @@
 				44EDFEFF2BC98BB200ED242F /* Sources */,
 				44EDFF002BC98BB200ED242F /* Frameworks */,
 				44EDFF012BC98BB200ED242F /* Resources */,
+				44FE0D502CB01E2E001C34FD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -438,10 +453,10 @@
 			remoteRef = 4433840C2C0E037F00C476DD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4433840F2C0E037F00C476DD /* Pushwoosh.framework */ = {
+		4433840F2C0E037F00C476DD /* PushwooshFramework.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = Pushwoosh.framework;
+			path = PushwooshFramework.framework;
 			remoteRef = 4433840E2C0E037F00C476DD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
