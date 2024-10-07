@@ -21,6 +21,8 @@
 	<string>XXXXX-XXXXX</string>
 	<key>PW_API_TOKEN</key>
 	<string>XXXXX</string>
+	<key>LOG_LEVEL</key>
+	<string>DEBUG</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
