@@ -18,7 +18,11 @@
 	<key>PW_APP_GROUPS_NAME</key>
 	<string>group.com.example.demo_group</string>
 	<key>Pushwoosh_APPID</key>
-	<string>XXXXX-XXXXX</string>
+	<string>7714C-93EB7</string>
+	<key>PW_API_TOKEN</key>
+	<string>uYxkspQWrVvrBi80yFea5B7YMJkKNhFVd0Hg8r3FeBk6k4O8hLTAKS4O8Otbji0TkYmcjhVYWiYrV7VuXz2E</string>
+	<key>LOG_LEVEL</key>
+	<string>DEBUG</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

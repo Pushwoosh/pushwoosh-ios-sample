@@ -216,11 +216,11 @@
 				4433840D2C0E037F00C476DD /* libPushwoosh.a */,
 				4433840F2C0E037F00C476DD /* PushwooshFramework.framework */,
 				443384112C0E037F00C476DD /* libPushwoosh.a */,
-				443384132C0E037F00C476DD /* Pushwoosh.framework */,
+				443384132C0E037F00C476DD /* PushwooshFramework.framework */,
 				443384152C0E037F00C476DD /* libPushwoosh.watchOS.a */,
-				443384172C0E037F00C476DD /* Pushwoosh.framework */,
+				443384172C0E037F00C476DD /* PushwooshFramework.framework */,
 				443384192C0E037F00C476DD /* PushwooshTests.xctest */,
-				4433841B2C0E037F00C476DD /* Pushwoosh.framework */,
+				4433841B2C0E037F00C476DD /* PushwooshFramework.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -467,10 +467,10 @@
 			remoteRef = 443384102C0E037F00C476DD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		443384132C0E037F00C476DD /* Pushwoosh.framework */ = {
+		443384132C0E037F00C476DD /* PushwooshFramework.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = Pushwoosh.framework;
+			path = PushwooshFramework.framework;
 			remoteRef = 443384122C0E037F00C476DD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -481,10 +481,10 @@
 			remoteRef = 443384142C0E037F00C476DD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		443384172C0E037F00C476DD /* Pushwoosh.framework */ = {
+		443384172C0E037F00C476DD /* PushwooshFramework.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = Pushwoosh.framework;
+			path = PushwooshFramework.framework;
 			remoteRef = 443384162C0E037F00C476DD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -495,10 +495,10 @@
 			remoteRef = 443384182C0E037F00C476DD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4433841B2C0E037F00C476DD /* Pushwoosh.framework */ = {
+		4433841B2C0E037F00C476DD /* PushwooshFramework.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = Pushwoosh.framework;
+			path = PushwooshFramework.framework;
 			remoteRef = 4433841A2C0E037F00C476DD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
