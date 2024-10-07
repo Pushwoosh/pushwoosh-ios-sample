@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import Pushwoosh
+import PushwooshFramework
 @testable import newdemo
 
 final class newdemoTests: XCTestCase {
