@@ -14,7 +14,7 @@ let package = Package(
             targets: ["newdemo"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Pushwoosh/Pushwoosh-XCFramework.git", exact: "6.7.9"),
+        .package(url: "https://github.com/Pushwoosh/Pushwoosh-XCFramework.git", from: "6.7.9"),
     ],
     targets: [
         .target(
