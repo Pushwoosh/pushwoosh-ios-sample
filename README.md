@@ -6,35 +6,21 @@
 
  <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/Screen2.png" alt="Alt text" width="300"> <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/Screen1.png" alt="Alt text" width="300">
  
-### 1. In this project, we use the Pushwoosh iOS SDK as a submodule. To fetch the dependency, follow these steps:
+### Project Settings
 
-### Adding Pushwoosh iOS SDK as a source code project
+### 1. Pushwoosh Dependency
 
-1.1 Navigate to the sample folder via the terminal and enter the following command:
-
-```
-git submodule update --init --recursive
-```
-1.2 You can check the status of the submodules to ensure they have been successfully fetched:
+In this project, the Pushwoosh dependency is configured via the local Package.swift file, so you do not need to install dependencies manually. When you open the project, the Pushwoosh library will automatically be linked to the project, and the latest version of the library will be used. If you want to use a different SDK version in this sample, go to the ```PushwooshSPM -> Package.swift``` file and replace the line
 
 ```
-git submodule status
+.package(url: "https://github.com/Pushwoosh/Pushwoosh-XCFramework.git", from: "6.7.9")
 ```
-
-1.3 If you have already cloned the repository and want to update the submodules to the latest commits, you can use:
+with
 
 ```
-git submodule update --recursive --remote
+.package(url: "https://github.com/Pushwoosh/Pushwoosh-XCFramework.git", exact: "EXACT_VERSION")
+
 ```
-
-### Adding Pushwoosh iOS SDK via Swift Package Manager
-
-If you don't want to use a submodule, you can add the Pushwoosh iOS SDK as a dependency via Swift Package Manager.
-
-1.1 Add Dependencies via Swift Package Manager. Use this link https://github.com/Pushwoosh/Pushwoosh-XCFramework
-
-<img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/SPM.png" alt="Alt text" width="700">
-
  
 ### 2. Replace the Bundle Identifier in the main target and in the Notification Service Extension with yours.
    <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/BundleID.png" alt="Alt text" width="700">
