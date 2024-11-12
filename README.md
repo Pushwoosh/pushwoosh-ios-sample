@@ -10,17 +10,7 @@
 
 ### 1. Pushwoosh Dependency
 
-In this project, the Pushwoosh dependency is configured via the local Package.swift file, so you do not need to install dependencies manually. When you open the project, the Pushwoosh library will automatically be linked to the project, and the latest version of the library will be used. If you want to use a different SDK version in this sample, go to the ```PushwooshSPM -> Package.swift``` file and replace the line
-
-```
-.package(url: "https://github.com/Pushwoosh/Pushwoosh-XCFramework.git", from: "6.7.9")
-```
-with
-
-```
-.package(url: "https://github.com/Pushwoosh/Pushwoosh-XCFramework.git", exact: "EXACT_VERSION")
-
-```
+Pushwoosh framework is integrated into the project via Swift Package Manager. When loading the project, Xcode will fetch the latest version of the framework. If you want to change the framework version, go to the Package Dependencies tab and adjust the version there.
  
 ### 2. Replace the Bundle Identifier in the main target and in the Notification Service Extension with yours.
    <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/BundleID.png" alt="Alt text" width="700">
