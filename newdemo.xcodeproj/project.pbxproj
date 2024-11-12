@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		440E52A52CE39B97006555DD /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E52952CE39B18006555DD /* Actions.swift */; };
+		440E52A62CE39B97006555DD /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E52962CE39B18006555DD /* Settings.swift */; };
+		440E52A72CE39B97006555DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E529B2CE39B18006555DD /* ContentView.swift */; };
+		440E52A82CE39B97006555DD /* newdemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E529E2CE39B18006555DD /* newdemoApp.swift */; };
+		440E52A92CE39B97006555DD /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E529F2CE39B18006555DD /* Notifications.swift */; };
+		440E52AA2CE39B9C006555DD /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E52A32CE39B18006555DD /* NotificationService.swift */; };
+		440E52AD2CE39BB0006555DD /* PushwooshFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 440E52AC2CE39BB0006555DD /* PushwooshFramework */; };
 		443384222C0E0A2500C476DD /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443384212C0E0A2500C476DD /* SettingsTests.swift */; };
 		44EDFF0A2BC98BB200ED242F /* NotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 44EDFF032BC98BB200ED242F /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		44EDFF202BCDA0CE00ED242F /* AppDelegateIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EDFF1F2BCDA0CE00ED242F /* AppDelegateIntegration.swift */; };
@@ -64,8 +71,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		440E52952CE39B18006555DD /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
+		440E52962CE39B18006555DD /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		440E52982CE39B18006555DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		440E529A2CE39B18006555DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		440E529B2CE39B18006555DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		440E529C2CE39B18006555DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		440E529D2CE39B18006555DD /* newdemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = newdemo.entitlements; sourceTree = "<group>"; };
+		440E529E2CE39B18006555DD /* newdemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newdemoApp.swift; sourceTree = "<group>"; };
+		440E529F2CE39B18006555DD /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		440E52A12CE39B18006555DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		440E52A22CE39B18006555DD /* NotificationService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationService.entitlements; sourceTree = "<group>"; };
+		440E52A32CE39B18006555DD /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		443384212C0E0A2500C476DD /* SettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
-		4438F1AE2CE25CAC008192E5 /* PushwooshSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PushwooshSPM; sourceTree = "<group>"; };
 		44556FD32BC96D6000E92413 /* newdemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = newdemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44EDFF032BC98BB200ED242F /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		44EDFF1D2BCDA0CE00ED242F /* newdemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = newdemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				440E52AD2CE39BB0006555DD /* PushwooshFramework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +127,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		440E52972CE39B18006555DD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				440E52952CE39B18006555DD /* Actions.swift */,
+				440E52962CE39B18006555DD /* Settings.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		440E52992CE39B18006555DD /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				440E52982CE39B18006555DD /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		440E52A02CE39B18006555DD /* newdemo */ = {
+			isa = PBXGroup;
+			children = (
+				440E52972CE39B18006555DD /* Controllers */,
+				440E52992CE39B18006555DD /* Preview Content */,
+				440E529A2CE39B18006555DD /* Assets.xcassets */,
+				440E529B2CE39B18006555DD /* ContentView.swift */,
+				440E529C2CE39B18006555DD /* Info.plist */,
+				440E529D2CE39B18006555DD /* newdemo.entitlements */,
+				440E529E2CE39B18006555DD /* newdemoApp.swift */,
+				440E529F2CE39B18006555DD /* Notifications.swift */,
+			);
+			path = newdemo;
+			sourceTree = "<group>";
+		};
+		440E52A42CE39B18006555DD /* NotificationService */ = {
+			isa = PBXGroup;
+			children = (
+				440E52A12CE39B18006555DD /* Info.plist */,
+				440E52A22CE39B18006555DD /* NotificationService.entitlements */,
+				440E52A32CE39B18006555DD /* NotificationService.swift */,
+			);
+			path = NotificationService;
+			sourceTree = "<group>";
+		};
 		443383FD2C0E037F00C476DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,7 +179,8 @@
 		44556FCA2BC96D6000E92413 = {
 			isa = PBXGroup;
 			children = (
-				4438F1AE2CE25CAC008192E5 /* PushwooshSPM */,
+				440E52A02CE39B18006555DD /* newdemo */,
+				440E52A42CE39B18006555DD /* NotificationService */,
 				44EDFF1E2BCDA0CE00ED242F /* newdemoTests */,
 				44EDFF2D2BCDA55500ED242F /* newdemoUITests */,
 				44556FD42BC96D6000E92413 /* Products */,
@@ -176,6 +238,7 @@
 			);
 			name = newdemo;
 			packageProductDependencies = (
+				440E52AC2CE39BB0006555DD /* PushwooshFramework */,
 			);
 			productName = newdemo;
 			productReference = 44556FD32BC96D6000E92413 /* newdemo.app */;
@@ -272,6 +335,7 @@
 			);
 			mainGroup = 44556FCA2BC96D6000E92413;
 			packageReferences = (
+				440E52AB2CE39BB0006555DD /* XCRemoteSwiftPackageReference "Pushwoosh-XCFramework" */,
 			);
 			productRefGroup = 44556FD42BC96D6000E92413 /* Products */;
 			projectDirPath = "";
@@ -321,6 +385,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				440E52A52CE39B97006555DD /* Actions.swift in Sources */,
+				440E52A62CE39B97006555DD /* Settings.swift in Sources */,
+				440E52A72CE39B97006555DD /* ContentView.swift in Sources */,
+				440E52A82CE39B97006555DD /* newdemoApp.swift in Sources */,
+				440E52A92CE39B97006555DD /* Notifications.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				440E52AA2CE39B9C006555DD /* NotificationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,15 +565,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = PushwooshSPM/Sources/newdemo/newdemo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = newdemo/newdemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PushwooshSPM/Sources/newdemo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"newdemo/Preview Content\"";
 				DEVELOPMENT_TEAM = EZ696X67SZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PushwooshSPM/Sources/newdemo/Info.plist;
+				INFOPLIST_FILE = newdemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -529,15 +599,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = PushwooshSPM/Sources/newdemo/newdemo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = newdemo/newdemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PushwooshSPM/Sources/newdemo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"newdemo/Preview Content\"";
 				DEVELOPMENT_TEAM = EZ696X67SZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PushwooshSPM/Sources/newdemo/Info.plist;
+				INFOPLIST_FILE = newdemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -561,13 +631,13 @@
 		44EDFF0C2BC98BB200ED242F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = PushwooshSPM/Sources/NotificationService/NotificationService.entitlements;
+				CODE_SIGN_ENTITLEMENTS = NotificationService/NotificationService.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EZ696X67SZ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PushwooshSPM/Sources/NotificationService/Info.plist;
+				INFOPLIST_FILE = NotificationService/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NotificationService;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -590,13 +660,13 @@
 		44EDFF0D2BC98BB200ED242F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = PushwooshSPM/Sources/NotificationService/NotificationService.entitlements;
+				CODE_SIGN_ENTITLEMENTS = NotificationService/NotificationService.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EZ696X67SZ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PushwooshSPM/Sources/NotificationService/Info.plist;
+				INFOPLIST_FILE = NotificationService/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NotificationService;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -737,6 +807,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		440E52AB2CE39BB0006555DD /* XCRemoteSwiftPackageReference "Pushwoosh-XCFramework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Pushwoosh/Pushwoosh-XCFramework";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.7.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		440E52AC2CE39BB0006555DD /* PushwooshFramework */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 440E52AB2CE39BB0006555DD /* XCRemoteSwiftPackageReference "Pushwoosh-XCFramework" */;
+			productName = PushwooshFramework;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 44556FCB2BC96D6000E92413 /* Project object */;
 }
