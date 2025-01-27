@@ -13,7 +13,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         Pushwoosh.sharedInstance().delegate = self
-        
+                
         return true
     }
     
@@ -37,12 +37,12 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     }
 
     func pushwoosh(_ pushwoosh: Pushwoosh, onMessageReceived message: PWMessage) {
-        print("Push Received: \(message.payload ?? ["" : ""])")
+        // print("Push Received: \(message.payload ?? ["" : ""])")
     }
 }
 
 @main
-struct newdemoApp: App {
+struct PushwooshSampleApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {

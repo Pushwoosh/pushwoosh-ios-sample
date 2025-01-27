@@ -21,7 +21,7 @@ struct Settings: View {
         // MARK: - REGISTER FOR PUSH NOTIFICATIONS
         VStack(spacing: 10) {
             HStack {
-                Label("REGISTER FOR PUSHES", image: "")
+                Text("REGISTER FOR PUSHES")
                     .font(.headline)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
@@ -30,7 +30,9 @@ struct Settings: View {
                     .padding(.trailing, spacing)
                     .onChange(of: pushNotificationEnabled) { oldValue, newValue in
                         if newValue == true {
-                            Pushwoosh.sharedInstance().registerForPushNotifications()
+                            Pushwoosh.sharedInstance().registerForPushNotifications { token, error in
+                                
+                            }
                         } else {
                             Pushwoosh.sharedInstance().unregisterForPushNotifications()
                         }
@@ -41,7 +43,7 @@ struct Settings: View {
             // MARK: - SHOW ALERT PUSH NOTIFICATIONS
             VStack(spacing: 10) {
                 HStack {
-                    Label("SHOW ALERT", image: "")
+                    Text("SHOW ALERT")
                         .font(.headline)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
@@ -56,7 +58,7 @@ struct Settings: View {
             // MARK: - SHOW SERVER COMMUNICATION ENABLED
             VStack {
                 HStack {
-                    Label("COMMUNICATION ENABLED", image: "")
+                    Text("COMMUNICATION ENABLED")
                         .font(.headline)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     Spacer()

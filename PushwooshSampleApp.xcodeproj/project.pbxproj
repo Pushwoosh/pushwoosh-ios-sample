@@ -10,11 +10,13 @@
 		440E52A52CE39B97006555DD /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E52952CE39B18006555DD /* Actions.swift */; };
 		440E52A62CE39B97006555DD /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E52962CE39B18006555DD /* Settings.swift */; };
 		440E52A72CE39B97006555DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E529B2CE39B18006555DD /* ContentView.swift */; };
-		440E52A82CE39B97006555DD /* newdemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E529E2CE39B18006555DD /* newdemoApp.swift */; };
+		440E52A82CE39B97006555DD /* PushwooshSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E529E2CE39B18006555DD /* PushwooshSampleApp.swift */; };
 		440E52A92CE39B97006555DD /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E529F2CE39B18006555DD /* Notifications.swift */; };
 		440E52AA2CE39B9C006555DD /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E52A32CE39B18006555DD /* NotificationService.swift */; };
-		440E52AD2CE39BB0006555DD /* PushwooshFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 440E52AC2CE39BB0006555DD /* PushwooshFramework */; };
+		440E53C92CEB5415006555DD /* PushwooshFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440E53BC2CEB53D7006555DD /* PushwooshFramework.framework */; };
 		443384222C0E0A2500C476DD /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443384212C0E0A2500C476DD /* SettingsTests.swift */; };
+		44DE44372D199BB900D4DD97 /* PushwooshFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440E53BC2CEB53D7006555DD /* PushwooshFramework.framework */; };
+		44DE44382D199BB900D4DD97 /* PushwooshFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 440E53BC2CEB53D7006555DD /* PushwooshFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		44EDFF0A2BC98BB200ED242F /* NotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 44EDFF032BC98BB200ED242F /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		44EDFF202BCDA0CE00ED242F /* AppDelegateIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EDFF1F2BCDA0CE00ED242F /* AppDelegateIntegration.swift */; };
 		44EDFF272BCDA35800ED242F /* NotificationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EDFF262BCDA35800ED242F /* NotificationsTest.swift */; };
@@ -23,6 +25,62 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		440E53B92CEB53D7006555DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 440E53A92CEB53D7006555DD /* Pushwoosh.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = Pushwoosh.ios;
+		};
+		440E53BB2CEB53D7006555DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 440E53A92CEB53D7006555DD /* Pushwoosh.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 467EB9371DFEC23A00506823;
+			remoteInfo = PushwooshiOS;
+		};
+		440E53BD2CEB53D7006555DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 440E53A92CEB53D7006555DD /* Pushwoosh.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C42A20691D06CBB800CC3BCB;
+			remoteInfo = Pushwoosh.mac;
+		};
+		440E53BF2CEB53D7006555DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 440E53A92CEB53D7006555DD /* Pushwoosh.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 467F61F21EB87F3300548315;
+			remoteInfo = PushwooshMac;
+		};
+		440E53C12CEB53D7006555DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 440E53A92CEB53D7006555DD /* Pushwoosh.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5DA6EBC722E18CAD00097C50;
+			remoteInfo = Pushwoosh.watchOS;
+		};
+		440E53C32CEB53D7006555DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 440E53A92CEB53D7006555DD /* Pushwoosh.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5D4496BF22F01C6B00BD62F4;
+			remoteInfo = Pushwoosh.watchOS.dynamic;
+		};
+		440E53C52CEB53D7006555DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 440E53A92CEB53D7006555DD /* Pushwoosh.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 46FA9E341C7DB1AA00741A11;
+			remoteInfo = PushwooshTests;
+		};
+		44DE44342D199B5F00D4DD97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 440E53A92CEB53D7006555DD /* Pushwoosh.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 449CC00B2BA9C289003E16DC;
+			remoteInfo = PushwooshVisionOS;
+		};
 		44EDFF082BC98BB200ED242F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 44556FCB2BC96D6000E92413 /* Project object */;
@@ -53,6 +111,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				44DE44382D199BB900D4DD97 /* PushwooshFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,19 +136,20 @@
 		440E529A2CE39B18006555DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		440E529B2CE39B18006555DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		440E529C2CE39B18006555DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		440E529D2CE39B18006555DD /* newdemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = newdemo.entitlements; sourceTree = "<group>"; };
-		440E529E2CE39B18006555DD /* newdemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newdemoApp.swift; sourceTree = "<group>"; };
+		440E529D2CE39B18006555DD /* PushwooshSampleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PushwooshSampleApp.entitlements; sourceTree = "<group>"; };
+		440E529E2CE39B18006555DD /* PushwooshSampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushwooshSampleApp.swift; sourceTree = "<group>"; };
 		440E529F2CE39B18006555DD /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		440E52A12CE39B18006555DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		440E52A22CE39B18006555DD /* NotificationService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationService.entitlements; sourceTree = "<group>"; };
 		440E52A32CE39B18006555DD /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		440E53A92CEB53D7006555DD /* Pushwoosh.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pushwoosh.xcodeproj; path = /Users/akidis/Documents/iOS/Pushwoosh/Pushwoosh.xcodeproj; sourceTree = "<absolute>"; };
 		443384212C0E0A2500C476DD /* SettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
-		44556FD32BC96D6000E92413 /* newdemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = newdemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		44556FD32BC96D6000E92413 /* PushwooshSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushwooshSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44EDFF032BC98BB200ED242F /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		44EDFF1D2BCDA0CE00ED242F /* newdemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = newdemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		44EDFF1D2BCDA0CE00ED242F /* PushwooshSampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PushwooshSampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44EDFF1F2BCDA0CE00ED242F /* AppDelegateIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateIntegration.swift; sourceTree = "<group>"; };
 		44EDFF262BCDA35800ED242F /* NotificationsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTest.swift; sourceTree = "<group>"; };
-		44EDFF2C2BCDA55500ED242F /* newdemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = newdemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		44EDFF2C2BCDA55500ED242F /* PushwooshSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PushwooshSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44EDFF2E2BCDA55500ED242F /* newdemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newdemoUITests.swift; sourceTree = "<group>"; };
 		44EDFF302BCDA55500ED242F /* newdemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newdemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,7 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				440E52AD2CE39BB0006555DD /* PushwooshFramework in Frameworks */,
+				44DE44372D199BB900D4DD97 /* PushwooshFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				440E53C92CEB5415006555DD /* PushwooshFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +205,7 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		440E52A02CE39B18006555DD /* newdemo */ = {
+		440E52A02CE39B18006555DD /* PushwooshSampleApp */ = {
 			isa = PBXGroup;
 			children = (
 				440E52972CE39B18006555DD /* Controllers */,
@@ -152,11 +213,11 @@
 				440E529A2CE39B18006555DD /* Assets.xcassets */,
 				440E529B2CE39B18006555DD /* ContentView.swift */,
 				440E529C2CE39B18006555DD /* Info.plist */,
-				440E529D2CE39B18006555DD /* newdemo.entitlements */,
-				440E529E2CE39B18006555DD /* newdemoApp.swift */,
+				440E529D2CE39B18006555DD /* PushwooshSampleApp.entitlements */,
+				440E529E2CE39B18006555DD /* PushwooshSampleApp.swift */,
 				440E529F2CE39B18006555DD /* Notifications.swift */,
 			);
-			path = newdemo;
+			path = PushwooshSampleApp;
 			sourceTree = "<group>";
 		};
 		440E52A42CE39B18006555DD /* NotificationService */ = {
@@ -169,9 +230,25 @@
 			path = NotificationService;
 			sourceTree = "<group>";
 		};
+		440E53AC2CEB53D7006555DD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				440E53BA2CEB53D7006555DD /* libPushwoosh.a */,
+				440E53BC2CEB53D7006555DD /* PushwooshFramework.framework */,
+				440E53BE2CEB53D7006555DD /* libPushwoosh.a */,
+				440E53C02CEB53D7006555DD /* Pushwoosh.framework */,
+				440E53C22CEB53D7006555DD /* libPushwoosh.watchOS.a */,
+				440E53C42CEB53D7006555DD /* Pushwoosh.framework */,
+				440E53C62CEB53D7006555DD /* PushwooshTests.xctest */,
+				44DE44352D199B5F00D4DD97 /* Pushwoosh.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		443383FD2C0E037F00C476DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				440E53A92CEB53D7006555DD /* Pushwoosh.xcodeproj */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -179,51 +256,59 @@
 		44556FCA2BC96D6000E92413 = {
 			isa = PBXGroup;
 			children = (
-				440E52A02CE39B18006555DD /* newdemo */,
+				440E52A02CE39B18006555DD /* PushwooshSampleApp */,
 				440E52A42CE39B18006555DD /* NotificationService */,
-				44EDFF1E2BCDA0CE00ED242F /* newdemoTests */,
-				44EDFF2D2BCDA55500ED242F /* newdemoUITests */,
+				44EDFF1E2BCDA0CE00ED242F /* PushwooshSampleAppTests */,
+				44EDFF2D2BCDA55500ED242F /* PushwooshSampleAppUITests */,
 				44556FD42BC96D6000E92413 /* Products */,
 				443383FD2C0E037F00C476DD /* Frameworks */,
+				AE19ECEEF7A32B70AA32072D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		44556FD42BC96D6000E92413 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				44556FD32BC96D6000E92413 /* newdemo.app */,
+				44556FD32BC96D6000E92413 /* PushwooshSampleApp.app */,
 				44EDFF032BC98BB200ED242F /* NotificationService.appex */,
-				44EDFF1D2BCDA0CE00ED242F /* newdemoTests.xctest */,
-				44EDFF2C2BCDA55500ED242F /* newdemoUITests.xctest */,
+				44EDFF1D2BCDA0CE00ED242F /* PushwooshSampleAppTests.xctest */,
+				44EDFF2C2BCDA55500ED242F /* PushwooshSampleAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		44EDFF1E2BCDA0CE00ED242F /* newdemoTests */ = {
+		44EDFF1E2BCDA0CE00ED242F /* PushwooshSampleAppTests */ = {
 			isa = PBXGroup;
 			children = (
 				44EDFF1F2BCDA0CE00ED242F /* AppDelegateIntegration.swift */,
 				443384212C0E0A2500C476DD /* SettingsTests.swift */,
 				44EDFF262BCDA35800ED242F /* NotificationsTest.swift */,
 			);
-			path = newdemoTests;
+			path = PushwooshSampleAppTests;
 			sourceTree = "<group>";
 		};
-		44EDFF2D2BCDA55500ED242F /* newdemoUITests */ = {
+		44EDFF2D2BCDA55500ED242F /* PushwooshSampleAppUITests */ = {
 			isa = PBXGroup;
 			children = (
 				44EDFF2E2BCDA55500ED242F /* newdemoUITests.swift */,
 				44EDFF302BCDA55500ED242F /* newdemoUITestsLaunchTests.swift */,
 			);
-			path = newdemoUITests;
+			path = PushwooshSampleAppUITests;
+			sourceTree = "<group>";
+		};
+		AE19ECEEF7A32B70AA32072D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		44556FD22BC96D6000E92413 /* newdemo */ = {
+		44556FD22BC96D6000E92413 /* PushwooshSampleApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 44556FE12BC96D6100E92413 /* Build configuration list for PBXNativeTarget "newdemo" */;
+			buildConfigurationList = 44556FE12BC96D6100E92413 /* Build configuration list for PBXNativeTarget "PushwooshSampleApp" */;
 			buildPhases = (
 				44556FCF2BC96D6000E92413 /* Sources */,
 				44556FD02BC96D6000E92413 /* Frameworks */,
@@ -236,12 +321,9 @@
 			dependencies = (
 				44EDFF092BC98BB200ED242F /* PBXTargetDependency */,
 			);
-			name = newdemo;
-			packageProductDependencies = (
-				440E52AC2CE39BB0006555DD /* PushwooshFramework */,
-			);
+			name = PushwooshSampleApp;
 			productName = newdemo;
-			productReference = 44556FD32BC96D6000E92413 /* newdemo.app */;
+			productReference = 44556FD32BC96D6000E92413 /* PushwooshSampleApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 		44EDFF022BC98BB200ED242F /* NotificationService */ = {
@@ -261,9 +343,9 @@
 			productReference = 44EDFF032BC98BB200ED242F /* NotificationService.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		44EDFF1C2BCDA0CE00ED242F /* newdemoTests */ = {
+		44EDFF1C2BCDA0CE00ED242F /* PushwooshSampleAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 44EDFF232BCDA0CE00ED242F /* Build configuration list for PBXNativeTarget "newdemoTests" */;
+			buildConfigurationList = 44EDFF232BCDA0CE00ED242F /* Build configuration list for PBXNativeTarget "PushwooshSampleAppTests" */;
 			buildPhases = (
 				44EDFF192BCDA0CE00ED242F /* Sources */,
 				44EDFF1A2BCDA0CE00ED242F /* Frameworks */,
@@ -274,16 +356,14 @@
 			dependencies = (
 				44EDFF222BCDA0CE00ED242F /* PBXTargetDependency */,
 			);
-			name = newdemoTests;
-			packageProductDependencies = (
-			);
+			name = PushwooshSampleAppTests;
 			productName = newdemoTests;
-			productReference = 44EDFF1D2BCDA0CE00ED242F /* newdemoTests.xctest */;
+			productReference = 44EDFF1D2BCDA0CE00ED242F /* PushwooshSampleAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		44EDFF2B2BCDA55500ED242F /* newdemoUITests */ = {
+		44EDFF2B2BCDA55500ED242F /* PushwooshSampleAppUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 44EDFF342BCDA55500ED242F /* Build configuration list for PBXNativeTarget "newdemoUITests" */;
+			buildConfigurationList = 44EDFF342BCDA55500ED242F /* Build configuration list for PBXNativeTarget "PushwooshSampleAppUITests" */;
 			buildPhases = (
 				44EDFF282BCDA55500ED242F /* Sources */,
 				44EDFF292BCDA55500ED242F /* Frameworks */,
@@ -294,9 +374,9 @@
 			dependencies = (
 				44EDFF332BCDA55500ED242F /* PBXTargetDependency */,
 			);
-			name = newdemoUITests;
+			name = PushwooshSampleAppUITests;
 			productName = newdemoUITests;
-			productReference = 44EDFF2C2BCDA55500ED242F /* newdemoUITests.xctest */;
+			productReference = 44EDFF2C2BCDA55500ED242F /* PushwooshSampleAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -325,7 +405,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 44556FCE2BC96D6000E92413 /* Build configuration list for PBXProject "newdemo" */;
+			buildConfigurationList = 44556FCE2BC96D6000E92413 /* Build configuration list for PBXProject "PushwooshSampleApp" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -334,20 +414,82 @@
 				Base,
 			);
 			mainGroup = 44556FCA2BC96D6000E92413;
-			packageReferences = (
-				440E52AB2CE39BB0006555DD /* XCRemoteSwiftPackageReference "Pushwoosh-XCFramework" */,
-			);
 			productRefGroup = 44556FD42BC96D6000E92413 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 440E53AC2CEB53D7006555DD /* Products */;
+					ProjectRef = 440E53A92CEB53D7006555DD /* Pushwoosh.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
-				44556FD22BC96D6000E92413 /* newdemo */,
+				44556FD22BC96D6000E92413 /* PushwooshSampleApp */,
 				44EDFF022BC98BB200ED242F /* NotificationService */,
-				44EDFF1C2BCDA0CE00ED242F /* newdemoTests */,
-				44EDFF2B2BCDA55500ED242F /* newdemoUITests */,
+				44EDFF1C2BCDA0CE00ED242F /* PushwooshSampleAppTests */,
+				44EDFF2B2BCDA55500ED242F /* PushwooshSampleAppUITests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		440E53BA2CEB53D7006555DD /* libPushwoosh.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPushwoosh.a;
+			remoteRef = 440E53B92CEB53D7006555DD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		440E53BC2CEB53D7006555DD /* PushwooshFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PushwooshFramework.framework;
+			remoteRef = 440E53BB2CEB53D7006555DD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		440E53BE2CEB53D7006555DD /* libPushwoosh.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPushwoosh.a;
+			remoteRef = 440E53BD2CEB53D7006555DD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		440E53C02CEB53D7006555DD /* Pushwoosh.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pushwoosh.framework;
+			remoteRef = 440E53BF2CEB53D7006555DD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		440E53C22CEB53D7006555DD /* libPushwoosh.watchOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPushwoosh.watchOS.a;
+			remoteRef = 440E53C12CEB53D7006555DD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		440E53C42CEB53D7006555DD /* Pushwoosh.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pushwoosh.framework;
+			remoteRef = 440E53C32CEB53D7006555DD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		440E53C62CEB53D7006555DD /* PushwooshTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PushwooshTests.xctest;
+			remoteRef = 440E53C52CEB53D7006555DD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		44DE44352D199B5F00D4DD97 /* Pushwoosh.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pushwoosh.framework;
+			remoteRef = 44DE44342D199B5F00D4DD97 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		44556FD12BC96D6000E92413 /* Resources */ = {
@@ -388,7 +530,7 @@
 				440E52A52CE39B97006555DD /* Actions.swift in Sources */,
 				440E52A62CE39B97006555DD /* Settings.swift in Sources */,
 				440E52A72CE39B97006555DD /* ContentView.swift in Sources */,
-				440E52A82CE39B97006555DD /* newdemoApp.swift in Sources */,
+				440E52A82CE39B97006555DD /* PushwooshSampleApp.swift in Sources */,
 				440E52A92CE39B97006555DD /* Notifications.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,12 +572,12 @@
 		};
 		44EDFF222BCDA0CE00ED242F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 44556FD22BC96D6000E92413 /* newdemo */;
+			target = 44556FD22BC96D6000E92413 /* PushwooshSampleApp */;
 			targetProxy = 44EDFF212BCDA0CE00ED242F /* PBXContainerItemProxy */;
 		};
 		44EDFF332BCDA55500ED242F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 44556FD22BC96D6000E92413 /* newdemo */;
+			target = 44556FD22BC96D6000E92413 /* PushwooshSampleApp */;
 			targetProxy = 44EDFF322BCDA55500ED242F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -565,15 +707,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = newdemo/newdemo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = PushwooshSampleApp/PushwooshSampleApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"newdemo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PushwooshSampleApp/Preview Content\"";
 				DEVELOPMENT_TEAM = EZ696X67SZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = newdemo/Info.plist;
+				INFOPLIST_FILE = PushwooshSampleApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -585,7 +727,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pushwoosh.newdemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pushwoosh.PushwooshSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -599,15 +741,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = newdemo/newdemo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = PushwooshSampleApp/PushwooshSampleApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"newdemo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PushwooshSampleApp/Preview Content\"";
 				DEVELOPMENT_TEAM = EZ696X67SZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = newdemo/Info.plist;
+				INFOPLIST_FILE = PushwooshSampleApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -619,7 +761,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pushwoosh.newdemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pushwoosh.PushwooshSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -647,7 +789,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pushwoosh.newdemo.NotificationService;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pushwoosh.PushwooshSampleApp.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -676,7 +818,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pushwoosh.newdemo.NotificationService;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pushwoosh.PushwooshSampleApp.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -701,7 +843,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/newdemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/newdemo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PushwooshSampleApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PushwooshSampleApp";
 			};
 			name = Debug;
 		};
@@ -720,7 +862,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/newdemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/newdemo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PushwooshSampleApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PushwooshSampleApp";
 			};
 			name = Release;
 		};
@@ -761,7 +903,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		44556FCE2BC96D6000E92413 /* Build configuration list for PBXProject "newdemo" */ = {
+		44556FCE2BC96D6000E92413 /* Build configuration list for PBXProject "PushwooshSampleApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				44556FDF2BC96D6100E92413 /* Debug */,
@@ -770,7 +912,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		44556FE12BC96D6100E92413 /* Build configuration list for PBXNativeTarget "newdemo" */ = {
+		44556FE12BC96D6100E92413 /* Build configuration list for PBXNativeTarget "PushwooshSampleApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				44556FE22BC96D6100E92413 /* Debug */,
@@ -788,7 +930,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		44EDFF232BCDA0CE00ED242F /* Build configuration list for PBXNativeTarget "newdemoTests" */ = {
+		44EDFF232BCDA0CE00ED242F /* Build configuration list for PBXNativeTarget "PushwooshSampleAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				44EDFF242BCDA0CE00ED242F /* Debug */,
@@ -797,7 +939,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		44EDFF342BCDA55500ED242F /* Build configuration list for PBXNativeTarget "newdemoUITests" */ = {
+		44EDFF342BCDA55500ED242F /* Build configuration list for PBXNativeTarget "PushwooshSampleAppUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				44EDFF352BCDA55500ED242F /* Debug */,
@@ -807,25 +949,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		440E52AB2CE39BB0006555DD /* XCRemoteSwiftPackageReference "Pushwoosh-XCFramework" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Pushwoosh/Pushwoosh-XCFramework";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.7.9;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		440E52AC2CE39BB0006555DD /* PushwooshFramework */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 440E52AB2CE39BB0006555DD /* XCRemoteSwiftPackageReference "Pushwoosh-XCFramework" */;
-			productName = PushwooshFramework;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 44556FCB2BC96D6000E92413 /* Project object */;
 }

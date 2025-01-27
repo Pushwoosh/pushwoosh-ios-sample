@@ -116,12 +116,12 @@ struct Actions: View {
                 // MARK: - SET LANGUAGE
                 HStack {
                     ActionButton(title: "SET LANGUAGE") {
-                        Pushwoosh.sharedInstance().setEmail(textInputLanguage)
+                        Pushwoosh.sharedInstance().language = textInputLanguage
                     }
                     
                     Spacer()
                     
-                    TextField("'en'", text: $textInputEmail)
+                    TextField("'en'", text: $textInputLanguage)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 
