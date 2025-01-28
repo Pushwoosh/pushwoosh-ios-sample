@@ -12,7 +12,7 @@
 
 Pushwoosh framework is integrated into the project via Swift Package Manager. To add the framework, go to the Package Dependencies tab in Xcode, click the + button, and enter the following URL: ```https://github.com/Pushwoosh/Pushwoosh-XCFramework```. Once added, you can specify the desired version or branch to use.
 
-In the opened dependencies addition window, specify the dependency for PushwooshSampleApp as shown in the image below.
+In the opened dependencies addition window, specify the dependency for PushwooshSampleApp (add to target) as shown in the image below.
 
    <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/Dependency.png" alt="Alt text" width="700">
    
