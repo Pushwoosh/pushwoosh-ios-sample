@@ -167,13 +167,6 @@
 			path = NotificationService;
 			sourceTree = "<group>";
 		};
-		443383FD2C0E037F00C476DD /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		44556FCA2BC96D6000E92413 = {
 			isa = PBXGroup;
 			children = (
@@ -182,8 +175,7 @@
 				44EDFF1E2BCDA0CE00ED242F /* PushwooshSampleAppTests */,
 				44EDFF2D2BCDA55500ED242F /* PushwooshSampleAppUITests */,
 				44556FD42BC96D6000E92413 /* Products */,
-				443383FD2C0E037F00C476DD /* Frameworks */,
-				AE19ECEEF7A32B70AA32072D /* Pods */,
+				891E33150C56F685B5AE42CD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -217,7 +209,7 @@
 			path = PushwooshSampleAppUITests;
 			sourceTree = "<group>";
 		};
-		AE19ECEEF7A32B70AA32072D /* Pods */ = {
+		891E33150C56F685B5AE42CD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 			);
