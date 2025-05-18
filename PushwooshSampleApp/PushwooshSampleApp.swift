@@ -7,12 +7,15 @@
 
 import SwiftUI
 import PushwooshFramework
+import PushwooshLiveActivities
 
 class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate, PWMessagingDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         Pushwoosh.sharedInstance().delegate = self
+        
+        Pushwoosh.LiveActivities.defaultSetup()
                 
         return true
     }

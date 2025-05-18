@@ -14,6 +14,8 @@
 		440E52A92CE39B97006555DD /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E529F2CE39B18006555DD /* Notifications.swift */; };
 		440E52AA2CE39B9C006555DD /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E52A32CE39B18006555DD /* NotificationService.swift */; };
 		443384222C0E0A2500C476DD /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443384212C0E0A2500C476DD /* SettingsTests.swift */; };
+		4469F5E82DAEB84D006F0D7C /* PushwooshFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4469F5E72DAEB84D006F0D7C /* PushwooshFramework.framework */; };
+		4469F5E92DAEB84D006F0D7C /* PushwooshFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4469F5E72DAEB84D006F0D7C /* PushwooshFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		44EDFF0A2BC98BB200ED242F /* NotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 44EDFF032BC98BB200ED242F /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		44EDFF202BCDA0CE00ED242F /* AppDelegateIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EDFF1F2BCDA0CE00ED242F /* AppDelegateIntegration.swift */; };
 		44EDFF272BCDA35800ED242F /* NotificationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EDFF262BCDA35800ED242F /* NotificationsTest.swift */; };
@@ -56,6 +58,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4469F5EA2DAEB84D006F0D7C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4469F5E92DAEB84D006F0D7C /* PushwooshFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		44EDFF0E2BC98BB200ED242F /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -84,6 +97,7 @@
 		440E52A32CE39B18006555DD /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		443384212C0E0A2500C476DD /* SettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
 		44556FD32BC96D6000E92413 /* PushwooshSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushwooshSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4469F5E72DAEB84D006F0D7C /* PushwooshFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PushwooshFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44EDFF032BC98BB200ED242F /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		44EDFF1D2BCDA0CE00ED242F /* PushwooshSampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PushwooshSampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44EDFF1F2BCDA0CE00ED242F /* AppDelegateIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateIntegration.swift; sourceTree = "<group>"; };
@@ -105,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4469F5E82DAEB84D006F0D7C /* PushwooshFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +191,7 @@
 				44EDFF2D2BCDA55500ED242F /* PushwooshSampleAppUITests */,
 				44556FD42BC96D6000E92413 /* Products */,
 				891E33150C56F685B5AE42CD /* Pods */,
+				E84F50853EA1F1D88E6AD51B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -216,6 +232,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E84F50853EA1F1D88E6AD51B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4469F5E72DAEB84D006F0D7C /* PushwooshFramework.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -246,6 +270,7 @@
 				44EDFEFF2BC98BB200ED242F /* Sources */,
 				44EDFF002BC98BB200ED242F /* Frameworks */,
 				44EDFF012BC98BB200ED242F /* Resources */,
+				4469F5EA2DAEB84D006F0D7C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
