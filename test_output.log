@@ -1,0 +1,6 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test -project PushwooshSampleApp.xcodeproj -scheme PushwooshSampleApp -destination "platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2" "-only-testing:PushwooshSampleAppUITests/UserFlowTests/testSetAndGetUserId"
+
+2025-11-14 14:34:21.998 xcodebuild[90996:13223119] Writing error result bundle to /var/folders/3c/y2njz2617tz0myckx8_zxpkm0000gn/T/ResultBundle_2025-14-11_14-34-0021.xcresult
+xcodebuild: error: Scheme PushwooshSampleApp is not currently configured for the test action.
+

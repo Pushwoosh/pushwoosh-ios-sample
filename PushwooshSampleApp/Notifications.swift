@@ -27,7 +27,7 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
                 content.body = body
                 content.sound = UNNotificationSound.default
 
-                // Сreate trigger with delay (here is 5 seconds)
+                // Create trigger with delay (here is 5 seconds)
                 let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
 
                 // Create request

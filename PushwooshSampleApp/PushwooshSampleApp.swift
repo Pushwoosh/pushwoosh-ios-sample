@@ -12,26 +12,32 @@ import PushwooshLiveActivities
 class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate, PWMessagingDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        
-        Pushwoosh.sharedInstance().delegate = self
-        
+
+        // Skip Pushwoosh initialization during UI tests
+        if ProcessInfo.processInfo.arguments.contains("UI_TESTING") {
+            print("🧪 UI Testing mode - skipping Pushwoosh initialization")
+            return true
+        }
+
+        Pushwoosh.configure.delegate = self
+
         Pushwoosh.LiveActivities.defaultSetup()
-                
+
         return true
     }
-    
+
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        Pushwoosh.sharedInstance().handlePushRegistration(deviceToken)
+        Pushwoosh.configure.handlePushRegistration(deviceToken)
     }
-    
+
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: any Error) {
-        Pushwoosh.sharedInstance().handlePushRegistrationFailure(error)
+        Pushwoosh.configure.handlePushRegistrationFailure(error as NSError)
         print("\(error.localizedDescription)")
     }
-    
+
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        Pushwoosh.sharedInstance().handlePushReceived(userInfo)
-        
+        Pushwoosh.configure.handlePushReceived(userInfo)
+
         completionHandler(.noData)
     }
 

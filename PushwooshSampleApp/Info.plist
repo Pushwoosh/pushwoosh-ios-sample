@@ -20,7 +20,7 @@
 	<key>PW_APP_GROUPS_NAME</key>
 	<string>group.com.example.demo_group</string>
 	<key>Pushwoosh_APPID</key>
-	<string>XXXXX-XXXXX</string>
+	<string>29A14-8102F</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

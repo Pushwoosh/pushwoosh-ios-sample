@@ -4,8 +4,12 @@
 
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
 
- <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/Screen2.png" alt="Alt text" width="300"> <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/Screen1.png" alt="Alt text" width="300">
- 
+<p align="center">
+  <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/ios-1.png" alt="Screenshot 1" width="240">
+  <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/ios-2.png" alt="Screenshot 2" width="240">
+  <img src="https://github.com/Pushwoosh/pushwoosh-ios-sample/blob/main/Screenshots/ios-3.png" alt="Screenshot 3" width="240">
+</p>
+
 ### Project Settings
 
 ### 1. Pushwoosh Dependency
