@@ -8,11 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0046A17514E5AAE763429237 /* MonetizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FE6813E2194A9871A4C643 /* MonetizationView.swift */; };
-		00735665B47BFA43DD77C2F7 /* PushwooshCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A491ECEC78DCE2FE615D209 /* PushwooshCore.framework */; };
-		274C45C9457F5E18920FE706 /* PushwooshLiveActivities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AFF3842EC608EC00872D6F /* PushwooshLiveActivities.framework */; };
 		27AA17BB8C97CA72CA682B1D /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC56EAC2F3087167AA52106F /* UserView.swift */; };
-		2D0D69BB4A671CD325114BDC /* PushwooshFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4469F5E72DAEB84D006F0D7C /* PushwooshFramework.framework */; };
-		40FDF3DCF172F1DD3F11A8EF /* PushwooshBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 984E835991C9CD68039BF807 /* PushwooshBridge.framework */; };
 		440E52A52CE39B97006555DD /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E52952CE39B18006555DD /* Actions.swift */; };
 		440E52A62CE39B97006555DD /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E52962CE39B18006555DD /* Settings.swift */; };
 		440E52A72CE39B97006555DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E529B2CE39B18006555DD /* ContentView.swift */; };
@@ -23,22 +19,14 @@
 		446FBF8A2EC765DF00DB92B7 /* UserFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446FBF892EC765DF00DB92B7 /* UserFlowTests.swift */; };
 		44AFF3852EC608EC00872D6F /* PushwooshBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AFF3812EC608EC00872D6F /* PushwooshBridge.framework */; };
 		44AFF3862EC608EC00872D6F /* PushwooshBridge.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44AFF3812EC608EC00872D6F /* PushwooshBridge.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		44AFF3872EC608EC00872D6F /* PushwooshCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AFF3822EC608EC00872D6F /* PushwooshCore.framework */; };
-		44AFF3882EC608EC00872D6F /* PushwooshCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44AFF3822EC608EC00872D6F /* PushwooshCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		44AFF3892EC608EC00872D6F /* PushwooshFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AFF3832EC608EC00872D6F /* PushwooshFramework.framework */; };
 		44AFF38A2EC608EC00872D6F /* PushwooshFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44AFF3832EC608EC00872D6F /* PushwooshFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		44AFF38B2EC608EC00872D6F /* PushwooshLiveActivities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AFF3842EC608EC00872D6F /* PushwooshLiveActivities.framework */; };
-		44AFF38C2EC608EC00872D6F /* PushwooshLiveActivities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44AFF3842EC608EC00872D6F /* PushwooshLiveActivities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		44EDFF0A2BC98BB200ED242F /* NotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 44EDFF032BC98BB200ED242F /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		44EDFF202BCDA0CE00ED242F /* AppDelegateIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EDFF1F2BCDA0CE00ED242F /* AppDelegateIntegration.swift */; };
 		44EDFF272BCDA35800ED242F /* NotificationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EDFF262BCDA35800ED242F /* NotificationsTest.swift */; };
-		472F7B9D1B192749E7DCDC21 /* PushwooshFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44AFF3832EC608EC00872D6F /* PushwooshFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4A8F2947FC92A6692FB5433A /* LiveActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AEFBB6D3104619DAC8D5BF /* LiveActivitiesView.swift */; };
 		620C386C4DCB891142E50C9A /* MenuCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF60C39E30AC36CB4E28987 /* MenuCategory.swift */; };
-		68F884DFC88E307ED1AECEC2 /* PushwooshBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AFF3812EC608EC00872D6F /* PushwooshBridge.framework */; };
 		7A6180731EF89CCAAF98FF66 /* PushwooshCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44AFF3822EC608EC00872D6F /* PushwooshCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84CA7B37F56E183559089155 /* PushwooshHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0535BCC718AA9746274050A2 /* PushwooshHelper.swift */; };
-		880A6A71929AD1F6404E2C3C /* PushwooshBridge.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44AFF3812EC608EC00872D6F /* PushwooshBridge.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9CBBF9914B1A51714384F63 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49237E84D72713266B80C9BB /* SettingsView.swift */; };
 		B3F068E548D4DE2600EE4FE5 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ECA0E9A6670A4E7345C675 /* NotificationsView.swift */; };
 		B57C95E1A922D63C05AAA469 /* PushwooshLiveActivities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44AFF3842EC608EC00872D6F /* PushwooshLiveActivities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -50,10 +38,8 @@
 		D3249506E573A0953DAFE2AC /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB2D244DF1921BA1CCB8366 /* RegistrationView.swift */; };
 		D4F45071F55C4E78BCAF3F97 /* SDKCallLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855DD271396286FB1500105 /* SDKCallLogView.swift */; };
 		D9ECA01F8CB4CA996299C97F /* CommunicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA11CD4D3B9E958790FFF7 /* CommunicationView.swift */; };
-		DA6BDAF631F6529E1DF5FE4C /* PushwooshVoIP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9EA6A9BCA8D9D10543A8C7D /* PushwooshVoIP.framework */; };
 		E4DC09FBF8645BB2537253F1 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24A65424E20D8924C8FDA9 /* TagsView.swift */; };
 		EC46CF0AF720C850DC5ADD1A /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A413F2EC0DDB3FAA83E1F1 /* SideMenu.swift */; };
-		F642899DDB6C889EF65FD93D /* PushwooshVoIP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9EA6A9BCA8D9D10543A8C7D /* PushwooshVoIP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,11 +66,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				880A6A71929AD1F6404E2C3C /* PushwooshBridge.framework in Embed Frameworks */,
 				7A6180731EF89CCAAF98FF66 /* PushwooshCore.framework in Embed Frameworks */,
-				472F7B9D1B192749E7DCDC21 /* PushwooshFramework.framework in Embed Frameworks */,
 				B57C95E1A922D63C05AAA469 /* PushwooshLiveActivities.framework in Embed Frameworks */,
-				F642899DDB6C889EF65FD93D /* PushwooshVoIP.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,9 +78,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				44AFF3882EC608EC00872D6F /* PushwooshCore.framework in Embed Frameworks */,
 				44AFF38A2EC608EC00872D6F /* PushwooshFramework.framework in Embed Frameworks */,
-				44AFF38C2EC608EC00872D6F /* PushwooshLiveActivities.framework in Embed Frameworks */,
 				44AFF3862EC608EC00872D6F /* PushwooshBridge.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -143,29 +124,20 @@
 		440E52A32CE39B18006555DD /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		443384212C0E0A2500C476DD /* SettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
 		44556FD32BC96D6000E92413 /* PushwooshSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushwooshSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4469F5E72DAEB84D006F0D7C /* PushwooshFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PushwooshFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		446FBF892EC765DF00DB92B7 /* UserFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFlowTests.swift; sourceTree = "<group>"; };
-		44AFF3782EC6085F00872D6F /* PushwooshBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PushwooshBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		44AFF3792EC6085F00872D6F /* PushwooshCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PushwooshCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		44AFF37A2EC6085F00872D6F /* PushwooshLiveActivities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PushwooshLiveActivities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		44AFF3812EC608EC00872D6F /* PushwooshBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PushwooshBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		44AFF3822EC608EC00872D6F /* PushwooshCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PushwooshCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		44AFF3832EC608EC00872D6F /* PushwooshFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PushwooshFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		44AFF3842EC608EC00872D6F /* PushwooshLiveActivities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PushwooshLiveActivities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44EDFF032BC98BB200ED242F /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		44EDFF1D2BCDA0CE00ED242F /* PushwooshSampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PushwooshSampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44EDFF1F2BCDA0CE00ED242F /* AppDelegateIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateIntegration.swift; sourceTree = "<group>"; };
 		44EDFF262BCDA35800ED242F /* NotificationsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTest.swift; sourceTree = "<group>"; };
 		44EDFF2C2BCDA55500ED242F /* PushwooshSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PushwooshSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49237E84D72713266B80C9BB /* SettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		497459B2F9BFA73813F848D5 /* Pods_NotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7CE3B3145A724CF9CCAA57 /* PushwooshCore.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = PushwooshCore.xcframework; path = ../../../Pushwoosh/iOS_SDK/Framework/PushwooshCore.xcframework; sourceTree = "<group>"; };
 		4EAFD9AF3681C5CB3396B850 /* CommunicationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CommunicationView.swift; path = Views/CommunicationView.swift; sourceTree = "<group>"; };
 		57361A985743883301390D63 /* PushwooshSampleApp-Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PushwooshSampleApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		5F090FD85F630CA626653120 /* DebugCallTracer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DebugCallTracer.swift; sourceTree = "<group>"; };
-		6A491ECEC78DCE2FE615D209 /* PushwooshCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PushwooshCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A6FC4AC8DB27BF75F87170B /* SettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SettingsView.swift; path = Views/SettingsView.swift; sourceTree = "<group>"; };
 		710B014DF4524DFB08474981 /* PushwooshFramework.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = PushwooshFramework.xcframework; path = ../../../Pushwoosh/iOS_SDK/Framework/PushwooshFramework.xcframework; sourceTree = "<group>"; };
-		984E835991C9CD68039BF807 /* PushwooshBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PushwooshBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF60C39E30AC36CB4E28987 /* MenuCategory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuCategory.swift; sourceTree = "<group>"; };
 		A03E7CB6290F7C6D3939FD09 /* RegistrationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RegistrationView.swift; path = Views/RegistrationView.swift; sourceTree = "<group>"; };
 		ACE32D5978D1C33841F248E7 /* UITests.xctestplan */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = UITests.xctestplan; sourceTree = "<group>"; };
@@ -175,7 +147,7 @@
 		BC56EAC2F3087167AA52106F /* UserView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		C855DD271396286FB1500105 /* SDKCallLogView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SDKCallLogView.swift; path = Debug/SDKCallLogView.swift; sourceTree = "<group>"; };
 		CAB2D244DF1921BA1CCB8366 /* RegistrationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
-		E9EA6A9BCA8D9D10543A8C7D /* PushwooshVoIP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PushwooshVoIP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0B923B97B30EDDD91A84703 /* Pods_PushwooshSampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushwooshSampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC24A65424E20D8924C8FDA9 /* TagsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
 		F36C855B4ED804A183D3DE25 /* MenuCategory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MenuCategory.swift; path = Models/MenuCategory.swift; sourceTree = "<group>"; };
 		FD7678196830461C35798765 /* LiveActivitiesView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveActivitiesView.swift; path = Views/LiveActivitiesView.swift; sourceTree = "<group>"; };
@@ -188,13 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D0D69BB4A671CD325114BDC /* PushwooshFramework.framework in Frameworks */,
-				00735665B47BFA43DD77C2F7 /* PushwooshCore.framework in Frameworks */,
-				40FDF3DCF172F1DD3F11A8EF /* PushwooshBridge.framework in Frameworks */,
-				DA6BDAF631F6529E1DF5FE4C /* PushwooshVoIP.framework in Frameworks */,
-				68F884DFC88E307ED1AECEC2 /* PushwooshBridge.framework in Frameworks */,
 				CF95369332984CA6D4943935 /* PushwooshCore.framework in Frameworks */,
-				274C45C9457F5E18920FE706 /* PushwooshLiveActivities.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,9 +168,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44AFF3872EC608EC00872D6F /* PushwooshCore.framework in Frameworks */,
-				44AFF3892EC608EC00872D6F /* PushwooshFramework.framework in Frameworks */,
-				44AFF38B2EC608EC00872D6F /* PushwooshLiveActivities.framework in Frameworks */,
 				44AFF3852EC608EC00872D6F /* PushwooshBridge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,17 +343,8 @@
 		E84F50853EA1F1D88E6AD51B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				44AFF3812EC608EC00872D6F /* PushwooshBridge.framework */,
-				44AFF3822EC608EC00872D6F /* PushwooshCore.framework */,
-				44AFF3832EC608EC00872D6F /* PushwooshFramework.framework */,
-				44AFF3842EC608EC00872D6F /* PushwooshLiveActivities.framework */,
-				44AFF3782EC6085F00872D6F /* PushwooshBridge.framework */,
-				44AFF3792EC6085F00872D6F /* PushwooshCore.framework */,
-				44AFF37A2EC6085F00872D6F /* PushwooshLiveActivities.framework */,
-				4469F5E72DAEB84D006F0D7C /* PushwooshFramework.framework */,
-				6A491ECEC78DCE2FE615D209 /* PushwooshCore.framework */,
-				984E835991C9CD68039BF807 /* PushwooshBridge.framework */,
-				E9EA6A9BCA8D9D10543A8C7D /* PushwooshVoIP.framework */,
+				497459B2F9BFA73813F848D5 /* Pods_NotificationService.framework */,
+				E0B923B97B30EDDD91A84703 /* Pods_PushwooshSampleApp.framework */,
 				710B014DF4524DFB08474981 /* PushwooshFramework.xcframework */,
 				4D7CE3B3145A724CF9CCAA57 /* PushwooshCore.xcframework */,
 				0A3DC414C8517D61AAC58AA6 /* PushwooshInboxUI.xcframework */,
@@ -782,6 +736,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
 				CODE_SIGN_ENTITLEMENTS = PushwooshSampleApp/PushwooshSampleApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -789,10 +744,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"PushwooshSampleApp/Preview Content\"";
 				DEVELOPMENT_TEAM = EZ696X67SZ;
 				ENABLE_PREVIEWS = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PushwooshSampleApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -822,6 +774,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
 				CODE_SIGN_ENTITLEMENTS = PushwooshSampleApp/PushwooshSampleApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -829,10 +782,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"PushwooshSampleApp/Preview Content\"";
 				DEVELOPMENT_TEAM = EZ696X67SZ;
 				ENABLE_PREVIEWS = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PushwooshSampleApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -860,6 +810,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
 				CODE_SIGN_ENTITLEMENTS = NotificationService/NotificationService.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -867,7 +818,6 @@
 				DEVELOPMENT_TEAM = EZ696X67SZ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
 					/Users/akidis/Documents/iOS/Pushwoosh/iOS_SDK/Framework,
 				);
 				GENERATE_INFOPLIST_FILE = YES;
@@ -895,6 +845,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
 				CODE_SIGN_ENTITLEMENTS = NotificationService/NotificationService.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -902,7 +853,6 @@
 				DEVELOPMENT_TEAM = EZ696X67SZ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
 					/Users/akidis/Documents/iOS/Pushwoosh/iOS_SDK/Framework,
 				);
 				GENERATE_INFOPLIST_FILE = YES;
@@ -934,10 +884,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pushwoosh.newdemo.newdemoTests;
@@ -958,10 +905,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pushwoosh.newdemo.newdemoTests;
@@ -982,10 +926,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EZ696X67SZ;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pushwoosh.newdemo.newdemoUITests;
@@ -1006,10 +947,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EZ696X67SZ;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pushwoosh.newdemo.newdemoUITests;
