@@ -40,6 +40,7 @@
 		D9ECA01F8CB4CA996299C97F /* CommunicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA11CD4D3B9E958790FFF7 /* CommunicationView.swift */; };
 		E4DC09FBF8645BB2537253F1 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24A65424E20D8924C8FDA9 /* TagsView.swift */; };
 		EC46CF0AF720C850DC5ADD1A /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A413F2EC0DDB3FAA83E1F1 /* SideMenu.swift */; };
+		F1A2B3C4D5E6F78901234567 /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6789012345678 /* MediaView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,7 +132,6 @@
 		44EDFF262BCDA35800ED242F /* NotificationsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTest.swift; sourceTree = "<group>"; };
 		44EDFF2C2BCDA55500ED242F /* PushwooshSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PushwooshSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49237E84D72713266B80C9BB /* SettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		497459B2F9BFA73813F848D5 /* Pods_NotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7CE3B3145A724CF9CCAA57 /* PushwooshCore.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = PushwooshCore.xcframework; path = ../../../Pushwoosh/iOS_SDK/Framework/PushwooshCore.xcframework; sourceTree = "<group>"; };
 		4EAFD9AF3681C5CB3396B850 /* CommunicationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CommunicationView.swift; path = Views/CommunicationView.swift; sourceTree = "<group>"; };
 		57361A985743883301390D63 /* PushwooshSampleApp-Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PushwooshSampleApp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -140,6 +140,7 @@
 		710B014DF4524DFB08474981 /* PushwooshFramework.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = PushwooshFramework.xcframework; path = ../../../Pushwoosh/iOS_SDK/Framework/PushwooshFramework.xcframework; sourceTree = "<group>"; };
 		9AF60C39E30AC36CB4E28987 /* MenuCategory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuCategory.swift; sourceTree = "<group>"; };
 		A03E7CB6290F7C6D3939FD09 /* RegistrationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RegistrationView.swift; path = Views/RegistrationView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6789012345678 /* MediaView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MediaView.swift; sourceTree = "<group>"; };
 		ACE32D5978D1C33841F248E7 /* UITests.xctestplan */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = UITests.xctestplan; sourceTree = "<group>"; };
 		B509FDE14E171852249FC32D /* UserView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserView.swift; path = Views/UserView.swift; sourceTree = "<group>"; };
 		B68B52F7B69DC6A99FA15DAC /* NotificationsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NotificationsView.swift; path = Views/NotificationsView.swift; sourceTree = "<group>"; };
@@ -147,7 +148,6 @@
 		BC56EAC2F3087167AA52106F /* UserView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		C855DD271396286FB1500105 /* SDKCallLogView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SDKCallLogView.swift; path = Debug/SDKCallLogView.swift; sourceTree = "<group>"; };
 		CAB2D244DF1921BA1CCB8366 /* RegistrationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
-		E0B923B97B30EDDD91A84703 /* Pods_PushwooshSampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushwooshSampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC24A65424E20D8924C8FDA9 /* TagsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
 		F36C855B4ED804A183D3DE25 /* MenuCategory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MenuCategory.swift; path = Models/MenuCategory.swift; sourceTree = "<group>"; };
 		FD7678196830461C35798765 /* LiveActivitiesView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveActivitiesView.swift; path = Views/LiveActivitiesView.swift; sourceTree = "<group>"; };
@@ -201,6 +201,7 @@
 				B7FE6813E2194A9871A4C643 /* MonetizationView.swift */,
 				37AEFBB6D3104619DAC8D5BF /* LiveActivitiesView.swift */,
 				00ECA0E9A6670A4E7345C675 /* NotificationsView.swift */,
+				A1B2C3D4E5F6789012345678 /* MediaView.swift */,
 				FD9AC6E5B78DDBAC5D1E638A /* DebugOverlay.swift */,
 			);
 			path = Views;
@@ -343,8 +344,6 @@
 		E84F50853EA1F1D88E6AD51B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				497459B2F9BFA73813F848D5 /* Pods_NotificationService.framework */,
-				E0B923B97B30EDDD91A84703 /* Pods_PushwooshSampleApp.framework */,
 				710B014DF4524DFB08474981 /* PushwooshFramework.xcframework */,
 				4D7CE3B3145A724CF9CCAA57 /* PushwooshCore.xcframework */,
 				0A3DC414C8517D61AAC58AA6 /* PushwooshInboxUI.xcframework */,
@@ -566,6 +565,7 @@
 				BD71164430935EC5F56B8B08 /* DebugOverlay.swift in Sources */,
 				B85EC0253D014D6A9F4FF402 /* SDKCallLogger.swift in Sources */,
 				D4F45071F55C4E78BCAF3F97 /* SDKCallLogView.swift in Sources */,
+				F1A2B3C4D5E6F78901234567 /* MediaView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

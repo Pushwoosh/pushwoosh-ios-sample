@@ -22,7 +22,16 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         Pushwoosh.configure.delegate = self
 
         Pushwoosh.LiveActivities.defaultSetup()
-
+        
+        Pushwoosh.media.setRichMediaPresentationStyle(.modal)
+        
+        Pushwoosh.media.modalRichMedia.configure(with: .PWModalWindowPositionBottom,
+                                                 present: .PWAnimationPresentFromTop,
+                                                 dismiss: .PWAnimationDismissRight)
+        
+        Pushwoosh.media.modalRichMedia.setHapticFeedbackType(.PWHapticFeedbackLight)
+        
+        
         return true
     }
 

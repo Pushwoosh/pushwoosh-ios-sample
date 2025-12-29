@@ -90,6 +90,8 @@ struct CategoryContentView: View {
                 LiveActivitiesView()
             case .notifications:
                 NotificationsView()
+            case .media:
+                MediaView()
             // case .debugLogs:
             //     DebugLogsView()
             }

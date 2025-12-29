@@ -15,6 +15,7 @@ enum MenuCategory: String, CaseIterable, Identifiable {
     case monetization = "Monetization"
     case liveActivities = "Live Activities"
     case notifications = "Notifications"
+    case media = "Media"
     // case debugLogs = "Debug Logs"
 
     var id: String { rawValue }
@@ -30,6 +31,7 @@ enum MenuCategory: String, CaseIterable, Identifiable {
         case .monetization: return "dollarsign.circle.fill"
         case .liveActivities: return "livephoto"
         case .notifications: return "app.badge.fill"
+        case .media: return "play.rectangle.fill"
         // case .debugLogs: return "list.bullet.rectangle"
         }
     }
@@ -45,6 +47,7 @@ enum MenuCategory: String, CaseIterable, Identifiable {
         case .monetization: return .yellow
         case .liveActivities: return .indigo
         case .notifications: return .red
+        case .media: return .mint
         // case .debugLogs: return .gray
         }
     }
