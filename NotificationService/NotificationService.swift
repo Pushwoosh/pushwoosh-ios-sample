@@ -7,21 +7,25 @@
 
 import UserNotifications
 import PushwooshFramework
+import PushwooshNotificationUI
 
-class NotificationService: UNNotificationServiceExtension {
+class NotificationService: PushwooshNotificationServiceExtension {
 
-    var contentHandler: ((UNNotificationContent) -> Void)?
-    var bestAttemptContent: UNMutableNotificationContent?
+    private let storiesAppGroup = "group.com.example.pushstories"
 
-    override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
-        PWNotificationExtensionManager.shared().handle(request, contentHandler: contentHandler)
+    override func pushwooshAppGroupsName() -> String? {
+        "group.com.example.delivery"
     }
-    
-    override func serviceExtensionTimeWillExpire() {
-        // Called just before the extension will be terminated by the system.
-        // Use this as an opportunity to deliver your "best attempt" at modified content, otherwise the original push payload will be used.
-        if let contentHandler = contentHandler, let bestAttemptContent =  bestAttemptContent {
-            contentHandler(bestAttemptContent)
+
+    override func pushwooshPrepare(for request: UNNotificationRequest, completion: @escaping () -> Void) {
+        guard request.content.userInfo["pw_stories"] != nil else {
+            completion()
+            return
+        }
+
+        PushwooshStoriesMediaPrefetcher.prefetch(userInfo: request.content.userInfo,
+                                                 appGroupIdentifier: storiesAppGroup) {
+            completion()
         }
     }
 

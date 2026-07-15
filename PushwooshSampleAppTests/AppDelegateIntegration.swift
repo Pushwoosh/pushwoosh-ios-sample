@@ -7,7 +7,7 @@
 
 import XCTest
 import PushwooshFramework
-@testable import newdemo
+@testable import PushwooshSampleApp
 
 final class newdemoTests: XCTestCase {
     

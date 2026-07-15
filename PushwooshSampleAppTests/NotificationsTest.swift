@@ -1,6 +1,6 @@
 import XCTest
 import UserNotifications
-@testable import newdemo
+@testable import PushwooshSampleApp
 
 class NotificationsTests: XCTestCase {
     var notifications: Notifications!

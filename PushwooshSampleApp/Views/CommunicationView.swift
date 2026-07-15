@@ -1,238 +1,113 @@
 //
 //  CommunicationView.swift
-//  PushwooshSampleApp
+//  PushMart
 //
 
 import SwiftUI
 import PushwooshFramework
 
+// Data & sync. Signature: one big connection-status hero with a single pause/
+// resume control. Reflects and drives isServerCommunicationAllowed / start / stop.
 struct CommunicationView: View {
     @State private var communicationEnabled = true
-    @State private var showStatusAlert = false
 
     var body: some View {
         ZStack {
-            // Background gradient
-            LinearGradient(
-                colors: [
-                    Color(red: 0.1, green: 0.1, blue: 0.2),
-                    Color(red: 0.2, green: 0.1, blue: 0.3),
-                    Color(red: 0.1, green: 0.2, blue: 0.4)
-                ],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea(.all)
-
+            PushMartBackground()
             ScrollView {
-                VStack(spacing: 20) {
-                    // Header
-                    HStack {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("COMMUNICATION")
-                                .font(.system(size: 32, weight: .black))
-                                .foregroundStyle(
-                                    LinearGradient(
-                                        colors: [.white, Color(red: 0.8, green: 0.9, blue: 1.0)],
-                                        startPoint: .leading,
-                                        endPoint: .trailing
-                                    )
-                                )
-
-                            Text("Server Connection")
-                                .font(.system(size: 14, weight: .medium))
-                                .foregroundColor(.white.opacity(0.7))
-                        }
-                        Spacer()
-
-                        Circle()
-                            .fill(
-                                LinearGradient(
-                                    colors: [.green, .mint],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            )
-                            .frame(width: 50, height: 50)
-                            .overlay(
-                                Image(systemName: "antenna.radiowaves.left.and.right")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 22))
-                            )
-                    }
-                    .padding(.horizontal)
-                    .padding(.top, 20)
-
-                    // Server Communication Toggle Card
-                    ModernCard {
-                        VStack(alignment: .leading, spacing: 20) {
-                            HStack(spacing: 12) {
-                                Circle()
-                                    .fill(
-                                        LinearGradient(
-                                            colors: [.green, .mint],
-                                            startPoint: .topLeading,
-                                            endPoint: .bottomTrailing
-                                        )
-                                    )
-                                    .frame(width: 44, height: 44)
-                                    .overlay(
-                                        Image(systemName: "wifi")
-                                            .foregroundColor(.white)
-                                            .font(.system(size: 20))
-                                    )
-
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text("Server Communication")
-                                        .font(.system(size: 18, weight: .semibold))
-                                        .foregroundColor(.white)
-
-                                    Text(communicationEnabled ? "Active" : "Paused")
-                                        .font(.system(size: 13, weight: .medium))
-                                        .foregroundColor(communicationEnabled ? .green : .red.opacity(0.7))
-                                }
-
-                                Spacer()
-
-                                Toggle("", isOn: $communicationEnabled)
-                                    .tint(.green)
-                                    .scaleEffect(0.9)
-                                    .onChange(of: communicationEnabled) { oldValue, newValue in
-                                        if newValue {
-                                            PushwooshHelper.safeCall {
-                                                Pushwoosh.configure.startServerCommunication()
-                                            }
-                                        } else {
-                                            PushwooshHelper.safeCall {
-                                                Pushwoosh.configure.stopServerCommunication()
-                                            }
-                                        }
-                                    }
-                            }
-
-                            Divider()
-                                .background(Color.white.opacity(0.2))
-
-                            Text("Control communication with Pushwoosh servers. When disabled, no data will be sent or received.")
-                                .font(.system(size: 13))
-                                .foregroundColor(.white.opacity(0.6))
-                                .lineSpacing(4)
-                        }
-                    }
-
-                    // Manual Control Card
-                    ModernCard {
-                        VStack(spacing: 16) {
-                            HStack {
-                                Image(systemName: "手.fill")
-                                    .foregroundColor(.blue)
-                                Text("Manual Control")
-                                    .font(.system(size: 18, weight: .semibold))
-                                    .foregroundColor(.white)
-                                Spacer()
-                            }
-
-                            ModernButton(
-                                title: "Start Communication",
-                                icon: "play.circle.fill",
-                                gradient: [.green, .mint]
-                            ) {
-                                PushwooshHelper.safeCall {
-                                    Pushwoosh.configure.startServerCommunication()
-                                }
-                                communicationEnabled = true
-                            }
-
-                            ModernButton(
-                                title: "Stop Communication",
-                                icon: "stop.circle.fill",
-                                gradient: [.red, .orange]
-                            ) {
-                                PushwooshHelper.safeCall {
-                                    Pushwoosh.configure.stopServerCommunication()
-                                }
-                                communicationEnabled = false
-                            }
-                        }
-                    }
-
-                    // Status Check Card
-                    ModernCard {
-                        VStack(spacing: 16) {
-                            HStack {
-                                Image(systemName: "info.circle.fill")
-                                    .foregroundColor(.cyan)
-                                Text("Connection Status")
-                                    .font(.system(size: 18, weight: .semibold))
-                                    .foregroundColor(.white)
-                                Spacer()
-                            }
-
-                            ModernButton(
-                                title: "Check Communication Status",
-                                icon: "checklist",
-                                gradient: [.cyan, .blue]
-                            ) {
-                                communicationEnabled = PushwooshHelper.safeCall(false) {
-                                    Pushwoosh.configure.isServerCommunicationAllowed()
-                                }
-                                showStatusAlert = true
-                            }
-                            .alert(isPresented: $showStatusAlert) {
-                                Alert(
-                                    title: Text("COMMUNICATION STATUS"),
-                                    message: Text(communicationEnabled ? "Server communication is ACTIVE" : "Server communication is PAUSED"),
-                                    dismissButton: .default(Text("OK"))
-                                )
-                            }
-                        }
-                    }
-
-                    // Info Card
-                    ModernCard {
-                        VStack(alignment: .leading, spacing: 12) {
-                            HStack {
-                                Image(systemName: "lightbulb.fill")
-                                    .foregroundColor(.yellow)
-                                Text("About Server Communication")
-                                    .font(.system(size: 18, weight: .semibold))
-                                    .foregroundColor(.white)
-                                Spacer()
-                            }
-
-                            VStack(alignment: .leading, spacing: 8) {
-                                InfoNoteRow(
-                                    icon: "wifi",
-                                    text: "When active, the SDK sends device data and receives push notifications",
-                                    color: .green
-                                )
-
-                                InfoNoteRow(
-                                    icon: "wifi.slash",
-                                    text: "When paused, no network requests are made to Pushwoosh servers",
-                                    color: .red
-                                )
-
-                                InfoNoteRow(
-                                    icon: "exclamationmark.triangle.fill",
-                                    text: "Pausing communication will prevent receiving push notifications",
-                                    color: .orange
-                                )
-                            }
-                        }
-                    }
-
-                    Spacer(minLength: 30)
+                VStack(alignment: .leading, spacing: 20) {
+                    header
+                    statusHero
+                    note
+                    Spacer(minLength: 40)
                 }
-                .padding(.horizontal)
+                .padding(.horizontal, 20)
+                .padding(.top, 8)
             }
         }
         .onAppear {
-            // Initialize toggle state based on current status
             communicationEnabled = PushwooshHelper.safeCall(false) {
                 Pushwoosh.configure.isServerCommunicationAllowed()
             }
         }
+    }
+
+    private var header: some View {
+        VStack(alignment: .leading, spacing: 3) {
+            Text("Data & sync").font(PushMart.display(32)).foregroundStyle(PushMart.textPrimary)
+            Text("Control what PushMart syncs").font(PushMart.body(14)).foregroundStyle(PushMart.textSecondary)
+        }
+        .padding(.top, 4)
+    }
+
+    private var statusHero: some View {
+        VStack(spacing: 18) {
+            ZStack {
+                Circle().fill((communicationEnabled ? PushMart.success : PushMart.textTertiary).opacity(0.16))
+                    .frame(width: 108, height: 108)
+                Image(systemName: communicationEnabled ? "antenna.radiowaves.left.and.right" : "antenna.radiowaves.left.and.right.slash")
+                    .font(.system(size: 46, weight: .bold))
+                    .foregroundStyle(communicationEnabled ? PushMart.success : PushMart.textTertiary)
+            }
+            VStack(spacing: 4) {
+                Text(communicationEnabled ? "Syncing" : "Paused")
+                    .font(PushMart.display(26)).foregroundStyle(PushMart.textPrimary)
+                Text(communicationEnabled
+                     ? "Your account, orders and offers stay up to date."
+                     : "No data is sent or received while paused.")
+                    .font(PushMart.body(14)).foregroundStyle(PushMart.textSecondary)
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            PushMartButton(title: communicationEnabled ? "Pause sync" : "Resume sync",
+                           icon: communicationEnabled ? "pause.fill" : "play.fill",
+                           style: communicationEnabled ? .secondary : .primary) {
+                toggle()
+            }
+            .sdkNote("Pushwoosh.configure.startServerCommunication() / stopServerCommunication()",
+                     "Pauses or resumes all data sync with Pushwoosh.",
+                     calls: [
+                        .init(code: "stopServerCommunication()",
+                              note: "Pause - stops all network requests to Pushwoosh, including push delivery."),
+                        .init(code: "startServerCommunication()",
+                              note: "Resume - re-enables data sync and push delivery.")
+                     ])
+            Button {
+                communicationEnabled = PushwooshHelper.safeCall(false) {
+                    Pushwoosh.configure.isServerCommunicationAllowed()
+                }
+            } label: {
+                Text("Check status").font(PushMart.label(13)).foregroundStyle(PushMart.coral)
+            }
+            .sdkNote("Pushwoosh.configure.isServerCommunicationAllowed()",
+                     "Reads whether data sync with Pushwoosh is currently on.",
+                     calls: [
+                        .init(code: "isServerCommunicationAllowed()",
+                              note: "Returns true while sync is active, false while paused.")
+                     ])
+        }
+        .frame(maxWidth: .infinity)
+        .padding(24)
+        .background(RoundedRectangle(cornerRadius: PushMart.radiusCard, style: .continuous).fill(PushMart.surface)
+            .overlay(RoundedRectangle(cornerRadius: PushMart.radiusCard, style: .continuous).strokeBorder(PushMart.stroke, lineWidth: 1)))
+    }
+
+    private var note: some View {
+        Text("Pausing stops all network requests to PushMart — including delivery of push notifications — until you resume.")
+            .font(PushMart.body(12.5)).foregroundStyle(PushMart.textTertiary)
+            .fixedSize(horizontal: false, vertical: true)
+            .padding(.horizontal, 4)
+    }
+
+    private func toggle() {
+        let resume = !communicationEnabled
+        if resume {
+            PushwooshHelper.safeCall { Pushwoosh.configure.startServerCommunication() }
+        } else {
+            PushwooshHelper.safeCall { Pushwoosh.configure.stopServerCommunication() }
+        }
+        withAnimation(.spring(response: 0.4, dampingFraction: 0.85)) { communicationEnabled = resume }
+        PushMartResult.shared.success(resume ? "Sync resumed" : "Sync paused")
     }
 }
 

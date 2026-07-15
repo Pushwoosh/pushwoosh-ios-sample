@@ -9,7 +9,5 @@
 		<key>NSExtensionPrincipalClass</key>
 		<string>$(PRODUCT_MODULE_NAME).NotificationService</string>
 	</dict>
-	<key>PW_APP_GROUPS_NAME</key>
-	<string>group.com.example.demo_group</string>
 </dict>
 </plist>

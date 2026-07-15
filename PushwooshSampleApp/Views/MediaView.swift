@@ -17,11 +17,11 @@ struct MediaView: View {
 
     // Present Animation
     @State private var showPresentAnimationSheet = false
-    @State private var selectedPresentAnimation: PresentModalWindowAnimation = .PWAnimationPresentFromBottom
+    @State private var selectedPresentAnimation: PresentModalWindowAnimation = .PWAnimationPresentSlideUp
 
     // Dismiss Animation
     @State private var showDismissAnimationSheet = false
-    @State private var selectedDismissAnimation: DismissModalWindowAnimation = .PWAnimationDismissDown
+    @State private var selectedDismissAnimation: DismissModalWindowAnimation = .PWAnimationDismissSlideDown
 
     // Swipe Directions
     @State private var showSwipeSheet = false
@@ -46,19 +46,17 @@ struct MediaView: View {
     @State private var closeAfterEnabled = false
     @State private var closeAfterSeconds: Double = 5
 
+    // Animation Duration
+    @State private var customDurationEnabled = false
+    @State private var animationDurationSeconds: Double = 0.3
+
+    // Server Simulation
+    @AppStorage("PWMockServerEnabled") private var mockServerEnabled = false
+    @State private var mockServerError: String?
+
     var body: some View {
         ZStack {
-            // Background gradient
-            LinearGradient(
-                colors: [
-                    Color(red: 0.1, green: 0.1, blue: 0.2),
-                    Color(red: 0.2, green: 0.1, blue: 0.3),
-                    Color(red: 0.1, green: 0.2, blue: 0.4)
-                ],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea(.all)
+            PushMartBackground()
 
             ScrollView {
                 VStack(spacing: 20) {
@@ -72,6 +70,7 @@ struct MediaView: View {
                     if selectedStyle == .modal {
                         modalSettingsCard
                         animationsCard
+                        animationDurationCard
                         swipeDirectionsCard
                         hapticFeedbackCard
                         cornerSettingsCard
@@ -80,6 +79,9 @@ struct MediaView: View {
 
                     // Apply Button
                     applyButton
+
+                    // Server Simulation Card
+                    serverSimulationCard
 
                     // Info Card
                     infoCard
@@ -132,46 +134,18 @@ struct MediaView: View {
 
     // MARK: - Header View
     private var headerView: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 4) {
-                Text("MEDIA")
-                    .font(.system(size: 32, weight: .black))
-                    .foregroundStyle(
-                        LinearGradient(
-                            colors: [.white, Color(red: 0.8, green: 0.9, blue: 1.0)],
-                            startPoint: .leading,
-                            endPoint: .trailing
-                        )
-                    )
-
-                Text("Rich Media Configuration")
-                    .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(.white.opacity(0.7))
-            }
-            Spacer()
-
-            Circle()
-                .fill(
-                    LinearGradient(
-                        colors: [.mint, .teal],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                )
-                .frame(width: 50, height: 50)
-                .overlay(
-                    Image(systemName: "play.rectangle.fill")
-                        .foregroundColor(.white)
-                        .font(.system(size: 22))
-                )
+        VStack(alignment: .leading, spacing: 3) {
+            Text("Appearance").font(PushMart.display(32)).foregroundStyle(PushMart.textPrimary)
+            Text("How your offers look in-app").font(PushMart.body(14)).foregroundStyle(PushMart.textSecondary)
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal)
-        .padding(.top, 20)
+        .padding(.top, 4)
     }
 
     // MARK: - Presentation Style Card
     private var presentationStyleCard: some View {
-        ModernCard {
+        PushMartCard {
             VStack(spacing: 16) {
                 HStack {
                     Image(systemName: "rectangle.stack.fill")
@@ -203,7 +177,7 @@ struct MediaView: View {
 
     // MARK: - Modal Settings Card
     private var modalSettingsCard: some View {
-        ModernCard {
+        PushMartCard {
             VStack(spacing: 16) {
                 HStack {
                     Image(systemName: "square.on.square")
@@ -227,7 +201,7 @@ struct MediaView: View {
 
     // MARK: - Animations Card
     private var animationsCard: some View {
-        ModernCard {
+        PushMartCard {
             VStack(spacing: 16) {
                 HStack {
                     Image(systemName: "wand.and.stars")
@@ -259,7 +233,7 @@ struct MediaView: View {
 
     // MARK: - Swipe Directions Card
     private var swipeDirectionsCard: some View {
-        ModernCard {
+        PushMartCard {
             VStack(spacing: 16) {
                 HStack {
                     Image(systemName: "hand.draw.fill")
@@ -283,7 +257,7 @@ struct MediaView: View {
 
     // MARK: - Haptic Feedback Card
     private var hapticFeedbackCard: some View {
-        ModernCard {
+        PushMartCard {
             VStack(spacing: 16) {
                 HStack {
                     Image(systemName: "iphone.radiowaves.left.and.right")
@@ -307,7 +281,7 @@ struct MediaView: View {
 
     // MARK: - Corner Settings Card
     private var cornerSettingsCard: some View {
-        ModernCard {
+        PushMartCard {
             VStack(spacing: 16) {
                 HStack {
                     Image(systemName: "rectangle.roundedtop.fill")
@@ -341,7 +315,7 @@ struct MediaView: View {
 
     // MARK: - Auto Close Card
     private var autoCloseCard: some View {
-        ModernCard {
+        PushMartCard {
             VStack(spacing: 16) {
                 HStack(spacing: 12) {
                     Circle()
@@ -393,6 +367,60 @@ struct MediaView: View {
         }
     }
 
+    // MARK: - Animation Duration Card
+    private var animationDurationCard: some View {
+        PushMartCard {
+            VStack(spacing: 16) {
+                HStack(spacing: 12) {
+                    Circle()
+                        .fill(
+                            LinearGradient(
+                                colors: [.purple, .indigo],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                        .frame(width: 44, height: 44)
+                        .overlay(
+                            Image(systemName: "speedometer")
+                                .foregroundColor(.white)
+                                .font(.system(size: 18))
+                        )
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Animation Duration")
+                            .font(.system(size: 18, weight: .semibold))
+                            .foregroundColor(.white)
+
+                        Text(customDurationEnabled ? String(format: "%.1f seconds", animationDurationSeconds) : "Default (0.3s)")
+                            .font(.system(size: 13, weight: .medium))
+                            .foregroundColor(customDurationEnabled ? .green : .white.opacity(0.5))
+                    }
+
+                    Spacer()
+
+                    Toggle("", isOn: $customDurationEnabled)
+                        .tint(.purple)
+                        .scaleEffect(0.9)
+                }
+
+                if customDurationEnabled {
+                    VStack(spacing: 8) {
+                        HStack {
+                            Text(String(format: "Duration: %.1f seconds", animationDurationSeconds))
+                                .font(.system(size: 14, weight: .medium))
+                                .foregroundColor(.white.opacity(0.7))
+                            Spacer()
+                        }
+
+                        Slider(value: $animationDurationSeconds, in: 0.1...3.0, step: 0.1)
+                            .tint(.purple)
+                    }
+                }
+            }
+        }
+    }
+
     // MARK: - Apply Button
     private var applyButton: some View {
         ModernButton(
@@ -402,11 +430,188 @@ struct MediaView: View {
         ) {
             applySettings()
         }
+        .sdkNote("Pushwoosh.media.setRichMediaPresentationStyle(_:) + modalRichMedia config",
+                 "Applying saves the presentation style and every modal appearance option - position, animations, swipe-to-dismiss, haptics, corners and auto-close - into the SDK for the next Rich Media.",
+                 docs: "modalRichMedia calls only run when the Modal style is selected. Durations are in seconds and 0 means keep the SDK default. The global PWRichMediaStyle controls the shared loading backdrop, status bar and inline video playback across every Rich Media.",
+                 calls: [
+                    .init(code: "Pushwoosh.media.setRichMediaPresentationStyle(selectedStyle)",
+                          note: "Chooses whether Rich Media shows as a customizable Modal or the full-screen Legacy style."),
+                    .init(code: "Pushwoosh.media.richMediaPresentationStyle()",
+                          note: "Reads the style back to confirm the SDK stored it (logged as the raw value)."),
+                    .init(code: "PWRichMediaManager.shared().richMediaStyle = PWRichMediaStyle()",
+                          note: "Sets global Rich Media appearance: dimmed backdrop, status bar visibility and inline video playback."),
+                    .init(code: "Pushwoosh.media.modalRichMedia.configure(with: selectedPosition, present: selectedPresentAnimation, dismiss: selectedDismissAnimation)",
+                          note: "Applies the chosen modal position and the present/dismiss animations."),
+                    .init(code: "Pushwoosh.media.modalRichMedia.setAnimationDuration(customDurationEnabled ? animationDurationSeconds : 0)",
+                          note: "Sets the modal animation duration in seconds; 0 keeps the SDK's default timing."),
+                    .init(code: "Pushwoosh.media.modalRichMedia.setDismissSwipeDirections(directions)",
+                          note: "Sets which swipe directions dismiss the modal (down/up/left/right, or none)."),
+                    .init(code: "Pushwoosh.media.modalRichMedia.setHapticFeedbackType(selectedHaptic)",
+                          note: "Sets the haptic played when the modal appears (light/medium/hard/none)."),
+                    .init(code: "Pushwoosh.media.modalRichMedia.setCornerType(CornerType(rawValue: cornerType), withRadius: cornerRadius)",
+                          note: "Rounds the selected corners of the modal to the chosen radius."),
+                    .init(code: "Pushwoosh.media.modalRichMedia.close(after: closeAfterEnabled ? closeAfterSeconds : 0)",
+                          note: "Auto-closes the modal after the given seconds; 0 disables auto-close.")
+                 ])
+    }
+
+    // MARK: - Server Simulation Card
+    private var serverSimulationCard: some View {
+        PushMartCard {
+            VStack(spacing: 16) {
+                HStack(spacing: 12) {
+                    Circle()
+                        .fill(
+                            LinearGradient(
+                                colors: [.orange, .yellow],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                        .frame(width: 44, height: 44)
+                        .overlay(
+                            Image(systemName: "server.rack")
+                                .foregroundColor(.white)
+                                .font(.system(size: 18))
+                        )
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Server Simulation")
+                            .font(.system(size: 18, weight: .semibold))
+                            .foregroundColor(.white)
+
+                        Text(mockServerEnabled ? "Mock server 127.0.0.1:9595" : "Production server")
+                            .font(.system(size: 13, weight: .medium))
+                            .foregroundColor(mockServerEnabled ? .green : .white.opacity(0.5))
+                    }
+
+                    Spacer()
+
+                    Toggle("", isOn: $mockServerEnabled)
+                        .tint(.orange)
+                        .scaleEffect(0.9)
+                        .onChange(of: mockServerEnabled) { _ in
+                            ServerRouting.apply()
+                        }
+                }
+
+                if mockServerEnabled {
+                    Text("Self-contained: an in-app server on 127.0.0.1:9595 serves the bundled rich media. Just tap a button below.")
+                        .font(.system(size: 12))
+                        .foregroundColor(.white.opacity(0.6))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                    ModernButton(
+                        title: "Campaign as-is",
+                        icon: "photo.on.rectangle.angled",
+                        gradient: [.orange, .red]
+                    ) {
+                        triggerMockRichMedia(event: "showRichMedia")
+                    }
+
+                    ModernButton(
+                        title: "Client API settings",
+                        icon: "slider.horizontal.3",
+                        gradient: [.purple, .indigo]
+                    ) {
+                        applySettings()
+                        triggerMockRichMedia(event: "showRichMediaClient")
+                    }
+
+                    ModernButton(
+                        title: "Server style_settings",
+                        icon: "server.rack",
+                        gradient: [.teal, .green]
+                    ) {
+                        LocalPushwooshServer.simulatedStyleSettings = simulatedServerStyleSettings()
+                        triggerMockRichMedia(event: "showRichMediaServer")
+                    }
+                    .sdkNote("PWInAppManager.shared().postEvent(_:withAttributes:completion:)",
+                             "Each button posts an in-app event that Pushwoosh matches to the bundled Rich Media, served here by the local mock server.",
+                             docs: "The event still reaches Pushwoosh exactly as in production; only the server responding to it is swapped for the in-app mock on 127.0.0.1:9595.",
+                             calls: [
+                                .init(code: "postEvent(\"showRichMedia\", withAttributes: [:])",
+                                      note: "Campaign as-is - presents the campaign's Rich Media exactly as configured on the dashboard."),
+                                .init(code: "postEvent(\"showRichMediaClient\", withAttributes: [:])",
+                                      note: "Client API settings - re-applies the modal settings above through the SDK, then shows the same message with those client-side overrides."),
+                                .init(code: "postEvent(\"showRichMediaServer\", withAttributes: [:])",
+                                      note: "Server style_settings - shows the same message with style_settings simulated from the server side.")
+                             ])
+
+                    if let error = mockServerError {
+                        Text(error)
+                            .font(.system(size: 12, weight: .medium))
+                            .foregroundColor(.red)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                }
+            }
+        }
+    }
+
+    private func triggerMockRichMedia(event: String) {
+        mockServerError = nil
+        PushwooshHelper.safeCall {
+            PWInAppManager.shared().postEvent(event, withAttributes: [:]) { error in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        mockServerError = "postEvent failed: \(error.localizedDescription). Is the mock server running?"
+                    }
+                }
+            }
+        }
+    }
+
+    // Maps the UI selections to server-side style_settings strings (what the campaign
+    // editor would put into pushwoosh.json).
+    private func simulatedServerStyleSettings() -> [String: Any] {
+        var styles: [String: Any] = [:]
+
+        switch selectedPosition {
+        case .PWModalWindowPositionTop: styles["position"] = "top"
+        case .PWModalWindowPositionCenter: styles["position"] = "center"
+        case .PWModalWindowPositionBottom: styles["position"] = "bottom"
+        case .PWModalWindowPositionFullScreen: styles["position"] = "fullscreen"
+        default: break
+        }
+
+        switch selectedPresentAnimation {
+        case .PWAnimationPresentSlideUp: styles["present_animation"] = "up"
+        case .PWAnimationPresentDropDown: styles["present_animation"] = "down"
+        case .PWAnimationPresentSlideFromLeft: styles["present_animation"] = "left"
+        case .PWAnimationPresentSlideFromRight: styles["present_animation"] = "right"
+        case .PWAnimationPresentFadeIn: styles["present_animation"] = "fade_in"
+        case .PWAnimationPresentNone: styles["present_animation"] = "none"
+        default: break
+        }
+
+        switch selectedDismissAnimation {
+        case .PWAnimationDismissSlideUp: styles["dismiss_animation"] = "up"
+        case .PWAnimationDismissSlideDown: styles["dismiss_animation"] = "down"
+        case .PWAnimationDismissSlideLeft: styles["dismiss_animation"] = "left"
+        case .PWAnimationDismissSlideRight: styles["dismiss_animation"] = "right"
+        case .PWAnimationDismissFadeOut: styles["dismiss_animation"] = "fade_out"
+        case .PWAnimationDismissNone: styles["dismiss_animation"] = "none"
+        default: break
+        }
+
+        var swipes: [String] = []
+        if swipeDown { swipes.append("down") }
+        if swipeUp { swipes.append("up") }
+        if swipeLeft { swipes.append("left") }
+        if swipeRight { swipes.append("right") }
+        styles["swipe_to_dismiss"] = swipes
+
+        if customDurationEnabled {
+            styles["animation_duration"] = Int(animationDurationSeconds * 1000)
+        }
+
+        return styles
     }
 
     // MARK: - Info Card
     private var infoCard: some View {
-        ModernCard {
+        PushMartCard {
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
                     Image(systemName: "lightbulb.fill")
@@ -463,10 +668,11 @@ struct MediaView: View {
 
     private var presentAnimationDisplayName: String {
         switch selectedPresentAnimation {
-        case .PWAnimationPresentFromBottom: return "From Bottom"
-        case .PWAnimationPresentFromTop: return "From Top"
-        case .PWAnimationPresentFromRight: return "From Right"
-        case .PWAnimationPresentFromLeft: return "From Left"
+        case .PWAnimationPresentSlideUp: return "From Bottom"
+        case .PWAnimationPresentDropDown: return "From Top"
+        case .PWAnimationPresentSlideFromRight: return "From Right"
+        case .PWAnimationPresentSlideFromLeft: return "From Left"
+        case .PWAnimationPresentFadeIn: return "Fade In"
         case .PWAnimationPresentNone: return "None"
         @unknown default: return "Unknown"
         }
@@ -474,10 +680,11 @@ struct MediaView: View {
 
     private var dismissAnimationDisplayName: String {
         switch selectedDismissAnimation {
-        case .PWAnimationDismissDown: return "Down"
-        case .PWAnimationDismissUp: return "Up"
-        case .PWAnimationDismissLeft: return "Left"
-        case .PWAnimationDismissRight: return "Right"
+        case .PWAnimationDismissSlideDown: return "Down"
+        case .PWAnimationDismissSlideUp: return "Up"
+        case .PWAnimationDismissSlideLeft: return "Left"
+        case .PWAnimationDismissSlideRight: return "Right"
+        case .PWAnimationDismissFadeOut: return "Fade Out"
         case .PWAnimationCurveEaseInOut: return "Ease In Out"
         case .PWAnimationDismissNone: return "None"
         case .PWAnimationDismissDefault: return "Default"
@@ -519,6 +726,18 @@ struct MediaView: View {
             // Set presentation style
             Pushwoosh.media.setRichMediaPresentationStyle(selectedStyle)
 
+            // Read the style back through the getter to confirm it took.
+            print("Rich media presentation style: \(Pushwoosh.media.richMediaPresentationStyle().rawValue)")
+
+            // Global rich-media appearance (loading backdrop, status bar, inline video playback).
+            let richStyle = PWRichMediaStyle()
+            richStyle.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+            richStyle.closeButtonPresentingDelay = 0
+            richStyle.shouldHideStatusBar = false
+            richStyle.allowsInlineMediaPlayback = NSNumber(value: true)
+            richStyle.mediaPlaybackRequiresUserAction = NSNumber(value: false)
+            PWRichMediaManager.shared().richMediaStyle = richStyle
+
             if selectedStyle == .modal {
                 // Configure modal window
                 Pushwoosh.media.modalRichMedia.configure(
@@ -526,6 +745,9 @@ struct MediaView: View {
                     present: selectedPresentAnimation,
                     dismiss: selectedDismissAnimation
                 )
+
+                // Set animation duration (0 = SDK default timing)
+                Pushwoosh.media.modalRichMedia.setAnimationDuration(customDurationEnabled ? animationDurationSeconds : 0)
 
                 // Set swipe directions
                 var directions: [NSNumber] = []
@@ -557,6 +779,7 @@ struct MediaView: View {
                 }
             }
         }
+        PushMartResult.shared.success("Settings applied", "Rich media appearance updated.")
     }
 }
 
@@ -687,10 +910,11 @@ struct PresentAnimationSheet: View {
     @Environment(\.dismiss) var dismiss
 
     private let animations: [(PresentModalWindowAnimation, String, String)] = [
-        (.PWAnimationPresentFromBottom, "From Bottom", "arrow.up"),
-        (.PWAnimationPresentFromTop, "From Top", "arrow.down"),
-        (.PWAnimationPresentFromRight, "From Right", "arrow.left"),
-        (.PWAnimationPresentFromLeft, "From Left", "arrow.right"),
+        (.PWAnimationPresentSlideUp, "From Bottom", "arrow.up"),
+        (.PWAnimationPresentDropDown, "From Top", "arrow.down"),
+        (.PWAnimationPresentSlideFromRight, "From Right", "arrow.left"),
+        (.PWAnimationPresentSlideFromLeft, "From Left", "arrow.right"),
+        (.PWAnimationPresentFadeIn, "Fade In", "sparkles"),
         (.PWAnimationPresentNone, "None", "xmark")
     ]
 
@@ -727,10 +951,11 @@ struct DismissAnimationSheet: View {
     @Environment(\.dismiss) var dismiss
 
     private let animations: [(DismissModalWindowAnimation, String, String)] = [
-        (.PWAnimationDismissDown, "Down", "arrow.down"),
-        (.PWAnimationDismissUp, "Up", "arrow.up"),
-        (.PWAnimationDismissLeft, "Left", "arrow.left"),
-        (.PWAnimationDismissRight, "Right", "arrow.right"),
+        (.PWAnimationDismissSlideDown, "Down", "arrow.down"),
+        (.PWAnimationDismissSlideUp, "Up", "arrow.up"),
+        (.PWAnimationDismissSlideLeft, "Left", "arrow.left"),
+        (.PWAnimationDismissSlideRight, "Right", "arrow.right"),
+        (.PWAnimationDismissFadeOut, "Fade Out", "sparkles"),
         (.PWAnimationCurveEaseInOut, "Ease In Out", "waveform.path"),
         (.PWAnimationDismissNone, "None", "xmark"),
         (.PWAnimationDismissDefault, "Default", "arrow.uturn.backward")

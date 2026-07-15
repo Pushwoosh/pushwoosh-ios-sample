@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Pushwoosh_API_TOKEN</key>
-	<string>qwertyuiopasdfghjklzxcvbnm</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -14,16 +12,37 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>customscheme</string>
+				<string>pushwoosh</string>
 			</array>
 		</dict>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
+	<key>NSSupportsLiveActivities</key>
+	<true/>
+	<key>NSSupportsLiveActivitiesFrequentUpdates</key>
+	<true/>
 	<key>PW_APP_GROUPS_NAME</key>
-	<string>group.com.example.demo_group</string>
+	<string>group.com.example.delivery</string>
+	<key>Pushwoosh_ALLOW_REVERSE_PROXY</key>
+	<true/>
+	<key>Pushwoosh_API_TOKEN</key>
+	<string>YOUR_API_TOKEN</string>
 	<key>Pushwoosh_APPID</key>
-	<string>29A14-8102F</string>
+	<string>XXXXX-XXXXX</string>
+	<key>Pushwoosh_APPLICATION_EXIT_TIMEOUT_SECONDS</key>
+	<integer>10</integer>
+	<key>Pushwoosh_IDLE_TIMEOUT_SECONDS</key>
+	<integer>30</integer>
+	<key>Pushwoosh_LOG_LEVEL</key>
+	<string>DEBUG</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
+		<string>voip</string>
 	</array>
 </dict>
 </plist>

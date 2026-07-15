@@ -1,326 +1,170 @@
 //
 //  NotificationsView.swift
-//  PushwooshSampleApp
+//  PushMart
 //
 
 import SwiftUI
 import PushwooshFramework
 
+// Reminders screen. Framed as a natural "remind me to come back" feature: pick
+// what to be reminded about and when, and PushMart schedules a local notification.
 struct NotificationsView: View {
-    @State private var notificationTitle: String = ""
-    @State private var notificationBody: String = ""
+    private struct Reminder: Identifiable {
+        let id: String
+        let chip: String
+        let icon: String
+        let title: String
+        let body: String
+    }
+    private struct Delay: Identifiable {
+        let id: String
+        let label: String
+        let seconds: TimeInterval
+    }
+
+    private let reminders: [Reminder] = [
+        .init(id: "cart", chip: "My cart", icon: "cart.fill",
+              title: "Your cart is waiting 🛒", body: "Come back and check out before your picks sell out."),
+        .init(id: "wishlist", chip: "Wishlist", icon: "heart.fill",
+              title: "Something you saved is popular", body: "Items in your wishlist are selling fast."),
+        .init(id: "deals", chip: "Today's deals", icon: "flame.fill",
+              title: "Don't miss today's deals 🔥", body: "Members-only offers are live right now.")
+    ]
+    private let delays: [Delay] = [
+        .init(id: "10s", label: "10 seconds", seconds: 10),
+        .init(id: "1m", label: "1 minute", seconds: 60),
+        .init(id: "5m", label: "5 minutes", seconds: 300)
+    ]
+
+    @State private var reminderID = "cart"
+    @State private var delayID = "10s"
+
+    private var reminder: Reminder { reminders.first { $0.id == reminderID } ?? reminders[0] }
+    private var delay: Delay { delays.first { $0.id == delayID } ?? delays[0] }
 
     var body: some View {
         ZStack {
-            // Background gradient
-            LinearGradient(
-                colors: [
-                    Color(red: 0.1, green: 0.1, blue: 0.2),
-                    Color(red: 0.2, green: 0.1, blue: 0.3),
-                    Color(red: 0.1, green: 0.2, blue: 0.4)
-                ],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea(.all)
-
+            PushMartBackground()
             ScrollView {
-                VStack(spacing: 20) {
-                    // Header
-                    HStack {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("NOTIFICATIONS")
-                                .font(.system(size: 32, weight: .black))
-                                .foregroundStyle(
-                                    LinearGradient(
-                                        colors: [.white, Color(red: 0.8, green: 0.9, blue: 1.0)],
-                                        startPoint: .leading,
-                                        endPoint: .trailing
-                                    )
-                                )
-
-                            Text("Local & Push Notifications")
-                                .font(.system(size: 14, weight: .medium))
-                                .foregroundColor(.white.opacity(0.7))
-                        }
-                        Spacer()
-
-                        Circle()
-                            .fill(
-                                LinearGradient(
-                                    colors: [.red, .orange],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            )
-                            .frame(width: 50, height: 50)
-                            .overlay(
-                                Image(systemName: "app.badge.fill")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 22))
-                            )
-                    }
-                    .padding(.horizontal)
-                    .padding(.top, 20)
-
-                    // Send Local Notification Card
-                    ModernCard {
-                        VStack(spacing: 16) {
-                            HStack {
-                                Image(systemName: "bell.badge.fill")
-                                    .foregroundColor(.blue)
-                                Text("Local Notification")
-                                    .font(.system(size: 18, weight: .semibold))
-                                    .foregroundColor(.white)
-                                Spacer()
-                            }
-
-                            ModernTextField(placeholder: "TITLE", text: $notificationTitle)
-
-                            ModernTextField(placeholder: "BODY", text: $notificationBody)
-
-                            ModernButton(
-                                title: "Send Local Notification",
-                                icon: "bell.badge.fill",
-                                gradient: [.blue, .cyan]
-                            ) {
-                                let title = notificationTitle.isEmpty ? "Hello" : notificationTitle
-                                let body = notificationBody.isEmpty ? "Pushwoosh" : notificationBody
-                                Notifications.shared.showLocalNotification(title: title, body: body)
-                            }
-
-                            Divider()
-                                .background(Color.white.opacity(0.2))
-
-                            Text("Send a local notification to test notification display and handling. Does not require server connection.")
-                                .font(.system(size: 13))
-                                .foregroundColor(.white.opacity(0.6))
-                                .lineSpacing(4)
-                        }
-                    }
-
-                    // Notification Actions Card
-                    ModernCard {
-                        VStack(spacing: 12) {
-                            HStack {
-                                Image(systemName: "bolt.circle.fill")
-                                    .foregroundColor(.purple)
-                                Text("Notification Actions")
-                                    .font(.system(size: 18, weight: .semibold))
-                                    .foregroundColor(.white)
-                                Spacer()
-                            }
-
-                            ModernButton(
-                                title: "Send Test Notification",
-                                icon: "bell.badge.fill",
-                                gradient: [.indigo, .purple]
-                            ) {
-                                Notifications.shared.showLocalNotification(title: "Test", body: "This is a test notification")
-                            }
-
-                            ModernButton(
-                                title: "Clear All Notifications",
-                                icon: "bell.slash.fill",
-                                gradient: [.gray, .secondary]
-                            ) {
-                                PushNotificationManager.clearNotificationCenter()
-                            }
-
-                            Divider()
-                                .background(Color.white.opacity(0.2))
-
-                            Text("Quick actions for testing and managing notifications.")
-                                .font(.system(size: 13))
-                                .foregroundColor(.white.opacity(0.6))
-                                .lineSpacing(4)
-                        }
-                    }
-
-                    // Notification Features Card
-                    ModernCard {
-                        VStack(alignment: .leading, spacing: 12) {
-                            HStack {
-                                Image(systemName: "star.fill")
-                                    .foregroundColor(.yellow)
-                                Text("Notification Features")
-                                    .font(.system(size: 18, weight: .semibold))
-                                    .foregroundColor(.white)
-                                Spacer()
-                            }
-
-                            VStack(alignment: .leading, spacing: 8) {
-                                FeatureRow(
-                                    icon: "bell.badge.fill",
-                                    title: "Rich Notifications",
-                                    description: "Images, videos, and custom actions",
-                                    color: .blue
-                                )
-
-                                FeatureRow(
-                                    icon: "map.fill",
-                                    title: "Geolocation",
-                                    description: "Location-based push notifications",
-                                    color: .green
-                                )
-
-                                FeatureRow(
-                                    icon: "clock.fill",
-                                    title: "Scheduled Push",
-                                    description: "Send notifications at specific times",
-                                    color: .orange
-                                )
-
-                                FeatureRow(
-                                    icon: "person.3.fill",
-                                    title: "Segmentation",
-                                    description: "Target specific user groups",
-                                    color: .purple
-                                )
-                            }
-                        }
-                    }
-
-                    // Info Card
-                    ModernCard {
-                        VStack(alignment: .leading, spacing: 12) {
-                            HStack {
-                                Image(systemName: "info.circle.fill")
-                                    .foregroundColor(.cyan)
-                                Text("About Notifications")
-                                    .font(.system(size: 18, weight: .semibold))
-                                    .foregroundColor(.white)
-                                Spacer()
-                            }
-
-                            VStack(alignment: .leading, spacing: 8) {
-                                InfoNoteRow(
-                                    icon: "bell.fill",
-                                    text: "Local Notifications: Scheduled locally by the app without server involvement",
-                                    color: .blue
-                                )
-
-                                InfoNoteRow(
-                                    icon: "antenna.radiowaves.left.and.right",
-                                    text: "Push Notifications: Sent from Pushwoosh servers via APNs",
-                                    color: .green
-                                )
-
-                                InfoNoteRow(
-                                    icon: "hand.raised.fill",
-                                    text: "User must grant notification permissions for the app",
-                                    color: .orange
-                                )
-
-                                InfoNoteRow(
-                                    icon: "app.badge.fill",
-                                    text: "Notifications can update app badge, play sounds, and show alerts",
-                                    color: .purple
-                                )
-                            }
-                        }
-                    }
-
-                    // Delegate Info Card
-                    ModernCard {
-                        VStack(alignment: .leading, spacing: 12) {
-                            HStack {
-                                Image(systemName: "arrow.triangle.branch")
-                                    .foregroundColor(.pink)
-                                Text("Notification Handling")
-                                    .font(.system(size: 18, weight: .semibold))
-                                    .foregroundColor(.white)
-                                Spacer()
-                            }
-
-                            Text("Use PWMessagingDelegate to handle notification events:")
-                                .font(.system(size: 13))
-                                .foregroundColor(.white.opacity(0.7))
-                                .lineSpacing(4)
-
-                            VStack(alignment: .leading, spacing: 8) {
-                                DelegateMethodRow(
-                                    method: "onPushReceived",
-                                    description: "Called when notification is received"
-                                )
-
-                                DelegateMethodRow(
-                                    method: "onPushAccepted",
-                                    description: "Called when user taps notification"
-                                )
-                            }
-                        }
-                    }
-
-                    Spacer(minLength: 30)
+                VStack(alignment: .leading, spacing: 20) {
+                    header
+                    enablePushCard
+                    preview
+                    remindCard
+                    clearCard
+                    Spacer(minLength: 40)
                 }
-                .padding(.horizontal)
+                .padding(.horizontal, 20)
+                .padding(.top, 8)
             }
         }
     }
-}
 
-struct FeatureRow: View {
-    let icon: String
-    let title: String
-    let description: String
-    let color: Color
-
-    var body: some View {
-        HStack(spacing: 12) {
-            Circle()
-                .fill(color)
-                .frame(width: 32, height: 32)
-                .overlay(
-                    Image(systemName: icon)
-                        .foregroundColor(.white)
-                        .font(.system(size: 14))
-                )
-
-            VStack(alignment: .leading, spacing: 2) {
-                Text(title)
-                    .font(.system(size: 14, weight: .semibold))
-                    .foregroundColor(.white)
-
-                Text(description)
-                    .font(.system(size: 12))
-                    .foregroundColor(.white.opacity(0.6))
-            }
-
-            Spacer()
+    private var header: some View {
+        VStack(alignment: .leading, spacing: 3) {
+            Text("Reminders").font(PushMart.display(32)).foregroundStyle(PushMart.textPrimary)
+            Text("We'll nudge you when it matters").font(PushMart.body(14)).foregroundStyle(PushMart.textSecondary)
         }
-        .padding(.vertical, 6)
+        .padding(.top, 4)
     }
-}
 
-struct DelegateMethodRow: View {
-    let method: String
-    let description: String
+    // MARK: Enable push (on-demand, not at launch)
 
-    var body: some View {
-        HStack(spacing: 12) {
-            Circle()
-                .fill(Color.pink)
-                .frame(width: 8, height: 8)
-
-            VStack(alignment: .leading, spacing: 2) {
-                Text(method)
-                    .font(.system(size: 13, weight: .semibold, design: .monospaced))
-                    .foregroundColor(.cyan)
-
-                Text(description)
-                    .font(.system(size: 12))
-                    .foregroundColor(.white.opacity(0.7))
+    private var enablePushCard: some View {
+        PushMartCard {
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Push notifications").font(PushMart.headline(17)).foregroundStyle(PushMart.textPrimary)
+                Text("Turn on push to get order updates and members-only deals.")
+                    .font(PushMart.body(13)).foregroundStyle(PushMart.textSecondary)
+                    .fixedSize(horizontal: false, vertical: true)
+                PushMartButton(title: "Enable notifications", icon: "bell.fill") {
+                    AppDelegate.showPushPrimer()
+                }
+                .sdkNote("Pushwoosh.configure.pushPrimer",
+                         "Shows the soft opt-in primer, then the system prompt and registration on accept.",
+                         calls: [
+                            .init(code: "pushPrimer.present { outcome in … }",
+                                  note: "Presented on demand from this button, not automatically at launch."),
+                         ])
             }
-
-            Spacer()
         }
-        .padding(.vertical, 4)
-        .padding(.horizontal, 12)
-        .background(
-            RoundedRectangle(cornerRadius: 8)
-                .fill(Color.white.opacity(0.05))
-        )
+    }
+
+    // MARK: Live preview of the reminder
+
+    private var preview: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("PREVIEW").font(PushMart.label(11)).tracking(2).foregroundStyle(PushMart.textTertiary)
+            HStack(alignment: .top, spacing: 12) {
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    .fill(PushMart.brand).frame(width: 40, height: 40)
+                    .overlay(Image(systemName: "bag.fill").font(.system(size: 18, weight: .bold)).foregroundStyle(PushMart.ink))
+                VStack(alignment: .leading, spacing: 3) {
+                    HStack {
+                        Text("PUSHMART").font(.system(size: 10, weight: .heavy, design: .rounded))
+                            .tracking(1).foregroundStyle(PushMart.textSecondary)
+                        Spacer()
+                        Text("in \(delay.label)").font(.system(size: 10, weight: .medium)).foregroundStyle(PushMart.textTertiary)
+                    }
+                    Text(reminder.title).font(PushMart.headline(14.5)).foregroundStyle(PushMart.textPrimary).lineLimit(1)
+                    Text(reminder.body).font(PushMart.body(13)).foregroundStyle(PushMart.textSecondary).lineLimit(2)
+                }
+            }
+            .padding(14)
+            .background(RoundedRectangle(cornerRadius: 18, style: .continuous).fill(PushMart.surfaceHi)
+                .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).strokeBorder(PushMart.stroke, lineWidth: 1)))
+        }
+    }
+
+    // MARK: Compose the reminder naturally
+
+    private var remindCard: some View {
+        PushMartCard {
+            VStack(alignment: .leading, spacing: 16) {
+                Text("Remind me about").font(PushMart.headline(17)).foregroundStyle(PushMart.textPrimary)
+                chipRow(reminders.map { ($0.id, $0.chip, $0.icon) }, selected: reminderID) { reminderID = $0 }
+
+                Text("In").font(PushMart.headline(17)).foregroundStyle(PushMart.textPrimary)
+                chipRow(delays.map { ($0.id, $0.label, nil) }, selected: delayID) { delayID = $0 }
+
+                PushMartButton(title: "Remind me", icon: "bell.badge.fill") {
+                    Notifications.shared.showLocalNotification(title: reminder.title, body: reminder.body, delay: delay.seconds)
+                    PushMartResult.shared.success("Reminder set", "We'll nudge you in \(delay.label).")
+                }
+                Text("Delivered right here on your device — allow notifications when prompted.")
+                    .font(PushMart.body(12.5)).foregroundStyle(PushMart.textTertiary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+    }
+
+    private func chipRow(_ items: [(String, String, String?)], selected: String, onTap: @escaping (String) -> Void) -> some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
+                ForEach(items, id: \.0) { item in
+                    Button { onTap(item.0) } label: {
+                        PushMartChip(title: item.1, selected: selected == item.0, icon: item.2)
+                    }.buttonStyle(.plain)
+                }
+            }
+        }
+    }
+
+    // MARK: Clear
+
+    private var clearCard: some View {
+        PushMartCard {
+            PushMartButton(title: "Clear reminders", icon: "bell.slash.fill", style: .ghost) {
+                PushNotificationManager.clearNotificationCenter()
+                PushMartResult.shared.success("Cleared", "Your notification center is empty.")
+            }
+            .sdkNote("PushNotificationManager.clearNotificationCenter()",
+                     "Removes PushMart's already-delivered notifications from Notification Center.",
+                     calls: [
+                        .init(code: "PushNotificationManager.clearNotificationCenter()",
+                              note: "Clears the app's delivered notifications from Notification Center.")
+                     ])
+        }
     }
 }
 

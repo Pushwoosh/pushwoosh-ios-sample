@@ -1,232 +1,90 @@
 //
 //  MonetizationView.swift
-//  PushwooshSampleApp
+//  PushMart
 //
 
 import SwiftUI
-import PushwooshFramework
 
+// About PushMart — a shopper-facing "how it works" page. Documentation only:
+// no SDK calls here by design.
 struct MonetizationView: View {
+    private struct Perk: Identifiable {
+        let id = UUID()
+        let icon: String
+        let title: String
+        let subtitle: String
+    }
+    private let perks: [Perk] = [
+        .init(icon: "sparkles", title: "Members-only drops", subtitle: "Be first when limited items land."),
+        .init(icon: "shippingbox.fill", title: "Live order tracking", subtitle: "Follow every order on your Lock Screen."),
+        .init(icon: "gift.fill", title: "Rewards on every order", subtitle: "Earn points as you shop, spend them on perks."),
+        .init(icon: "tag.fill", title: "Deals tuned to you", subtitle: "Offers picked from the categories you love.")
+    ]
+
     var body: some View {
         ZStack {
-            // Background gradient
-            LinearGradient(
-                colors: [
-                    Color(red: 0.1, green: 0.1, blue: 0.2),
-                    Color(red: 0.2, green: 0.1, blue: 0.3),
-                    Color(red: 0.1, green: 0.2, blue: 0.4)
-                ],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea(.all)
-
+            PushMartBackground()
             ScrollView {
-                VStack(spacing: 20) {
-                    // Header
-                    HStack {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("MONETIZATION")
-                                .font(.system(size: 32, weight: .black))
-                                .foregroundStyle(
-                                    LinearGradient(
-                                        colors: [.white, Color(red: 0.8, green: 0.9, blue: 1.0)],
-                                        startPoint: .leading,
-                                        endPoint: .trailing
-                                    )
-                                )
-
-                            Text("In-App Purchases & Events")
-                                .font(.system(size: 14, weight: .medium))
-                                .foregroundColor(.white.opacity(0.7))
-                        }
-                        Spacer()
-
-                        Circle()
-                            .fill(
-                                LinearGradient(
-                                    colors: [.yellow, .orange],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            )
-                            .frame(width: 50, height: 50)
-                            .overlay(
-                                Image(systemName: "dollarsign.circle.fill")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 22))
-                            )
+                VStack(alignment: .leading, spacing: 22) {
+                    hero
+                    VStack(alignment: .leading, spacing: 12) {
+                        SectionHeader(title: "How PushMart works")
+                        ForEach(perks) { perkRow($0) }
                     }
-                    .padding(.horizontal)
-                    .padding(.top, 20)
-
-                    // In-App Events Card
-                    ModernCard {
-                        VStack(spacing: 16) {
-                            HStack {
-                                Image(systemName: "calendar.badge.exclamationmark")
-                                    .foregroundColor(.purple)
-                                Text("In-App Events")
-                                    .font(.system(size: 18, weight: .semibold))
-                                    .foregroundColor(.white)
-                                Spacer()
-                            }
-
-                            Text("Use PWInAppManager to post custom events for in-app messaging triggers.")
-                                .font(.system(size: 13))
-                                .foregroundColor(.white.opacity(0.7))
-                                .lineSpacing(4)
-
-                            VStack(alignment: .leading, spacing: 8) {
-                                EventExampleRow(
-                                    name: "purchase_completed",
-                                    description: "Track completed purchases",
-                                    color: .green
-                                )
-
-                                EventExampleRow(
-                                    name: "level_completed",
-                                    description: "Track game progress",
-                                    color: .blue
-                                )
-
-                                EventExampleRow(
-                                    name: "subscription_started",
-                                    description: "Track subscription events",
-                                    color: .orange
-                                )
-                            }
-                        }
-                    }
-
-                    // Purchase Tracking Info Card
-                    ModernCard {
-                        VStack(alignment: .leading, spacing: 12) {
-                            HStack {
-                                Image(systemName: "cart.fill")
-                                    .foregroundColor(.blue)
-                                Text("Purchase Tracking")
-                                    .font(.system(size: 18, weight: .semibold))
-                                    .foregroundColor(.white)
-                                Spacer()
-                            }
-
-                            Text("Track StoreKit purchases to measure monetization and send targeted campaigns.")
-                                .font(.system(size: 13))
-                                .foregroundColor(.white.opacity(0.7))
-                                .lineSpacing(4)
-
-                            Divider()
-                                .background(Color.white.opacity(0.2))
-
-                            VStack(alignment: .leading, spacing: 8) {
-                                InfoNoteRow(
-                                    icon: "dollarsign.circle.fill",
-                                    text: "sendPurchase: Track individual purchase events with price and currency",
-                                    color: .green
-                                )
-
-                                InfoNoteRow(
-                                    icon: "cart.badge.plus",
-                                    text: "sendSKPaymentTransactions: Automatically track StoreKit transactions",
-                                    color: .blue
-                                )
-
-                                InfoNoteRow(
-                                    icon: "chart.bar.fill",
-                                    text: "Track purchases to segment users by spending behavior",
-                                    color: .purple
-                                )
-                            }
-                        }
-                    }
-
-                    // Code Example Card
-                    ModernCard {
-                        VStack(alignment: .leading, spacing: 12) {
-                            HStack {
-                                Image(systemName: "chevron.left.forwardslash.chevron.right")
-                                    .foregroundColor(.cyan)
-                                Text("Code Examples")
-                                    .font(.system(size: 18, weight: .semibold))
-                                    .foregroundColor(.white)
-                                Spacer()
-                            }
-
-                            VStack(alignment: .leading, spacing: 12) {
-                                CodeExampleRow(
-                                    title: "Post Event",
-                                    code: "PWInAppManager.shared().postEvent(\"purchase_completed\")"
-                                )
-
-                                CodeExampleRow(
-                                    title: "Post Event with Attributes",
-                                    code: "PWInAppManager.shared().postEvent(\"purchase\", withAttributes: [\"amount\": 9.99])"
-                                )
-                            }
-                        }
-                    }
-
-                    Spacer(minLength: 30)
+                    about
+                    Text("PushMart · Version 2.0.0")
+                        .font(PushMart.body(12)).foregroundStyle(PushMart.textTertiary)
+                        .frame(maxWidth: .infinity)
+                    Spacer(minLength: 40)
                 }
-                .padding(.horizontal)
+                .padding(.horizontal, 20)
+                .padding(.top, 8)
             }
         }
     }
-}
 
-struct EventExampleRow: View {
-    let name: String
-    let description: String
-    let color: Color
-
-    var body: some View {
-        HStack(spacing: 12) {
-            Circle()
-                .fill(color)
-                .frame(width: 8, height: 8)
-
-            VStack(alignment: .leading, spacing: 2) {
-                Text(name)
-                    .font(.system(size: 14, weight: .semibold))
-                    .foregroundColor(.white)
-
-                Text(description)
-                    .font(.system(size: 12))
-                    .foregroundColor(.white.opacity(0.6))
+    private var hero: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 24, style: .continuous).fill(PushMart.brand)
+                    .frame(width: 84, height: 84)
+                    .shadow(color: PushMart.coral.opacity(0.45), radius: 22, y: 12)
+                Image(systemName: "bag.fill").font(.system(size: 36, weight: .bold)).foregroundStyle(PushMart.ink)
             }
+            PushMartWordmark(size: 34)
+            Text("Shop what's next.")
+                .font(PushMart.display(28)).foregroundStyle(PushMart.textPrimary)
+            Text("Exclusive drops, live order tracking and deals picked just for you — all in one place.")
+                .font(PushMart.body(15)).foregroundStyle(PushMart.textSecondary)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .padding(.top, 8)
+    }
 
+    private func perkRow(_ perk: Perk) -> some View {
+        HStack(spacing: 14) {
+            Image(systemName: perk.icon)
+                .font(.system(size: 18, weight: .bold)).foregroundStyle(PushMart.coral)
+                .frame(width: 46, height: 46).background(Circle().fill(PushMart.coral.opacity(0.14)))
+            VStack(alignment: .leading, spacing: 2) {
+                Text(perk.title).font(PushMart.headline(16)).foregroundStyle(PushMart.textPrimary)
+                Text(perk.subtitle).font(PushMart.body(13)).foregroundStyle(PushMart.textSecondary)
+            }
             Spacer()
         }
-        .padding(.vertical, 6)
-        .padding(.horizontal, 12)
-        .background(
-            RoundedRectangle(cornerRadius: 8)
-                .fill(Color.white.opacity(0.05))
-        )
+        .padding(14)
+        .background(RoundedRectangle(cornerRadius: PushMart.radiusCard, style: .continuous).fill(PushMart.surface)
+            .overlay(RoundedRectangle(cornerRadius: PushMart.radiusCard, style: .continuous).strokeBorder(PushMart.stroke, lineWidth: 1)))
     }
-}
 
-struct CodeExampleRow: View {
-    let title: String
-    let code: String
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text(title)
-                .font(.system(size: 13, weight: .semibold))
-                .foregroundColor(.cyan)
-
-            Text(code)
-                .font(.system(size: 11, weight: .medium, design: .monospaced))
-                .foregroundColor(.white.opacity(0.8))
-                .padding(.vertical, 8)
-                .padding(.horizontal, 12)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .background(
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(Color.black.opacity(0.3))
-                )
+    private var about: some View {
+        PushMartCard {
+            VStack(alignment: .leading, spacing: 10) {
+                Text("About").font(PushMart.headline(17)).foregroundStyle(PushMart.textPrimary)
+                Text("PushMart is a modern shopping app for people who want the good stuff first. We send a little nudge when your order moves, when a drop goes live, or when something you love is back — never spam.")
+                    .font(PushMart.body(14)).foregroundStyle(PushMart.textSecondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
         }
     }
 }
