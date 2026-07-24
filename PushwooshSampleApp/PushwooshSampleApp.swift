@@ -60,8 +60,9 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         // in the demo views are idempotent and stay as-is; these are the ones that matter for reconnect.
         if #available(iOS 16.1, *) {
             Pushwoosh.LiveActivities.setup(LiveActivityDemoAttributes.self)
-            Pushwoosh.LiveActivities.setup(FIFAMatchAttributes.self)
+            Pushwoosh.LiveActivities.setup(LiveScoreAttributes.self)
             Pushwoosh.LiveActivities.setup(RadioBroadcastAttributes.self)
+            Pushwoosh.LiveActivities.setup(ElectionAttributes.self)
             Pushwoosh.LiveActivities.defaultSetup()
         }
 
@@ -572,6 +573,7 @@ final class LocalPushwooshServer {
         case campaign = "A3795-31FA5.zip"
         case client = "A3795-31FA5-client.zip"
         case server = "A3795-31FA5-server.zip"
+        case native = "A3795-31FA5-native.zip"
 
         init?(zipName: String) {
             self.init(rawValue: zipName)
@@ -581,7 +583,8 @@ final class LocalPushwooshServer {
     private static let eventToVariant: [String: Variant] = [
         "showRichMedia": .campaign,
         "showRichMediaClient": .client,
-        "showRichMediaServer": .server
+        "showRichMediaServer": .server,
+        "showNativeInApp": .native
     ]
 
     func startIfNeeded() {
@@ -684,7 +687,7 @@ final class LocalPushwooshServer {
             return Data()
         }
         switch variant {
-        case .campaign:
+        case .campaign, .native:
             break
         case .client:
             json.removeValue(forKey: "style_settings")
@@ -701,10 +704,38 @@ final class LocalPushwooshServer {
     }
 
     private static func buildZip(for variant: Variant) -> Data {
-        ZipBuilder.archive(entries: [
+        var entries: [(name: String, data: Data)] = [
             ("index.html", Data(base64Encoded: indexHTMLBase64) ?? Data()),
             ("pushwoosh.json", pushwooshJSON(for: variant))
-        ])
+        ]
+        if variant == .native {
+            entries.append(("native-config.json", nativeConfigJSON()))
+        }
+        return ZipBuilder.archive(entries: entries)
+    }
+
+    private static func nativeConfigJSON() -> Data {
+        let config: [String: Any] = [
+            "displayType": "modal",
+            "modal": [
+                "showClose": false,
+                "dimBackground": false,
+                "background": "#FFFFFFFF",
+                "title": ["text": "Native In-App ✅", "color": "#111111FF"],
+                "message": ["text": "Delivered via postEvent -> ZIP -> native-config.json split.", "color": "#333333FF"],
+                "buttons": [
+                    ["text": ["text": "Got it", "color": "#111111FF"],
+                     "background": "#FFFFFFFF",
+                     "border": ["color": "#111111FF", "radius": 12],
+                     "action": ["type": "close"]],
+                    ["text": ["text": "Open Pushwoosh", "color": "#FFFFFFFF"],
+                     "background": "#0E72E5FF",
+                     "border": ["color": "#0E72E5FF", "radius": 12],
+                     "action": ["type": "url", "url": "https://www.pushwoosh.com"]]
+                ]
+            ]
+        ]
+        return (try? JSONSerialization.data(withJSONObject: config)) ?? Data()
     }
 
     private struct HTTPRequest {

@@ -538,6 +538,21 @@ struct MediaView: View {
                                       note: "Server style_settings - shows the same message with style_settings simulated from the server side.")
                              ])
 
+                    ModernButton(
+                        title: "Native in-app (split)",
+                        icon: "bubble.left.and.bubble.right.fill",
+                        gradient: [.pink, .purple]
+                    ) {
+                        triggerMockRichMedia(event: "showNativeInApp")
+                    }
+                    .sdkNote("Native in-app split (postEvent -> ZIP -> native-config.json)",
+                             "The mock server serves a rich-media ZIP that also contains native-config.json. The SDK downloads and unzips it, detects the native config, and routes it to the PushwooshInApp module instead of the HTML rich media.",
+                             docs: "Same production chain as the buttons above; the only difference is the ZIP carries a native-config.json, which the SDK's splitter picks up and hands to the native in-app module.",
+                             calls: [
+                                .init(code: "postEvent(\"showNativeInApp\", withAttributes: [:])",
+                                      note: "Serves a ZIP with native-config.json - the splitter renders a native modal instead of the HTML rich media.")
+                             ])
+
                     if let error = mockServerError {
                         Text(error)
                             .font(.system(size: 12, weight: .medium))

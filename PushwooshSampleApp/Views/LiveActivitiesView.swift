@@ -169,10 +169,53 @@ final class ManualLiveActivityController: ObservableObject {
     }
 }
 
+@MainActor
+final class StoryReelLiveActivityController: ObservableObject {
+    @Published var isRunning = false
+    @Published var status = "Idle"
+
+    private var activityBoxes: [Any] = []
+
+    // Starts one Live Activity PER story, so iOS groups the cards on the Lock
+    // Screen under the app (the StoryReel look), instead of a single stacked card.
+    func start() {
+        guard #available(iOS 16.1, *) else { status = "Needs iOS 16.1"; return }
+        guard activityBoxes.isEmpty else { status = "StoryReel already running — Stop first"; return }
+        for story in StoryReelAttributes.demoStories {
+            do {
+                let activity = try Activity<StoryReelAttributes>.request(
+                    attributes: story.attributes,
+                    contentState: story.state,
+                    pushType: nil
+                )
+                activityBoxes.append(activity)
+            } catch {
+                status = "Request error: \(error.localizedDescription)"
+            }
+        }
+        isRunning = !activityBoxes.isEmpty
+        if isRunning { status = "Pinned \(activityBoxes.count) StoryReel cards" }
+    }
+
+    func stop() {
+        guard #available(iOS 16.1, *) else { return }
+        for box in activityBoxes {
+            if let activity = box as? Activity<StoryReelAttributes> {
+                Task { await activity.end(nil, dismissalPolicy: .immediate) }
+            }
+        }
+        activityBoxes.removeAll()
+        isRunning = false
+        status = "Stopped"
+    }
+}
+
 struct LiveActivitiesView: View {
     @ObservedObject private var controller = ManualLiveActivityController.shared
-    @State private var showFIFA = false
+    @StateObject private var storyReel = StoryReelLiveActivityController()
+    @State private var showLiveScore = false
     @State private var showRadio = false
+    @State private var showElection = false
 
     var body: some View {
         ZStack {
@@ -192,6 +235,8 @@ struct LiveActivitiesView: View {
 
                     defaultCard
 
+                    storyReelCard
+
                     showcasesSection
 
                     howItWorksCard
@@ -204,11 +249,14 @@ struct LiveActivitiesView: View {
             }
             .scrollDismissesKeyboard(.immediately)
         }
-        .fullScreenCover(isPresented: $showFIFA) {
-            ShowcaseContainer { FIFALiveActivityView() }
+        .fullScreenCover(isPresented: $showLiveScore) {
+            ShowcaseContainer { LiveScoreView() }
         }
         .fullScreenCover(isPresented: $showRadio) {
             ShowcaseContainer { RadioLiveActivityView() }
+        }
+        .fullScreenCover(isPresented: $showElection) {
+            ShowcaseContainer { ElectionLiveActivityView() }
         }
     }
 
@@ -227,7 +275,7 @@ struct LiveActivitiesView: View {
                 title: "Flash-sale drops",
                 subtitle: "Schedule Lock Screen countdowns for upcoming drops",
                 badge: "🔥 4 drops"
-            ) { showFIFA = true }
+            ) { showLiveScore = true }
 
             ShowcaseCard(
                 icon: "bell.badge.fill",
@@ -236,6 +284,42 @@ struct LiveActivitiesView: View {
                 subtitle: "Get pinged the moment your saved items are back",
                 badge: "🔔 4 items"
             ) { showRadio = true }
+
+            ShowcaseCard(
+                icon: "chart.bar.fill",
+                iconColors: [PushMart.warning, PushMart.tangerine],
+                title: "Election night",
+                subtitle: "Local Live Activity that updates seat results round by round",
+                badge: "🗳 Live results"
+            ) { showElection = true }
+        }
+    }
+
+    private var storyReelCard: some View {
+        PushMartCard {
+            VStack(alignment: .leading, spacing: 14) {
+                Text("StoryReel")
+                    .font(PushMart.headline(17)).foregroundStyle(PushMart.textPrimary)
+
+                Text("Pins a StoryReel of unfinished reads to your Lock Screen — each card with its own Continue button, tappable straight into the app.")
+                    .font(PushMart.body(13))
+                    .foregroundColor(PushMart.textSecondary)
+                    .lineSpacing(3)
+
+                PushMartButton(
+                    title: storyReel.isRunning ? "StoryReel active — tap to stop" : "Launch StoryReel",
+                    icon: storyReel.isRunning ? "stop.circle.fill" : "play.rectangle.on.rectangle.fill",
+                    style: storyReel.isRunning ? .secondary : .primary
+                ) {
+                    storyReel.isRunning ? storyReel.stop() : storyReel.start()
+                }
+
+                if storyReel.isRunning {
+                    Text(storyReel.status)
+                        .font(PushMart.body(12))
+                        .foregroundColor(PushMart.textTertiary)
+                }
+            }
         }
     }
 

@@ -44,5 +44,7 @@
 		<string>remote-notification</string>
 		<string>voip</string>
 	</array>
+	<key>UIPrefersShowingLanguageSettings</key>
+	<true/>
 </dict>
 </plist>

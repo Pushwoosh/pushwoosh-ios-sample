@@ -1,5 +1,5 @@
 //
-//  FIFAMatchAttributes.swift
+//  LiveScoreAttributes.swift
 //  LiveActivityDemo
 //
 //  Created by André Kis on 19.06.26.
@@ -12,7 +12,7 @@ import ActivityKit
 import PushwooshLiveActivities
 
 @available(iOS 16.1, *)
-struct FIFAMatchAttributes: PushwooshLiveActivityAttributes {
+struct LiveScoreAttributes: PushwooshLiveActivityAttributes {
     var homeTeam: String
     var awayTeam: String
     var homeAbbr: String

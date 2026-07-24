@@ -10,12 +10,14 @@
 		0046A17514E5AAE763429237 /* MonetizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FE6813E2194A9871A4C643 /* MonetizationView.swift */; };
 		03266DC3088247269E64140F /* RadioBroadcastAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B51D72EDD58451D94CB5F31 /* RadioBroadcastAttributes.swift */; };
 		09CEBDEC235A4F6E9A68F952 /* RadioLiveActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB5C86FBCF7496687BB5EE3 /* RadioLiveActivityView.swift */; };
+		1199EC72EDDF46C4B2B751FE /* StoryReelAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAF0D824C96962D50286449 /* StoryReelAttributes.swift */; };
 		1F117EBA4AE53574061FE000 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB7D7B9A43C03E5F446254B /* Product.swift */; };
 		27AA17BB8C97CA72CA682B1D /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC56EAC2F3087167AA52106F /* UserView.swift */; };
 		29A67985B2C6CC406D09E891 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F223C2D8A834ADFD6A16B139 /* CartView.swift */; };
+		35E202F20DEBA4643A7BEFF7 /* ElectionAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC556420342822A8452D847D /* ElectionAttributes.swift */; };
 		37B184AE8406623F4CE0678E /* DefaultLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B746D669D56EFFB3145DF /* DefaultLiveActivity.swift */; };
 		3A1D90677B35BE639375C2A5 /* ProfileTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0E908013CD5F6FDB3C9214 /* ProfileTabView.swift */; };
-		40E541F0D8C5B3EE17958184 /* FIFALiveActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE162F898AF9CD8D49E0E6 /* FIFALiveActivityView.swift */; };
+		40E541F0D8C5B3EE17958184 /* LiveScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE162F898AF9CD8D49E0E6 /* LiveScoreView.swift */; };
 		440E52A52CE39B97006555DD /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E52952CE39B18006555DD /* Actions.swift */; };
 		440E52A72CE39B97006555DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E529B2CE39B18006555DD /* ContentView.swift */; };
 		440E52A82CE39B97006555DD /* PushwooshSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E529E2CE39B18006555DD /* PushwooshSampleApp.swift */; };
@@ -40,8 +42,13 @@
 		44LAD0010001000000000005 /* LiveActivityDemoLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44LAD0020001000000000005 /* LiveActivityDemoLiveActivity.swift */; };
 		44LAD0010001000000000006 /* LiveActivityDemoAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44LAD0020001000000000003 /* LiveActivityDemoAttributes.swift */; };
 		4A8F2947FC92A6692FB5433A /* LiveActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AEFBB6D3104619DAC8D5BF /* LiveActivitiesView.swift */; };
+		59A409F9271E4E02007B5365 /* ElectionLiveActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197AD5E980B92B1FC6F45C06 /* ElectionLiveActivityView.swift */; };
 		5D99096B70C62749A3249FB9 /* ResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C1400FEEF51903261DA58 /* ResultPresenter.swift */; };
+		5EB8555879F45F5F5E0EA06B /* ElectionActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7D0DAA1E92CDEFFADD835B /* ElectionActivity.swift */; };
 		648308D755C9E0A9B3EA445E /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81DC20AB784A523D91F998E /* DeveloperView.swift */; };
+		701548745F4A3AF06476559C /* InAppMessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFB9D63104FBD4D6F9AA39C /* InAppMessagesView.swift */; };
+		776566E23ADF50BDE3604A37 /* StoryReelAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAF0D824C96962D50286449 /* StoryReelAttributes.swift */; };
+		79A5EFE4B33CE1D8F1867157 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 14FB0A46DBEF58ADBA4FEEC9 /* Localizable.xcstrings */; };
 		7CE0A85CD394777F5281F544 /* OnboardingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B40A8D897E49BA99AE244 /* OnboardingFlow.swift */; };
 		7EE6EA088570722CE6B3D698 /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FF7D25306CB0EFA2D7510 /* SupportView.swift */; };
 		84CA7B37F56E183559089155 /* PushwooshHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0535BCC718AA9746274050A2 /* PushwooshHelper.swift */; };
@@ -49,23 +56,26 @@
 		8DDFF6F5A28DC1B9F4C58B5E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96C29C15023CB873706F032 /* Theme.swift */; };
 		9522BB923BF2215230C78E28 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 006E9CE3B6861A650439B537 /* PrivacyInfo.xcprivacy */; };
 		9E40390893D1DE9A8BE0F339 /* DeepLinkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4C77F9DDAA8EF85132EC3E /* DeepLinkRouter.swift */; };
+		9E839F55F99281D842B024F0 /* StoryReelActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F6A58F198FE9D37D0D2D0E /* StoryReelActivity.swift */; };
 		A07F40B7F2B84801AA6939E5 /* RadioBroadcastAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B51D72EDD58451D94CB5F31 /* RadioBroadcastAttributes.swift */; };
 		A0A9F0000000000000000701 /* VoIPController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A9F0000000000000000702 /* VoIPController.swift */; };
+		A7C4D91E2B11AA22BB33CC01 /* InAppDemoScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C4D91E2B11AA22BB33CC02 /* InAppDemoScreens.swift */; };
 		A9CBBF9914B1A51714384F63 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49237E84D72713266B80C9BB /* SettingsView.swift */; };
 		B1B2B3B4B5B6B7B8B9BABBBC /* InboxKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2C3C4C5C6C7C8C9CACBCC /* InboxKitView.swift */; };
 		B3F068E548D4DE2600EE4FE5 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ECA0E9A6670A4E7345C675 /* NotificationsView.swift */; };
 		B71906F692298194708CF196 /* DeviceInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDF59DEAA59F2DF7990DA7D /* DeviceInfoView.swift */; };
 		BDAC77AA94E74BF0A16E5956 /* RadioBroadcastActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1B58B199C34108A4EBD6DB /* RadioBroadcastActivity.swift */; };
 		CC55CC55CC55CC55CC55CC55 /* PromoCaptionedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC66CC66CC66CC66CC66CC66 /* PromoCaptionedCell.swift */; };
+		D1884FA1BB5C1CC07D4C2786 /* ElectionAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC556420342822A8452D847D /* ElectionAttributes.swift */; };
 		D3249506E573A0953DAFE2AC /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB2D244DF1921BA1CCB8366 /* RegistrationView.swift */; };
 		D9ECA01F8CB4CA996299C97F /* CommunicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA11CD4D3B9E958790FFF7 /* CommunicationView.swift */; };
-		E057B79B9B7D8A6AEE2FB326 /* FIFAMatchAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEE2DE4C38D1F8C9F165058 /* FIFAMatchAttributes.swift */; };
+		E057B79B9B7D8A6AEE2FB326 /* LiveScoreAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEE2DE4C38D1F8C9F165058 /* LiveScoreAttributes.swift */; };
 		E1F0F4CC8E0B831673A48C24 /* AppGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAD570046C716DF92405E7E /* AppGate.swift */; };
 		E4DC09FBF8645BB2537253F1 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24A65424E20D8924C8FDA9 /* TagsView.swift */; };
-		EC4F2F0E5539AF0EA4DA3FB9 /* FIFAMatchAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEE2DE4C38D1F8C9F165058 /* FIFAMatchAttributes.swift */; };
+		EC4F2F0E5539AF0EA4DA3FB9 /* LiveScoreAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEE2DE4C38D1F8C9F165058 /* LiveScoreAttributes.swift */; };
 		F1A2B3C4D5E6F78901234567 /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6789012345678 /* MediaView.swift */; };
 		F38AF88FF7B036E09BC7BB6E /* InboxDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EF1E01A813F4F8B9E27A6D /* InboxDataView.swift */; };
-		F88D6149E0EBA078A08E72F3 /* FIFAMatchActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E294DB0B7EFFE5F26E00B9 /* FIFAMatchActivity.swift */; };
+		F88D6149E0EBA078A08E72F3 /* LiveScoreActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E294DB0B7EFFE5F26E00B9 /* LiveScoreActivity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,18 +145,21 @@
 		060F9F7A79469EEF1CC0861A /* MonetizationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MonetizationView.swift; path = Views/MonetizationView.swift; sourceTree = "<group>"; };
 		061F4EE94DCBF04AC553DBA8 /* RootTabView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
 		0EDF59DEAA59F2DF7990DA7D /* DeviceInfoView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeviceInfoView.swift; sourceTree = "<group>"; };
+		14FB0A46DBEF58ADBA4FEEC9 /* Localizable.xcstrings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		197AD5E980B92B1FC6F45C06 /* ElectionLiveActivityView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ElectionLiveActivityView.swift; sourceTree = "<group>"; };
 		1A2BFF0A4BF8CFD57BF52F22 /* TagsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TagsView.swift; path = Views/TagsView.swift; sourceTree = "<group>"; };
-		1BEE2DE4C38D1F8C9F165058 /* FIFAMatchAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FIFAMatchAttributes.swift; sourceTree = "<group>"; };
+		1BEE2DE4C38D1F8C9F165058 /* LiveScoreAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveScoreAttributes.swift; sourceTree = "<group>"; };
 		25641123A1CCE56547233DEB /* DeviceInfoView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeviceInfoView.swift; path = Views/DeviceInfoView.swift; sourceTree = "<group>"; };
 		2B51D72EDD58451D94CB5F31 /* RadioBroadcastAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RadioBroadcastAttributes.swift; sourceTree = "<group>"; };
 		2B8E67B391369BF4A0B0CBF1 /* SideMenu.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenu.swift; path = Components/SideMenu.swift; sourceTree = "<group>"; };
 		2BB7D7B9A43C03E5F446254B /* Product.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		2F6FF7D25306CB0EFA2D7510 /* SupportView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SupportView.swift; sourceTree = "<group>"; };
-		31FE162F898AF9CD8D49E0E6 /* FIFALiveActivityView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FIFALiveActivityView.swift; sourceTree = "<group>"; };
+		31FE162F898AF9CD8D49E0E6 /* LiveScoreView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveScoreView.swift; sourceTree = "<group>"; };
 		37AEFBB6D3104619DAC8D5BF /* LiveActivitiesView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveActivitiesView.swift; sourceTree = "<group>"; };
 		388A50ADF94BA9205B78BA70 /* PushwooshGeozones.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = PushwooshGeozones.xcframework; path = ../../../Pushwoosh/iOS_SDK/Framework/PushwooshGeozones.xcframework; sourceTree = "<group>"; };
 		3A4C77F9DDAA8EF85132EC3E /* DeepLinkRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeepLinkRouter.swift; sourceTree = "<group>"; };
 		423B40A8D897E49BA99AE244 /* OnboardingFlow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OnboardingFlow.swift; path = PushwooshSampleApp/Onboarding/OnboardingFlow.swift; sourceTree = "<group>"; };
+		43F6A58F198FE9D37D0D2D0E /* StoryReelActivity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoryReelActivity.swift; sourceTree = "<group>"; };
 		440E52952CE39B18006555DD /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		440E52982CE39B18006555DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		440E529A2CE39B18006555DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -180,18 +193,23 @@
 		44LAD0020001000000000005 /* LiveActivityDemoLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityDemoLiveActivity.swift; sourceTree = "<group>"; };
 		44LAD0020001000000000006 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49237E84D72713266B80C9BB /* SettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		4BAF0D824C96962D50286449 /* StoryReelAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoryReelAttributes.swift; sourceTree = "<group>"; };
 		4D0E908013CD5F6FDB3C9214 /* ProfileTabView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileTabView.swift; sourceTree = "<group>"; };
 		4D7CE3B3145A724CF9CCAA57 /* PushwooshCore.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = PushwooshCore.xcframework; path = ../../../Pushwoosh/iOS_SDK/Framework/PushwooshCore.xcframework; sourceTree = "<group>"; };
 		4EAFD9AF3681C5CB3396B850 /* CommunicationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CommunicationView.swift; path = Views/CommunicationView.swift; sourceTree = "<group>"; };
 		57361A985743883301390D63 /* PushwooshSampleApp-Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PushwooshSampleApp-Bridging-Header.h"; sourceTree = "<group>"; };
-		64E294DB0B7EFFE5F26E00B9 /* FIFAMatchActivity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FIFAMatchActivity.swift; sourceTree = "<group>"; };
+		64E294DB0B7EFFE5F26E00B9 /* LiveScoreActivity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveScoreActivity.swift; sourceTree = "<group>"; };
 		6A6FC4AC8DB27BF75F87170B /* SettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SettingsView.swift; path = Views/SettingsView.swift; sourceTree = "<group>"; };
+		6B7D0DAA1E92CDEFFADD835B /* ElectionActivity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ElectionActivity.swift; sourceTree = "<group>"; };
+		6DFB9D63104FBD4D6F9AA39C /* InAppMessagesView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InAppMessagesView.swift; sourceTree = "<group>"; };
 		710B014DF4524DFB08474981 /* PushwooshFramework.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = PushwooshFramework.xcframework; path = ../../../Pushwoosh/iOS_SDK/Framework/PushwooshFramework.xcframework; sourceTree = "<group>"; };
 		730C1400FEEF51903261DA58 /* ResultPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResultPresenter.swift; sourceTree = "<group>"; };
 		A03E7CB6290F7C6D3939FD09 /* RegistrationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RegistrationView.swift; path = Views/RegistrationView.swift; sourceTree = "<group>"; };
 		A0A9F0000000000000000702 /* VoIPController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VoIPController.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F6789012345678 /* MediaView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MediaView.swift; sourceTree = "<group>"; };
 		A6EF1E01A813F4F8B9E27A6D /* InboxDataView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InboxDataView.swift; sourceTree = "<group>"; };
+		A7C4D91E2B11AA22BB33CC02 /* InAppDemoScreens.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InAppDemoScreens.swift; sourceTree = "<group>"; };
+		AC556420342822A8452D847D /* ElectionAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ElectionAttributes.swift; sourceTree = "<group>"; };
 		B509FDE14E171852249FC32D /* UserView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserView.swift; path = Views/UserView.swift; sourceTree = "<group>"; };
 		B68B52F7B69DC6A99FA15DAC /* NotificationsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NotificationsView.swift; path = Views/NotificationsView.swift; sourceTree = "<group>"; };
 		B7FE6813E2194A9871A4C643 /* MonetizationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MonetizationView.swift; sourceTree = "<group>"; };
@@ -276,13 +294,16 @@
 				A1B2C3D4E5F6789012345678 /* MediaView.swift */,
 				C1C2C3C4C5C6C7C8C9CACBCC /* InboxKitView.swift */,
 				CC66CC66CC66CC66CC66CC66 /* PromoCaptionedCell.swift */,
-				31FE162F898AF9CD8D49E0E6 /* FIFALiveActivityView.swift */,
+				6DFB9D63104FBD4D6F9AA39C /* InAppMessagesView.swift */,
+				A7C4D91E2B11AA22BB33CC02 /* InAppDemoScreens.swift */,
+				31FE162F898AF9CD8D49E0E6 /* LiveScoreView.swift */,
 				CBB5C86FBCF7496687BB5EE3 /* RadioLiveActivityView.swift */,
 				061F4EE94DCBF04AC553DBA8 /* RootTabView.swift */,
 				4D0E908013CD5F6FDB3C9214 /* ProfileTabView.swift */,
 				F223C2D8A834ADFD6A16B139 /* CartView.swift */,
 				D81DC20AB784A523D91F998E /* DeveloperView.swift */,
 				2F6FF7D25306CB0EFA2D7510 /* SupportView.swift */,
+				197AD5E980B92B1FC6F45C06 /* ElectionLiveActivityView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -320,6 +341,7 @@
 				DAD0997CEB53B89D457FCD8E /* Debug */,
 				57361A985743883301390D63 /* PushwooshSampleApp-Bridging-Header.h */,
 				006E9CE3B6861A650439B537 /* PrivacyInfo.xcprivacy */,
+				14FB0A46DBEF58ADBA4FEEC9 /* Localizable.xcstrings */,
 			);
 			path = PushwooshSampleApp;
 			sourceTree = "<group>";
@@ -353,11 +375,15 @@
 				44LAD0020001000000000003 /* LiveActivityDemoAttributes.swift */,
 				44LAD0020001000000000004 /* LiveActivityDemoBundle.swift */,
 				44LAD0020001000000000005 /* LiveActivityDemoLiveActivity.swift */,
-				1BEE2DE4C38D1F8C9F165058 /* FIFAMatchAttributes.swift */,
-				64E294DB0B7EFFE5F26E00B9 /* FIFAMatchActivity.swift */,
+				1BEE2DE4C38D1F8C9F165058 /* LiveScoreAttributes.swift */,
+				64E294DB0B7EFFE5F26E00B9 /* LiveScoreActivity.swift */,
 				DA8B746D669D56EFFB3145DF /* DefaultLiveActivity.swift */,
 				2B51D72EDD58451D94CB5F31 /* RadioBroadcastAttributes.swift */,
 				FC1B58B199C34108A4EBD6DB /* RadioBroadcastActivity.swift */,
+				4BAF0D824C96962D50286449 /* StoryReelAttributes.swift */,
+				43F6A58F198FE9D37D0D2D0E /* StoryReelActivity.swift */,
+				AC556420342822A8452D847D /* ElectionAttributes.swift */,
+				6B7D0DAA1E92CDEFFADD835B /* ElectionActivity.swift */,
 			);
 			path = LiveActivityDemo;
 			sourceTree = "<group>";
@@ -606,6 +632,8 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				fr,
 			);
 			mainGroup = 44556FCA2BC96D6000E92413;
 			productRefGroup = 44556FD42BC96D6000E92413 /* Products */;
@@ -643,6 +671,7 @@
 			files = (
 				9522BB923BF2215230C78E28 /* PrivacyInfo.xcprivacy in Resources */,
 				44ADD1CE00010000000000A1 /* Assets.xcassets in Resources */,
+				79A5EFE4B33CE1D8F1867157 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,11 +708,15 @@
 				44LAD0010001000000000003 /* LiveActivityDemoAttributes.swift in Sources */,
 				44LAD0010001000000000004 /* LiveActivityDemoBundle.swift in Sources */,
 				44LAD0010001000000000005 /* LiveActivityDemoLiveActivity.swift in Sources */,
-				E057B79B9B7D8A6AEE2FB326 /* FIFAMatchAttributes.swift in Sources */,
-				F88D6149E0EBA078A08E72F3 /* FIFAMatchActivity.swift in Sources */,
+				E057B79B9B7D8A6AEE2FB326 /* LiveScoreAttributes.swift in Sources */,
+				F88D6149E0EBA078A08E72F3 /* LiveScoreActivity.swift in Sources */,
 				37B184AE8406623F4CE0678E /* DefaultLiveActivity.swift in Sources */,
 				03266DC3088247269E64140F /* RadioBroadcastAttributes.swift in Sources */,
 				BDAC77AA94E74BF0A16E5956 /* RadioBroadcastActivity.swift in Sources */,
+				776566E23ADF50BDE3604A37 /* StoryReelAttributes.swift in Sources */,
+				9E839F55F99281D842B024F0 /* StoryReelActivity.swift in Sources */,
+				D1884FA1BB5C1CC07D4C2786 /* ElectionAttributes.swift in Sources */,
+				5EB8555879F45F5F5E0EA06B /* ElectionActivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,8 +743,10 @@
 				CC55CC55CC55CC55CC55CC55 /* PromoCaptionedCell.swift in Sources */,
 				F1A2B3C4D5E6F78901234567 /* MediaView.swift in Sources */,
 				44LAD0010001000000000006 /* LiveActivityDemoAttributes.swift in Sources */,
-				EC4F2F0E5539AF0EA4DA3FB9 /* FIFAMatchAttributes.swift in Sources */,
-				40E541F0D8C5B3EE17958184 /* FIFALiveActivityView.swift in Sources */,
+				701548745F4A3AF06476559C /* InAppMessagesView.swift in Sources */,
+				A7C4D91E2B11AA22BB33CC01 /* InAppDemoScreens.swift in Sources */,
+				EC4F2F0E5539AF0EA4DA3FB9 /* LiveScoreAttributes.swift in Sources */,
+				40E541F0D8C5B3EE17958184 /* LiveScoreView.swift in Sources */,
 				A07F40B7F2B84801AA6939E5 /* RadioBroadcastAttributes.swift in Sources */,
 				09CEBDEC235A4F6E9A68F952 /* RadioLiveActivityView.swift in Sources */,
 				8DDFF6F5A28DC1B9F4C58B5E /* Theme.swift in Sources */,
@@ -726,6 +761,9 @@
 				A0A9F0000000000000000701 /* VoIPController.swift in Sources */,
 				648308D755C9E0A9B3EA445E /* DeveloperView.swift in Sources */,
 				7EE6EA088570722CE6B3D698 /* SupportView.swift in Sources */,
+				1199EC72EDDF46C4B2B751FE /* StoryReelAttributes.swift in Sources */,
+				35E202F20DEBA4643A7BEFF7 /* ElectionAttributes.swift in Sources */,
+				59A409F9271E4E02007B5365 /* ElectionLiveActivityView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -786,7 +824,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.PushwooshSampleApp.ContentExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -818,7 +856,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.PushwooshSampleApp.ContentExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -851,7 +889,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.PushwooshSampleApp.LiveActivityDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -884,7 +922,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.PushwooshSampleApp.LiveActivityDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1047,7 +1085,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.PushwooshSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1088,7 +1126,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.PushwooshSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1120,7 +1158,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.PushwooshSampleApp.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1152,7 +1190,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.PushwooshSampleApp.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1173,7 +1211,7 @@
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.newdemo.newdemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1194,7 +1232,7 @@
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.newdemo.newdemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

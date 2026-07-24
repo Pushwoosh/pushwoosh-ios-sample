@@ -94,7 +94,7 @@ struct PushMartTabBar: View {
                                     .offset(x: 13, y: -8)
                             }
                         }
-                        Text(item.title).font(.system(size: 10, weight: .semibold, design: .rounded))
+                        Text(LocalizedStringKey(item.title)).font(.system(size: 10, weight: .semibold, design: .rounded))
                     }
                     .foregroundStyle(selection == item ? AnyShapeStyle(PushMart.brandHorizontal) : AnyShapeStyle(PushMart.textTertiary))
                     .frame(maxWidth: .infinity)

@@ -1,5 +1,5 @@
 //
-//  FIFAMatchActivity.swift
+//  LiveScoreActivity.swift
 //  LiveActivityDemo
 //
 //  Created by André Kis on 19.06.26.
@@ -14,10 +14,10 @@ private let pitchGreen = Color(red: 0.04, green: 0.30, blue: 0.16)
 private let neon = Color(red: 0.18, green: 0.85, blue: 0.55)
 
 @available(iOS 16.1, *)
-struct FIFAMatchActivity: Widget {
+struct LiveScoreActivity: Widget {
     var body: some WidgetConfiguration {
-        ActivityConfiguration(for: FIFAMatchAttributes.self) { context in
-            FIFALockScreenView(context: context)
+        ActivityConfiguration(for: LiveScoreAttributes.self) { context in
+            LiveScoreLockScreenView(context: context)
                 .activitySystemActionForegroundColor(.white)
 
         } dynamicIsland: { context in
@@ -67,7 +67,7 @@ struct FIFAMatchActivity: Widget {
         }
     }
 
-    private func clockPill(_ state: FIFAMatchAttributes.ContentState) -> some View {
+    private func clockPill(_ state: LiveScoreAttributes.ContentState) -> some View {
         Text(state.clock)
             .font(.system(size: 11, weight: .bold, design: .monospaced))
             .foregroundStyle(state.isLive ? .black : .white)
@@ -78,8 +78,8 @@ struct FIFAMatchActivity: Widget {
 }
 
 @available(iOS 16.1, *)
-struct FIFALockScreenView: View {
-    let context: ActivityViewContext<FIFAMatchAttributes>
+struct LiveScoreLockScreenView: View {
+    let context: ActivityViewContext<LiveScoreAttributes>
 
     var body: some View {
         VStack(spacing: 10) {
@@ -158,13 +158,13 @@ struct FIFALockScreenView: View {
 }
 
 @available(iOS 16.1, *)
-extension FIFAMatchAttributes {
-    fileprivate static var final: FIFAMatchAttributes {
-        FIFAMatchAttributes(
+extension LiveScoreAttributes {
+    fileprivate static var final: LiveScoreAttributes {
+        LiveScoreAttributes(
             homeTeam: "Argentina", awayTeam: "France",
             homeAbbr: "ARG", awayAbbr: "FRA",
             homeFlag: "🇦🇷", awayFlag: "🇫🇷",
-            competition: "FIFA World Cup · Final",
+            competition: "LiveScore World Cup · Final",
             venue: "Lusail Stadium",
             pushwoosh: PushwooshLiveActivityAttributeData(activityId: "preview")
         )
@@ -172,19 +172,19 @@ extension FIFAMatchAttributes {
 }
 
 @available(iOS 16.1, *)
-extension FIFAMatchAttributes.ContentState {
-    fileprivate static var kickoff: FIFAMatchAttributes.ContentState {
+extension LiveScoreAttributes.ContentState {
+    fileprivate static var kickoff: LiveScoreAttributes.ContentState {
         .init(homeScore: 0, awayScore: 0, clock: "KO 18:00", statusLine: "Kicks off at 18:00 · Lusail", isLive: false)
     }
-    fileprivate static var live: FIFAMatchAttributes.ContentState {
+    fileprivate static var live: LiveScoreAttributes.ContentState {
         .init(homeScore: 2, awayScore: 1, clock: "67'", statusLine: "⚽️ Messi 67' — Argentina lead", isLive: true)
     }
 }
 
 @available(iOS 16.2, *)
-#Preview("FIFA", as: .content, using: FIFAMatchAttributes.final) {
-    FIFAMatchActivity()
+#Preview("LiveScore", as: .content, using: LiveScoreAttributes.final) {
+    LiveScoreActivity()
 } contentStates: {
-    FIFAMatchAttributes.ContentState.kickoff
-    FIFAMatchAttributes.ContentState.live
+    LiveScoreAttributes.ContentState.kickoff
+    LiveScoreAttributes.ContentState.live
 }

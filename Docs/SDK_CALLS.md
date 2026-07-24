@@ -22,7 +22,7 @@ Most SDK calls route through `PushwooshHelper.safeCall { … }`, which skips the
 | Launch | `Pushwoosh.configure.delegate = self` (PWMessagingDelegate) |
 | Launch | `Pushwoosh.configure.purchaseDelegate = self` (PWPurchaseDelegate) + `PurchaseTracker` (SKPaymentTransactionObserver) → `Pushwoosh.configure.sendSKPaymentTransactions(_:)` |
 | Rich-media in-app purchase | `PWPurchaseDelegate.onPWInAppPurchaseHelperPaymentComplete/…Failed…/…Products/…Promoted/…RestoreFailed` |
-| Launch | `Pushwoosh.LiveActivities.setup(LiveActivityDemoAttributes/FIFAMatchAttributes/RadioBroadcastAttributes)` |
+| Launch | `Pushwoosh.LiveActivities.setup(LiveActivityDemoAttributes/LiveScoreAttributes/RadioBroadcastAttributes/ElectionAttributes)` |
 | Launch | `Pushwoosh.LiveActivities.defaultSetup()` — registers the SDK-bundled `DefaultLiveActivityAttributes` for push-to-start |
 | Launch | `Pushwoosh.media.setRichMediaPresentationStyle(.modal)` + `modalRichMedia.configure(…)` + `PWRichMediaManager.shared().delegate = self` / `Pushwoosh.media.modalRichMedia.setDelegate(self)`+`getDelegate()` (PWRichMediaPresentingDelegate: shouldPresent/didPresent/didClose/presentingDidFail) |
 | Reminders → "Enable notifications" button | Push Primer: `Pushwoosh.configure.pushPrimer.style/position/title/message/acceptButton/declineButton/backgroundColor/backgroundGradient/titleColor/messageColor/acceptButtonColor/acceptButtonTextColor/declineButtonColor/declineButtonTextColor/cornerRadius/buttonCornerRadius/buttonBorderColor/fallbackToSettings/minInterval/image.present { }` — presented on demand via `AppDelegate.showPushPrimer()`, not at launch |
@@ -104,10 +104,12 @@ Note: like the Android and Cordova samples, calls normally originate from a serv
 | Start live tracking | `Activity.request(pushType:.token)` → observe `pushTokenUpdates` → `Pushwoosh.LiveActivities.startLiveActivity(token:activityId:)` |
 | Stop tracking | `activity.end(…)` + `Pushwoosh.LiveActivities.stopLiveActivity(activityId:)` |
 | Enable remote start (iOS 17.2+) | observe `Activity.pushToStartTokenUpdates` → `Pushwoosh.LiveActivities.sendPushToStartLiveActivity(token:)` |
-| Flash-sale drops → Remind me / cancel | `Pushwoosh.LiveActivities.schedule(attributes:contentState:at:…)` / `cancel(FIFAMatchAttributes.self, activityId:)` |
+| Flash-sale drops → Remind me / cancel | `Pushwoosh.LiveActivities.schedule(attributes:contentState:at:…)` / `cancel(LiveScoreAttributes.self, activityId:)` |
 | Restock reminders → Notify me / cancel | `Pushwoosh.LiveActivities.schedule(…)` / `cancel(RadioBroadcastAttributes.self, activityId:)` |
+| Election night (local demo) | `Activity<ElectionAttributes>.request(pushType: nil)` → `activity.update(…)` per counting round → `activity.end(…)`; local ActivityKit only, no Pushwoosh push transport |
 | Start default activity | `Pushwoosh.LiveActivities.defaultStart(id, attributes:, content:) { error in }` — bundled `DefaultLiveActivityAttributes`, no custom struct needed (an iOS 26 scheduled `defaultStart(…at:alertTitle:alertBody:)` overload also exists) |
 | Stop default activity | `Pushwoosh.LiveActivities.stopLiveActivity(activityId:)` |
+| Launch StoryReel | one `Activity<StoryReelAttributes>.request(…, pushType:nil)` PER story (2) → iOS groups the cards on the Lock Screen under the app (the StoryReel look); local ActivityKit demo, no Pushwoosh call. Stop ends all. Covers are bundled images in the widget asset catalog |
 
 ## Inbox tab — Default / Custom chooser — `Views/InboxKitView.swift`
 
@@ -208,6 +210,7 @@ Note: like the Android and Cordova samples, calls normally originate from a serv
 |---|---|
 | Apply settings | `Pushwoosh.media.setRichMediaPresentationStyle(_:)` + `Pushwoosh.media.richMediaPresentationStyle()` (read-back) + `modalRichMedia.configure/setAnimationDuration/setDismissSwipeDirections/setHapticFeedbackType/setCornerType/close(after:)` + `PWRichMediaManager.shared().richMediaStyle = PWRichMediaStyle()` (backgroundColor/closeButtonPresentingDelay/shouldHideStatusBar/allowsInlineMediaPlayback/mediaPlaybackRequiresUserAction) |
 | Mock rich-media buttons | `PWInAppManager.shared().postEvent("showRichMedia…")` (via local mock server, `PWMockServerEnabled`) |
+| Native in-app (split) button | `PWInAppManager.shared().postEvent("showNativeInApp")` — mock serves a ZIP carrying `native-config.json`; the SDK splitter routes it to the native PushwooshInApp module instead of HTML rich media |
 
 ## Push custom-data deep links — `Helpers/DeepLinkRouter.swift`
 

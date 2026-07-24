@@ -1,0 +1,946 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "—" : {
+
+    },
+    "%@" : {
+
+    },
+    "%@ · %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ · %2$@"
+          }
+        }
+      }
+    },
+    "%@…" : {
+
+    },
+    "%lld" : {
+
+    },
+    "%lld new" : {
+
+    },
+    "%lld seconds" : {
+
+    },
+    "%lld unread offers" : {
+
+    },
+    "%llds" : {
+
+    },
+    "+%lld min" : {
+
+    },
+    "−70%" : {
+
+    },
+    "9+" : {
+
+    },
+    "12,400 km · Alpine Blue · full service history" : {
+
+    },
+    "585 hp · biturbo V8 · on the floor now" : {
+
+    },
+    "About" : {
+
+    },
+    "About Rich Media" : {
+
+    },
+    "Account" : {
+
+    },
+    "Actions" : {
+
+    },
+    "Add a custom preference" : {
+
+    },
+    "Add to cart · %@" : {
+
+    },
+    "Added to Apple Wallet" : {
+
+    },
+    "Added to cart" : {
+
+    },
+    "Adds .provisional to the authorization request — set before registering." : {
+
+    },
+    "Adds or removes a value from the `followed_brands` list tag with PWTagsBuilder." : {
+
+    },
+    "All caught up" : {
+
+    },
+    "Alpine A110 · 2024" : {
+
+    },
+    "AMG GT R" : {
+
+    },
+    "Animation Duration" : {
+
+    },
+    "Animations" : {
+
+    },
+    "APEX MOTORS" : {
+
+    },
+    "API token" : {
+
+    },
+    "App settings" : {
+
+    },
+    "Appearance" : {
+
+    },
+    "Ask quietly (provisional)" : {
+
+    },
+    "at %@" : {
+
+    },
+    "Auto Close" : {
+
+    },
+    "Banner while you're using PushMart" : {
+
+    },
+    "Bottom Left" : {
+
+    },
+    "Bottom Right" : {
+
+    },
+    "Browse the shop and add something you love." : {
+
+    },
+    "Bulk actions" : {
+
+    },
+    "Call me back" : {
+
+    },
+    "Calls" : {
+
+    },
+    "Check status" : {
+
+    },
+    "Check the current permission, push token and device id registered with PushMart." : {
+
+    },
+    "Choose how Rich Media content is displayed. Modal allows customization of position and animations." : {
+
+    },
+    "Clear" : {
+
+    },
+    "Clear all" : {
+
+    },
+    "Clear read" : {
+
+    },
+    "Close after: %lld seconds" : {
+
+    },
+    "Configure yours" : {
+
+    },
+    "Connect to a different Pushwoosh app. This unregisters the current device, switches the app code, then registers again." : {
+
+    },
+    "Connected" : {
+
+    },
+    "Contact Info" : {
+
+    },
+    "Control what PushMart syncs" : {
+
+    },
+    "Controls how much the SDK logs to the console." : {
+
+    },
+    "COPIED" : {
+
+    },
+    "COPIED ✓" : {
+
+    },
+    "COPY" : {
+
+    },
+    "Corner Radius" : {
+
+    },
+    "Corner Settings" : {
+
+    },
+    "Corners to Round" : {
+
+    },
+    "Current" : {
+
+    },
+    "Currently: %@" : {
+
+    },
+    "Data & sync" : {
+
+    },
+    "Default live activity" : {
+
+    },
+    "Default to video" : {
+
+    },
+    "Delegate callbacks land here — start a call, simulate an incoming one, or send a VoIP push." : {
+
+    },
+    "Delete all" : {
+
+    },
+    "Delivered right here on your device — allow notifications when prompted." : {
+
+    },
+    "Delivery details" : {
+
+    },
+    "Demo Application" : {
+
+    },
+    "Developer" : {
+
+    },
+    "Device" : {
+
+    },
+    "Device Info" : {
+
+    },
+    "Device passport" : {
+
+    },
+    "Diagnostics" : {
+
+    },
+    "Diagnostics · debug builds only" : {
+
+    },
+    "Disabled" : {
+
+    },
+    "Dismiss Animation" : {
+
+    },
+    "Done" : {
+
+    },
+    "Email" : {
+
+    },
+    "Email preferences" : {
+
+    },
+    "End call" : {
+
+    },
+    "Event log" : {
+
+    },
+    "Events" : {
+
+    },
+    "Every template gets its own themed screen.\nOpen one and trigger the in-app over real\napp content — as a campaign would land." : {
+
+    },
+    "Exclusive drops, live order tracking and deals picked just for you — all in one place." : {
+
+    },
+    "Exclusive drops, live order tracking and deals picked just for you." : {
+
+    },
+    "Exterior paint" : {
+
+    },
+    "Extra emails & merge" : {
+
+    },
+    "FLASH-SALE DROPS" : {
+
+    },
+    "Followed brands" : {
+
+    },
+    "Generic" : {
+
+    },
+    "Get order updates on" : {
+
+    },
+    "Get pinged the moment items are back" : {
+
+    },
+    "Handle type" : {
+
+    },
+    "Haptic Feedback" : {
+
+    },
+    "Home" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accueil"
+          }
+        }
+      }
+    },
+    "How can we help?" : {
+
+    },
+    "How live tracking works" : {
+
+    },
+    "How PushMart identifies this device" : {
+
+    },
+    "How your offers look in-app" : {
+
+    },
+    "In" : {
+
+    },
+    "in %@" : {
+
+    },
+    "IN-APP" : {
+
+    },
+    "Inbox" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Postfach"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Boîte de réception"
+          }
+        }
+      }
+    },
+    "Inbox data" : {
+
+    },
+    "Incoming call" : {
+
+    },
+    "Incoming timeout" : {
+
+    },
+    "Keep configuring while the film floats — the PiP lives in its own window." : {
+
+    },
+    "Language" : {
+
+    },
+    "Language, alerts & access" : {
+
+    },
+    "Legacy" : {
+
+    },
+    "LEGATOR" : {
+
+    },
+    "Let PushMart start your live order card from a campaign — even when the app is closed." : {
+
+    },
+    "LIMITED · 48 HOURS ONLY" : {
+
+    },
+    "Live Activity push token" : {
+
+    },
+    "Live from the studio" : {
+
+    },
+    "Load" : {
+
+    },
+    "Load the feed straight from PWInbox.loadMessages — no InboxKit view controller involved. Tap a row to run its action and mark it read; use the trash to delete it." : {
+
+    },
+    "Load the tags currently stored for this device." : {
+
+    },
+    "M" : {
+
+    },
+    "Mark all read" : {
+
+    },
+    "MEMBER" : {
+
+    },
+    "MEMBERS DROP" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MITGLIEDER-DROP"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DROP MEMBRES"
+          }
+        }
+      }
+    },
+    "Merge past events into current member" : {
+
+    },
+    "Message counts" : {
+
+    },
+    "Messages" : {
+
+    },
+    "Mock server 127.0.0.1:9595" : {
+
+    },
+    "Modal" : {
+
+    },
+    "Modal Position" : {
+
+    },
+    "MORE LIVE UPDATES" : {
+
+    },
+    "No data is sent or received while paused." : {
+
+    },
+    "No drops scheduled yet" : {
+
+    },
+    "No inbox messages yet. Send one from the Pushwoosh dashboard, then reload." : {
+
+    },
+    "No preferences saved yet." : {
+
+    },
+    "No products match “%@”." : {
+
+    },
+    "No reminders scheduled yet" : {
+
+    },
+    "Notifications" : {
+
+    },
+    "Notifications are off" : {
+
+    },
+    "Notify me  +%lld min" : {
+
+    },
+    "Off" : {
+
+    },
+    "OFF\nEVERYTHING" : {
+
+    },
+    "OK" : {
+
+    },
+    "On · you're all set" : {
+
+    },
+    "Online · replies in ~2 min" : {
+
+    },
+    "Open the feed with the SDK's built-in cells, or with your own custom cell." : {
+
+    },
+    "Order placed!" : {
+
+    },
+    "Orders" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bestellungen"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Commandes"
+          }
+        }
+      }
+    },
+    "Paused" : {
+
+    },
+    "Pausing stops all network requests to PushMart — including delivery of push notifications — until you resume." : {
+
+    },
+    "Phone" : {
+
+    },
+    "Pins a live delivery card to your Lock Screen and Dynamic Island, updated in real time even when PushMart is closed." : {
+
+    },
+    "Pins a StoryReel of unfinished reads to your Lock Screen — each card with its own Continue button, tappable straight into the app." : {
+
+    },
+    "Popular topics" : {
+
+    },
+    "Preferences" : {
+
+    },
+    "Present Animation" : {
+
+    },
+    "Presentation Style" : {
+
+    },
+    "PREVIEW" : {
+
+    },
+    "Production server" : {
+
+    },
+    "Profile" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil"
+          }
+        }
+      }
+    },
+    "PROMO CODE" : {
+
+    },
+    "Push notifications" : {
+
+    },
+    "PushMart" : {
+
+    },
+    "PUSHMART" : {
+
+    },
+    "PushMart · Version 1.0.0" : {
+
+    },
+    "PushMart · Version 2.0.0" : {
+
+    },
+    "PUSHMART CARE" : {
+
+    },
+    "PushMart is a modern shopping app for people who want the good stuff first. We send a little nudge when your order moves, when a drop goes live, or when something you love is back — never spam." : {
+
+    },
+    "PUSHWOOSH" : {
+
+    },
+    "PUSHWOOSH SDK" : {
+
+    },
+    "Radius: %lldpt" : {
+
+    },
+    "READ" : {
+
+    },
+    "Read-only" : {
+
+    },
+    "Refresh" : {
+
+    },
+    "Register several emails for one shopper, or move an anonymous session's events onto the signed-in member after login." : {
+
+    },
+    "Reload" : {
+
+    },
+    "Reload (async)" : {
+
+    },
+    "Remind me  +%lld min" : {
+
+    },
+    "Remind me about" : {
+
+    },
+    "Reminder on · tap to cancel" : {
+
+    },
+    "Reminders" : {
+
+    },
+    "Remote order tracking" : {
+
+    },
+    "Removes the live delivery card and tells Pushwoosh to stop sending updates for this order." : {
+
+    },
+    "RESTOCK REMINDERS" : {
+
+    },
+    "Ring me in the background (8s)" : {
+
+    },
+    "Schedule a Lock Screen countdown" : {
+
+    },
+    "Scheduled · tap to cancel" : {
+
+    },
+    "Scheduled (%lld)" : {
+
+    },
+    "SDK & call log" : {
+
+    },
+    "SDK call %@. Tap for details." : {
+
+    },
+    "SDK log level" : {
+
+    },
+    "SDK version" : {
+
+    },
+    "Self-contained: an in-app server on 127.0.0.1:9595 serves the bundled rich media. Just tap a button below." : {
+
+    },
+    "Server Simulation" : {
+
+    },
+    "Set Tags" : {
+
+    },
+    "Shop" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shop"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Boutique"
+          }
+        }
+      }
+    },
+    "Shop now" : {
+
+    },
+    "Shop the categories you love" : {
+
+    },
+    "Shop the drop" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jetzt entdecken"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Découvrir la collection"
+          }
+        }
+      }
+    },
+    "Shop what's next." : {
+
+    },
+    "Show Alert" : {
+
+    },
+    "Show alerts in-app" : {
+
+    },
+    "Sign out" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abmelden"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se déconnecter"
+          }
+        }
+      }
+    },
+    "Simulate in-app incoming (dev)" : {
+
+    },
+    "Starts a live card using the SDK's bundled DefaultLiveActivityAttributes — no custom attributes struct needed. The widget renders straight from the attributes and content dictionaries you pass in." : {
+
+    },
+    "STATUS" : {
+
+    },
+    "Store access code" : {
+
+    },
+    "StoryReel" : {
+
+    },
+    "SUMMER\nSALE" : {
+
+    },
+    "Support" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Support"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assistance"
+          }
+        }
+      }
+    },
+    "Swipe Directions" : {
+
+    },
+    "Swipe Down" : {
+
+    },
+    "Swipe Left" : {
+
+    },
+    "Swipe Right" : {
+
+    },
+    "Swipe to Dismiss" : {
+
+    },
+    "Swipe Up" : {
+
+    },
+    "Switch account" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Konto wechseln"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Changer de compte"
+          }
+        }
+      }
+    },
+    "Sync now" : {
+
+    },
+    "Syncing" : {
+
+    },
+    "Tags set on an email profile (requires the Email channel), separate from device tags." : {
+
+    },
+    "Tap to follow a category — we'll tune your deals and drops to match." : {
+
+    },
+    "Tap, then send the app to the background — the call rings in ~8s over the lock screen, like a real VoIP push. Local demo: answering it won't connect (a real answerable call comes from a server push); decline/end work." : {
+
+    },
+    "Tell us what you love" : {
+
+    },
+    "The prancing horse, reimagined. Every allocation includes a factory tour in Maranello and a bespoke interior session with our design team." : {
+
+    },
+    "The prize and promo code come from the campaign — the client only plays the reveal." : {
+
+    },
+    "The raw PWInbox message API" : {
+
+    },
+    "The wheel decelerates onto the campaign-chosen segment — with haptic ticks on every boundary." : {
+
+    },
+    "These identifiers let PushMart deliver notifications and orders to this device. Nothing here identifies you personally." : {
+
+    },
+    "These run straight through PWInbox and refresh the counts and list above." : {
+
+    },
+    "Tip: the current app code is prefilled. Enter another to connect to a different project." : {
+
+    },
+    "Top Left" : {
+
+    },
+    "Top Right" : {
+
+    },
+    "Total" : {
+
+    },
+    "Track an order" : {
+
+    },
+    "Track deliveries live on your Lock Screen" : {
+
+    },
+    "Track it live from the Orders tab." : {
+
+    },
+    "Turn on" : {
+
+    },
+    "Turn on push to get order updates and members-only deals." : {
+
+    },
+    "Turn them on to get order updates,\ndrops and members-only deals." : {
+
+    },
+    "UNREAD" : {
+
+    },
+    "Up to 40% off\nthis week" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bis zu 40% Rabatt\ndiese Woche"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jusqu'à 40% de réduction\ncette semaine"
+          }
+        }
+      }
+    },
+    "Use international format (e.g. +1…). We'll send order and delivery updates on the channels you pick." : {
+
+    },
+    "Use it at checkout before it expires." : {
+
+    },
+    "User Management" : {
+
+    },
+    "VIDEO" : {
+
+    },
+    "Watch it move before anyone else. The full film drops here the moment the covers come off." : {
+
+    },
+    "We'll nudge you when it matters" : {
+
+    },
+    "What lands on your Lock Screen" : {
+
+    },
+    "With Attributes" : {
+
+    },
+    "You've got a voucher" : {
+
+    },
+    "Your account, orders and offers stay up to date." : {
+
+    },
+    "Your bag" : {
+
+    },
+    "Your bag is empty" : {
+
+    },
+    "Your code is stored on this device only." : {
+
+    },
+    "Your details" : {
+
+    },
+    "Your member ID and email tell PushMart who you are, so orders, offers and rewards follow you across devices." : {
+
+    },
+    "Your membership & identity" : {
+
+    },
+    "Your offers" : {
+
+    },
+    "Your preferences" : {
+
+    }
+  },
+  "version" : "1.0"
+}

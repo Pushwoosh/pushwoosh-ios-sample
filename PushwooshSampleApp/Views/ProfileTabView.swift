@@ -40,6 +40,7 @@ struct ProfileTabView: View {
                     ])
                     #if DEBUG
                     group("Developer", [
+                        .init("Native in-apps", "Test every template", "bubble.left.and.bubble.right.fill", 0xAF52DE, AnyView(InAppMessagesView())),
                         .init("Developer tools", "Log level & diagnostics", "hammer.fill", 0x8E8E93, AnyView(DeveloperView()))
                     ])
                     #endif

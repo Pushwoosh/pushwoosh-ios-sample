@@ -13,8 +13,10 @@ struct LiveActivityDemoBundle: WidgetBundle {
     var body: some Widget {
         LiveActivityDemo()
         LiveActivityDemoLiveActivity()
-        FIFAMatchActivity()
+        LiveScoreActivity()
         RadioBroadcastActivity()
+        StoryReelActivity()
+        ElectionActivity()
         DefaultLiveActivity()
     }
 }

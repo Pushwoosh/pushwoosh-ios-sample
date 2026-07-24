@@ -1,11 +1,11 @@
 //
-//  FIFALiveActivityView.swift
+//  LiveScoreView.swift
 //  PushMart
 //
 //  "Flash-sale drops": several upcoming product drops, each scheduled at a
 //  different offset via Pushwoosh.LiveActivities.schedule(at:). A live readout of
-//  Activity<FIFAMatchAttributes>.activities shows scheduled (pending) vs started
-//  activities. The FIFAMatchAttributes type is reused as the shared LA payload;
+//  Activity<LiveScoreAttributes>.activities shows scheduled (pending) vs started
+//  activities. The LiveScoreAttributes type is reused as the shared LA payload;
 //  its fields carry the drop's name/tagline/discount.
 //
 
@@ -48,7 +48,7 @@ final class FlashDropController: ObservableObject {
 
     func configure() {
         if #available(iOS 16.1, *) {
-            Pushwoosh.LiveActivities.setup(FIFAMatchAttributes.self)
+            Pushwoosh.LiveActivities.setup(LiveScoreAttributes.self)
         }
         refresh()
     }
@@ -64,14 +64,14 @@ final class FlashDropController: ObservableObject {
         let start = Date().addingTimeInterval(Double(drop.minutes) * 60)
         let label = start.formatted(date: .omitted, time: .shortened)
 
-        let attrs = FIFAMatchAttributes(
+        let attrs = LiveScoreAttributes(
             homeTeam: drop.name, awayTeam: drop.tagline,
             homeAbbr: drop.code, awayAbbr: drop.discount,
             homeFlag: drop.emoji, awayFlag: "🔥",
             competition: drop.category, venue: drop.discount,
             pushwoosh: PushwooshLiveActivityAttributeData(activityId: drop.id)
         )
-        let state = FIFAMatchAttributes.ContentState(
+        let state = LiveScoreAttributes.ContentState(
             homeScore: 0, awayScore: 0,
             clock: "Drops \(label)",
             statusLine: "\(drop.name) drops \(label)",
@@ -93,7 +93,7 @@ final class FlashDropController: ObservableObject {
     }
 
     func cancel(_ drop: FlashDrop) {
-        Pushwoosh.LiveActivities.cancel(FIFAMatchAttributes.self, activityId: drop.id)
+        Pushwoosh.LiveActivities.cancel(LiveScoreAttributes.self, activityId: drop.id)
         scheduledAt[drop.id] = nil
         statusLine = "Cancelled \(drop.name)"
         refresh()
@@ -101,7 +101,7 @@ final class FlashDropController: ObservableObject {
 
     func endAll() {
         if #available(iOS 16.2, *) {
-            for activity in Activity<FIFAMatchAttributes>.activities {
+            for activity in Activity<LiveScoreAttributes>.activities {
                 Task { await activity.end(nil, dismissalPolicy: .immediate) }
             }
         }
@@ -112,7 +112,7 @@ final class FlashDropController: ObservableObject {
 
     func refresh() {
         guard #available(iOS 16.1, *) else { systemActivities = []; return }
-        systemActivities = Activity<FIFAMatchAttributes>.activities.map { activity in
+        systemActivities = Activity<LiveScoreAttributes>.activities.map { activity in
             "\(activity.attributes.pushwoosh.activityId) · \(String(describing: activity.activityState))"
         }
     }
@@ -120,7 +120,7 @@ final class FlashDropController: ObservableObject {
 
 // MARK: - Screen
 
-struct FIFALiveActivityView: View {
+struct LiveScoreView: View {
     @StateObject private var controller = FlashDropController()
 
     var body: some View {
@@ -210,11 +210,11 @@ struct FIFALiveActivityView: View {
             .buttonStyle(.plain)
             .sdkNote("Pushwoosh.LiveActivities.schedule(attributes:contentState:at:) · cancel(_:activityId:)",
                      "Remind me schedules a future Lock Screen countdown for this drop; when it is already scheduled the same button cancels it.",
-                     docs: "Pushwoosh.LiveActivities.setup(FIFAMatchAttributes.self) is called once on appear (in configure) to register the attributes type before anything can be scheduled. schedule throws and requires iOS 26; the drop id is passed as the activityId so the pending activity can be found and cancelled later.",
+                     docs: "Pushwoosh.LiveActivities.setup(LiveScoreAttributes.self) is called once on appear (in configure) to register the attributes type before anything can be scheduled. schedule throws and requires iOS 26; the drop id is passed as the activityId so the pending activity can be found and cancelled later.",
                      calls: [
                         .init(code: "try Pushwoosh.LiveActivities.schedule(attributes: attrs, contentState: state, at: start, alertTitle: \"\\(drop.name) drop\", alertBody: ...)",
                               note: "Remind me: schedules the Live Activity to start at the drop time (now + N min) with a Lock Screen alert. Needs iOS 26."),
-                        .init(code: "Pushwoosh.LiveActivities.cancel(FIFAMatchAttributes.self, activityId: drop.id)",
+                        .init(code: "Pushwoosh.LiveActivities.cancel(LiveScoreAttributes.self, activityId: drop.id)",
                               note: "Tap when already scheduled: cancels the pending activity for this drop, keyed by the drop id used as its activityId.")
                      ])
         }
@@ -262,5 +262,5 @@ struct FIFALiveActivityView: View {
 }
 
 #Preview {
-    FIFALiveActivityView()
+    LiveScoreView()
 }
