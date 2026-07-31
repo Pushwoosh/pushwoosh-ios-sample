@@ -51,6 +51,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         PurchaseTracker.shared.start()
 
         applyE2ENotificationHooksIfRequested()
+        applyDebugInAppBootstrapIfRequested()
 
         // Register EVERY Live Activity attributes type the app uses here, at launch. setup() is what
         // lets the SDK re-attach to already-running activities of that type and re-upload their push
@@ -271,6 +272,46 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
             let owner = UNUserNotificationCenter.current().delegate
             NSLog("%@", "PW_E2E_DELEGATE_CLASS=\(owner.map { String(describing: type(of: $0)) } ?? "nil")")
         }
+    }
+
+    /// Debug-only bootstrap so an E2E scenario can drive in-app messages headlessly, without taps
+    /// (`simctl` has no tap primitive, and idb is an extra third-party dependency):
+    ///   -PWDebugAppCode XXXXX-XXXXX  apply an app code — Info.plist `Pushwoosh_APPID` is empty,
+    ///                                normally the code is entered during onboarding
+    ///   -PWDebugPostEvent <event>    post one in-app event after launch
+    ///   -PWDebugPostEventDelay N     seconds to wait before posting (default 3)
+    /// Values arrive through `NSArgumentDomain`, so they never outlive the launch that passed them.
+    private func applyDebugInAppBootstrapIfRequested() {
+#if DEBUG
+        let defaults = UserDefaults.standard
+
+        if let code = defaults.string(forKey: "PWDebugAppCode"), code.isValidAppCode {
+            PushwooshHelper.safeCall { Pushwoosh.configure.setAppCode(code) }
+            NSLog("%@", "PW_E2E_INAPP appCode=\(code)")
+        }
+
+        guard let event = defaults.string(forKey: "PWDebugPostEvent"), !event.isEmpty else { return }
+
+        // `-PWDebugPostEventDelay 5` lands in NSArgumentDomain as a *string*, so an `as? NSNumber`
+        // cast would silently fail and pin every run to the default. `double(forKey:)` parses both.
+        let requestedDelay = defaults.object(forKey: "PWDebugPostEventDelay") != nil
+            ? defaults.double(forKey: "PWDebugPostEventDelay")
+            : 3
+        let delay = requestedDelay > 0 ? requestedDelay : 3
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            NSLog("%@", "PW_E2E_INAPP postEvent=\(event)")
+            PushwooshHelper.safeCall {
+                PWInAppManager.shared().postEvent(event, withAttributes: [:]) { error in
+                    if let error = error {
+                        NSLog("%@", "PW_E2E_INAPP postEventFailed=\(event) error=\(error.localizedDescription)")
+                    } else {
+                        NSLog("%@", "PW_E2E_INAPP postEventAccepted=\(event)")
+                    }
+                }
+            }
+        }
+#endif
     }
 
 }

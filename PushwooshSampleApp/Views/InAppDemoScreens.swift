@@ -70,7 +70,8 @@ private enum DemoCar {
     static let imageStory1 = picsum("pw-story-a-2026", w: 1200, h: 2133)         // stories → 9:16 portrait
     static let imageStory2 = picsum("pw-story-b-2026", w: 1200, h: 2133)
     static let imageStory3 = picsum("pw-story-c-2026", w: 1200, h: 2133)
-    static let imageModalTall = picsum("pw-modal-tall-2026", w: 600, h: 2400)    // 1:4 — taller than the card cap
+    static let imageModalPortrait = picsum("pw-modal-portrait-2026", w: 900, h: 1200) // 3:4 portrait — fits whole
+    static let imageModalTall = picsum("pw-modal-tall-2026", w: 600, h: 2400)    // 1:4 — taller than the card cap, fitted whole
 
     private static func picsum(_ seed: String, w: Int, h: Int) -> URL {
         URL(string: "https://picsum.photos/seed/\(seed)/\(w)/\(h)")!
@@ -743,7 +744,25 @@ enum InAppDemoConfigs {
         ]
     ]
 
-    /// Modal with a very tall 1:4 image — taller than the safe-area cap, so it crops centered.
+    /// Modal with an ordinary 3:4 portrait — the well takes the real ratio and shows it whole, full width.
+    static let imageModalPortraitDemo: [AnyHashable: Any] = [
+        "displayType": "modal",
+        "inAppId": "sample_image_modal_portrait",
+        "modal": [
+            "background": "#FFFFFF",
+            "image": DemoCar.imageModalPortrait.absoluteString,
+            "title": txt("Portrait source · 3:4", "#111111"),
+            "message": txt("A normal portrait photo: the card grows to the image's own ratio, full width, no crop and no side bars.", "#555555"),
+            "showClose": true,
+            "dimBackground": true,
+            "buttons": [
+                button("Shop now", textColor: "#FFFFFF", background: "#FF3B30", border: "#FF3B30", action: urlAction),
+                button("Later", textColor: "#8A8A8E", background: "#EFEFF4", border: "#EFEFF4", action: closeAction)
+            ]
+        ]
+    ]
+
+    /// Modal with a very tall 1:4 image — taller than the safe-area cap, so it is scaled down whole.
     static let imageModalTallDemo: [AnyHashable: Any] = [
         "displayType": "modal",
         "inAppId": "sample_image_modal_tall",
@@ -751,7 +770,7 @@ enum InAppDemoConfigs {
             "background": "#FFFFFF",
             "image": DemoCar.imageModalTall.absoluteString,
             "title": txt("Tall source · 1:4", "#111111"),
-            "message": txt("Taller than the card can grow — the well hits the safe-area cap and the image crops top & bottom, centered.", "#555555"),
+            "message": txt("Taller than the card can grow — the well stops at the safe-area cap and the whole image is scaled down inside it.", "#555555"),
             "showClose": true,
             "dimBackground": true,
             "buttons": [

@@ -29,6 +29,16 @@
     "%lld new" : {
 
     },
+    "%lld seats · maj %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld seats · maj %2$lld"
+          }
+        }
+      }
+    },
     "%lld seconds" : {
 
     },
@@ -254,6 +264,9 @@
     "Done" : {
 
     },
+    "ELECTION NIGHT" : {
+
+    },
     "Email" : {
 
     },
@@ -334,6 +347,9 @@
     "How your offers look in-app" : {
 
     },
+    "IMAGE HANDLING · MODAL / FULLSCREEN / STORIES" : {
+
+    },
     "In" : {
 
     },
@@ -394,6 +410,9 @@
 
     },
     "Live from the studio" : {
+
+    },
+    "Live seat tracker on your Lock Screen" : {
 
     },
     "Load" : {
@@ -488,6 +507,9 @@
 
     },
     "On · you're all set" : {
+
+    },
+    "One fresh image per display type, plus three modal ratios: square, portrait, and taller than the card." : {
 
     },
     "Online · replies in ~2 min" : {

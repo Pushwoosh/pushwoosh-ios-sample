@@ -108,14 +108,15 @@ struct InAppMessagesView: View {
                     Text("IMAGE HANDLING · MODAL / FULLSCREEN / STORIES")
                         .font(.system(size: 12, weight: .heavy, design: .rounded))
                         .foregroundColor(.white.opacity(0.5))
-                    Text("One fresh image per display type, at the ratio that type expects.")
+                    Text("One fresh image per display type, plus three modal ratios: square, portrait, and taller than the card.")
                         .multilineTextAlignment(.center)
                         .font(.system(size: 12))
                         .foregroundColor(.white.opacity(0.5))
                         .padding(.horizontal, 20)
 
                     aspectButton("Modal · square image", InAppDemoConfigs.imageModalDemo, colors: [.pink, .orange])
-                    aspectButton("Modal · tall image (crops)", InAppDemoConfigs.imageModalTallDemo, colors: [.gray, .indigo])
+                    aspectButton("Modal · portrait image", InAppDemoConfigs.imageModalPortraitDemo, colors: [.mint, .blue])
+                    aspectButton("Modal · tall image (fits)", InAppDemoConfigs.imageModalTallDemo, colors: [.gray, .indigo])
                     aspectButton("Fullscreen · portrait image", InAppDemoConfigs.imageFullscreenDemo, colors: [.teal, .green])
                     aspectButton("Stories · portrait frames", InAppDemoConfigs.imageStoriesDemo, colors: [.indigo, .pink])
                 }
