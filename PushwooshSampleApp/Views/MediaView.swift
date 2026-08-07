@@ -51,7 +51,9 @@ struct MediaView: View {
     @State private var animationDurationSeconds: Double = 0.3
 
     // Server Simulation
-    @AppStorage("PWMockServerEnabled") private var mockServerEnabled = false
+    // Reveals the rich media demo buttons. Routing is not switched here any more: the endpoint travels
+    // with the application code chosen in Switch account, so the demo always talks to that region.
+    @AppStorage("PWMockServerEnabled") private var richMediaDemoExpanded = false
     @State private var mockServerError: String?
 
     var body: some View {
@@ -480,23 +482,20 @@ struct MediaView: View {
                             .font(.system(size: 18, weight: .semibold))
                             .foregroundColor(.white)
 
-                        Text(mockServerEnabled ? "Mock server 127.0.0.1:9595" : "Production server")
+                        Text("Bundled rich media, answered by this region's local server")
                             .font(.system(size: 13, weight: .medium))
-                            .foregroundColor(mockServerEnabled ? .green : .white.opacity(0.5))
+                            .foregroundColor(richMediaDemoExpanded ? .green : .white.opacity(0.5))
                     }
 
                     Spacer()
 
-                    Toggle("", isOn: $mockServerEnabled)
+                    Toggle("", isOn: $richMediaDemoExpanded)
                         .tint(.orange)
                         .scaleEffect(0.9)
-                        .onChange(of: mockServerEnabled) { _ in
-                            ServerRouting.apply()
-                        }
                 }
 
-                if mockServerEnabled {
-                    Text("Self-contained: an in-app server on 127.0.0.1:9595 serves the bundled rich media. Just tap a button below.")
+                if richMediaDemoExpanded {
+                    Text("Self-contained: the selected region points at a local server that serves the bundled rich media. Just tap a button below.")
                         .font(.system(size: 12))
                         .foregroundColor(.white.opacity(0.6))
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -528,7 +527,7 @@ struct MediaView: View {
                     }
                     .sdkNote("PWInAppManager.shared().postEvent(_:withAttributes:completion:)",
                              "Each button posts an in-app event that Pushwoosh matches to the bundled Rich Media, served here by the local mock server.",
-                             docs: "The event still reaches Pushwoosh exactly as in production; only the server responding to it is swapped for the in-app mock on 127.0.0.1:9595.",
+                             docs: "The event still reaches Pushwoosh exactly as in production; only the server responding to it is the in-app mock the selected region points at.",
                              calls: [
                                 .init(code: "postEvent(\"showRichMedia\", withAttributes: [:])",
                                       note: "Campaign as-is - presents the campaign's Rich Media exactly as configured on the dashboard."),

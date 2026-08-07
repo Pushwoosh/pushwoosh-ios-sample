@@ -165,7 +165,6 @@ struct OnboardingFlow: View {
         codeError = nil
         appCode = code
         PushwooshHelper.safeCall { Pushwoosh.configure.setAppCode(code) }
-        ServerRouting.apply()
         withAnimation { step = .signIn }
     }
 

@@ -27,8 +27,6 @@
 	<true/>
 	<key>PW_APP_GROUPS_NAME</key>
 	<string>group.com.example.delivery</string>
-	<key>Pushwoosh_ALLOW_REVERSE_PROXY</key>
-	<true/>
 	<key>Pushwoosh_API_TOKEN</key>
 	<string>YOUR_API_TOKEN</string>
 	<key>Pushwoosh_APPID</key>

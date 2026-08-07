@@ -164,7 +164,7 @@ struct HomeTabView: View {
                 }
                 .sdkNote("PWInAppManager.shared().postEvent(_:)",
                          "Each deal card posts an in-app event; Pushwoosh matches it to a rich-media in-app message.",
-                         docs: "Backed by the local mock server when PWMockServerEnabled is set; otherwise the event still reaches Pushwoosh exactly as in production.",
+                         docs: "Backed by the local mock server when the selected region points at one; otherwise the event still reaches Pushwoosh exactly as in production.",
                          calls: [
                             .init(code: "postEvent(\"showRichMedia\")",
                                   note: "Flash sale - presents the campaign's rich media exactly as configured on the dashboard."),

@@ -48,6 +48,9 @@
     "%llds" : {
 
     },
+    "%u" : {
+
+    },
     "+%lld min" : {
 
     },
@@ -120,6 +123,9 @@
     "Appearance" : {
 
     },
+    "Application code" : {
+
+    },
     "Ask quietly (provisional)" : {
 
     },
@@ -132,6 +138,9 @@
     "Banner while you're using PushMart" : {
 
     },
+    "Base URL" : {
+
+    },
     "Bottom Left" : {
 
     },
@@ -142,6 +151,9 @@
 
     },
     "Bulk actions" : {
+
+    },
+    "Bundled rich media, answered by this region's local server" : {
 
     },
     "Call me back" : {
@@ -262,6 +274,9 @@
 
     },
     "Done" : {
+
+    },
+    "Each button changes exactly one thing relative to the pair shown below, so the three shapes of a switch can be told apart." : {
 
     },
     "ELECTION NIGHT" : {
@@ -458,7 +473,7 @@
     "Messages" : {
 
     },
-    "Mock server 127.0.0.1:9595" : {
+    "Mock server controls" : {
 
     },
     "Modal" : {
@@ -486,6 +501,9 @@
 
     },
     "No reminders scheduled yet" : {
+
+    },
+    "No requests yet" : {
 
     },
     "Notifications" : {
@@ -516,6 +534,9 @@
 
     },
     "Open the feed with the SDK's built-in cells, or with your own custom cell." : {
+
+    },
+    "Or connect to a project by app code" : {
 
     },
     "Order placed!" : {
@@ -566,9 +587,6 @@
 
     },
     "PREVIEW" : {
-
-    },
-    "Production server" : {
 
     },
     "Profile" : {
@@ -629,6 +647,9 @@
     "Refresh" : {
 
     },
+    "Region" : {
+
+    },
     "Register several emails for one shopper, or move an anonymous session's events onto the signed-in member after login." : {
 
     },
@@ -654,6 +675,9 @@
 
     },
     "Removes the live delivery card and tells Pushwoosh to stop sending updates for this order." : {
+
+    },
+    "Requests the local region mocks answered: 9595 United States, 9596 Honduras, 9597 the moved host." : {
 
     },
     "RESTOCK REMINDERS" : {
@@ -683,10 +707,16 @@
     "SDK version" : {
 
     },
-    "Self-contained: an in-app server on 127.0.0.1:9595 serves the bundled rich media. Just tap a button below." : {
+    "Selected pair" : {
+
+    },
+    "Self-contained: the selected region points at a local server that serves the bundled rich media. Just tap a button below." : {
 
     },
     "Server Simulation" : {
+
+    },
+    "Server traffic" : {
 
     },
     "Set Tags" : {
@@ -824,6 +854,9 @@
         }
       }
     },
+    "Switch variants" : {
+
+    },
     "Sync now" : {
 
     },
@@ -928,6 +961,9 @@
 
     },
     "What lands on your Lock Screen" : {
+
+    },
+    "Where do you shop? Each country is served by its own Pushwoosh application, so switching moves the device to that country's application." : {
 
     },
     "With Attributes" : {

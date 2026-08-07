@@ -11,22 +11,64 @@ import PushwooshFramework
 import PushwooshLiveActivities
 import StoreKit
 
-// Routes SDK traffic either to the built-in local server (LocalPushwooshServer) or to the
-// production endpoint. Toggle lives on the Media screen and applies immediately.
-enum ServerRouting {
-    static func apply() {
-        let useMockServer = UserDefaults.standard.bool(forKey: "PWMockServerEnabled")
-        if useMockServer {
-            LocalPushwooshServer.shared.startIfNeeded()
-            Pushwoosh.configure.setReverseProxy("http://127.0.0.1:9595/json/1.3/", headers: nil)
-        } else {
-            let appCode = PushMartStore.appCode
-            // No valid app code yet (first run, before onboarding) — don't point the proxy at a
-            // broken "https://.api.pushwoosh.com" host. ServerRouting.apply() runs again once a
-            // code is entered in onboarding / settings.
-            guard appCode.isValidAppCode else { return }
-            Pushwoosh.configure.setReverseProxy("https://\(appCode).api.pushwoosh.com/json/1.3/", headers: nil)
+// Routes SDK traffic by selecting a region: the region's Pushwoosh application code travels with
+// that region's API endpoint in a single call. No reverse proxy is involved - the endpoint is part of
+// the application selection, which is how a customer ships a multi-region app.
+// Every request the local mock servers answer, kept in memory so a switch can be followed on the
+// device screen (Developer -> Server traffic) instead of the Xcode console.
+final class MockTrafficLog: ObservableObject {
+    static let shared = MockTrafficLog()
+
+    struct Entry: Identifiable {
+        let id = UUID()
+        let time: String
+        let port: UInt16
+        let method: String
+        let application: String
+    }
+
+    @Published private(set) var entries: [Entry] = []
+
+    private static let formatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "HH:mm:ss"
+        return f
+    }()
+
+    // Called from the mock servers' connection queues, so the hop to main is part of the contract.
+    func record(port: UInt16, method: String, application: String) {
+        let entry = Entry(time: Self.formatter.string(from: Date()),
+                          port: port,
+                          method: method,
+                          application: application)
+        DispatchQueue.main.async {
+            self.entries.insert(entry, at: 0)
+            if self.entries.count > 200 {
+                self.entries.removeLast(self.entries.count - 200)
+            }
         }
+    }
+
+    func clear() {
+        DispatchQueue.main.async { self.entries.removeAll() }
+    }
+}
+
+enum ServerRouting {
+    // The endpoints the region switch points at. Local mock servers stand in for the customer's own
+    // regional hosts, so a switch can be followed end to end from the console.
+    static func startRegionEndpoints() {
+        #if DEBUG
+        LocalPushwooshServer.shared.startIfNeeded()
+        LocalPushwooshServer.secondRegion.startIfNeeded()
+        LocalPushwooshServer.secondRegionMoved.startIfNeeded()
+        #endif
+    }
+
+    // Honduras is the region a fresh install starts in. Re-applying the stored pair on every launch
+    // is a no-op in the SDK, so this is safe to call unconditionally.
+    static func applyRegion() {
+        (StoreRegion.stored ?? .honduras).apply()
     }
 }
 
@@ -112,7 +154,8 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     }
 
     private func configureServerRouting() {
-        ServerRouting.apply()
+        ServerRouting.startRegionEndpoints()
+        ServerRouting.applyRegion()
     }
 
     // Push Primer: soft opt-in dialog shown before the system push prompt. State-aware — it
@@ -600,11 +643,24 @@ private struct CarouselDemoView: View {
 //   showRichMediaClient -> style_settings stripped (client configure() API applies)
 //   showRichMediaServer -> style_settings replaced with values simulated on the Media screen
 final class LocalPushwooshServer {
-    static let shared = LocalPushwooshServer()
-    static let port: UInt16 = 9595
+    static let shared = LocalPushwooshServer(port: 9595)
+    // Extra endpoints for the multi-region demo on the Developer screen: a switch can move the
+    // application, the host, or both, and every variant has to land on a server that answers.
+    static let secondRegion = LocalPushwooshServer(port: 9596)
+    static let secondRegionMoved = LocalPushwooshServer(port: 9597)
+
+    let port: UInt16
 
     // Simulated server-side style_settings; MediaView sets this before postEvent.
     static var simulatedStyleSettings: [String: Any]?
+
+    // SDK-882 check: when set, the next unregisterDevice reply carries a base_url pointing at the
+    // "moved" shard (9597) — the previous application's server trying to rotate the endpoint.
+    static var rotateBaseUrlOnNextUnregister = false
+
+    init(port: UInt16) {
+        self.port = port
+    }
 
     private var listener: NWListener?
     private let queue = DispatchQueue(label: "com.pushwoosh.sample.mockserver")
@@ -628,26 +684,41 @@ final class LocalPushwooshServer {
         "showNativeInApp": .native
     ]
 
+    // SDK-882 check: a stopped region rejects connections, so an unregister aimed at it fails its
+    // session retries and lands in the persistent queue.
+    func stop() {
+        queue.sync {
+            listener?.cancel()
+            listener = nil
+            NSLog("PW_MOCK[%@] stopped", "\(port)")
+        }
+    }
+
+    var isRunning: Bool {
+        queue.sync { listener != nil }
+    }
+
     func startIfNeeded() {
         queue.sync {
             guard listener == nil else { return }
             do {
                 let params = NWParameters.tcp
-                params.requiredLocalEndpoint = NWEndpoint.hostPort(host: "127.0.0.1", port: NWEndpoint.Port(rawValue: Self.port)!)
+                params.requiredLocalEndpoint = NWEndpoint.hostPort(host: "127.0.0.1", port: NWEndpoint.Port(rawValue: port)!)
                 let listener = try NWListener(using: params)
                 listener.newConnectionHandler = { [weak self] connection in
                     self?.handle(connection)
                 }
+                let boundPort = port
                 listener.stateUpdateHandler = { state in
                     if case .failed(let error) = state {
-                        print("[LocalPushwooshServer] listener failed (port busy?): \(error)")
+                        print("[LocalPushwooshServer:\(boundPort)] listener failed (port busy?): \(error)")
                     }
                 }
                 listener.start(queue: queue)
                 self.listener = listener
-                print("[LocalPushwooshServer] listening on 127.0.0.1:\(Self.port)")
+                NSLog("PW_MOCK[%@] listening", "\(port)")
             } catch {
-                print("[LocalPushwooshServer] failed to start: \(error)")
+                print("[LocalPushwooshServer:\(port)] failed to start: \(error)")
             }
         }
     }
@@ -681,7 +752,7 @@ final class LocalPushwooshServer {
         if request.method == "GET", request.path.hasPrefix("/rm/"), let variant = Variant(zipName: method) {
             let zip = Self.buildZip(for: variant)
             response = (zip, "application/zip")
-            print("[LocalPushwooshServer] GET \(request.path) -> \(zip.count) bytes")
+            print("[LocalPushwooshServer:\(port)] GET \(request.path) -> \(zip.count) bytes")
         } else if request.method == "POST" && method == "postEvent" {
             let event = ((request.jsonBody?["request"] as? [String: Any])?["event"] as? String) ?? ""
             if let variant = Self.eventToVariant[event] {
@@ -692,18 +763,33 @@ final class LocalPushwooshServer {
                 } else {
                     ts = "42"
                 }
-                let url = "http://127.0.0.1:\(Self.port)/rm/\(variant.rawValue)"
+                let url = "http://127.0.0.1:\(port)/rm/\(variant.rawValue)"
                 response = (Self.envelope(["richmedia": ["url": url, "ts": ts, "tags": [:]]]), "application/json")
-                print("[LocalPushwooshServer] postEvent '\(event)' -> \(variant.rawValue) ts=\(ts)")
+                print("[LocalPushwooshServer:\(port)] postEvent '\(event)' -> \(variant.rawValue) ts=\(ts)")
             } else {
                 response = (Self.envelope([:]), "application/json")
-                print("[LocalPushwooshServer] postEvent '\(event)' -> no rich media mapped")
+                print("[LocalPushwooshServer:\(port)] postEvent '\(event)' -> no rich media mapped")
             }
         } else if request.method == "POST" && method == "getInApps" {
             response = (Self.envelope(["inApps": []]), "application/json")
+        } else if request.method == "POST" && method == "unregisterDevice" && Self.rotateBaseUrlOnNextUnregister {
+            Self.rotateBaseUrlOnNextUnregister = false
+            let rotated = "http://127.0.0.1:9597/json/1.3/"
+            let dict: [String: Any] = ["status_code": 200, "status_message": "OK", "response": [:], "base_url": rotated]
+            response = ((try? JSONSerialization.data(withJSONObject: dict)) ?? Data(), "application/json")
+            print("[LocalPushwooshServer:\(port)] unregisterDevice -> rotated base_url \(rotated)")
         } else {
             response = (Self.envelope([:]), "application/json")
-            print("[LocalPushwooshServer] \(request.method) \(request.path) -> generic OK")
+            print("[LocalPushwooshServer:\(port)] \(request.method) \(request.path) -> generic OK")
+        }
+
+        if request.method == "POST" {
+            let body = request.jsonBody?["request"] as? [String: Any]
+            let application = (body?["application"] as? String) ?? "-"
+            let userId = (body?["userId"] as? String) ?? "-"
+            NSLog("PW_MOCK[%@] %@ application=%@ userId=%@",
+                  "\(port)", method, application, userId)
+            MockTrafficLog.shared.record(port: port, method: method, application: application)
         }
 
         var head = "HTTP/1.1 200 OK\r\n"

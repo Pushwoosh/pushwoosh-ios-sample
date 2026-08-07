@@ -34,7 +34,7 @@ Most SDK calls route through `PushwooshHelper.safeCall { … }`, which skips the
 | Launch | `PWInAppManager.shared().addJavascriptInterface(PushMartJSBridge, withName: "PushMart")` (native object callable from rich-media HTML) |
 | Deep-link URL opened (`.onOpenURL`) | `Pushwoosh.configure.handleOpenURL(url)` (test-device registration) + carousel demo routing |
 | Manual UN-delegate forwarding (E2E-gated) | `Pushwoosh.configure.addNotificationCenterDelegate(_:)` + `handleWillPresentNotification(_:completionHandler:)` + `handleNotificationResponse(_:completionHandler:)` + `handlePushReceived(_:)` (for hosts not using swizzling) |
-| Server routing | `Pushwoosh.configure.setReverseProxy(_:headers:)` (reads `PushMartStore.appCode`) — `ServerRouting.apply()` |
+| Server routing | `Pushwoosh.configure.setAppCode(_:baseUrl:)` with the stored region, Honduras on a fresh install — `ServerRouting.applyRegion()`. No reverse proxy: the endpoint travels with the application code |
 
 ## Support — PushMart Care — `Views/SupportView.swift` (+ `Helpers/VoIPController.swift`)
 
@@ -69,8 +69,15 @@ Note: like the Android and Cordova samples, calls normally originate from a serv
 
 | User action | SDK call |
 |---|---|
-| Connect → enter store code → Continue | `Pushwoosh.configure.setAppCode(code)` + `ServerRouting.apply()` |
+| Connect → enter store code → Continue | `Pushwoosh.configure.setAppCode(code)` (region endpoint already applied at launch via `ServerRouting.applyRegion()`) |
 | Sign in → Continue | `Pushwoosh.configure.setEmail(email)` + `Pushwoosh.configure.setUserId(email)` |
+
+## Switch account — `Onboarding/AppGate.swift`
+
+| User action | SDK call |
+|---|---|
+| Region → "🇺🇸 United States" / "🇭🇳 Honduras" | `Pushwoosh.configure.setAppCode(region.appCode, baseUrl: region.baseUrl)` — the pair moves as one unit, so the device is never registered into one region's application at another region's host. Honduras is the default on a fresh install; the choice is stored and re-applied on every launch (same pair = no-op) |
+| Switch account (app code field) | `Pushwoosh.configure.unregisterForPushNotifications()` → `setAppCode(code)` → `setEmail` / `setUserId` → `registerForPushNotifications { }` → `PWInbox.resyncInboxForNewUserId()` |
 
 ## Home tab — `Views/RootTabView.swift` (HomeTabView)
 
@@ -209,7 +216,7 @@ Note: like the Android and Cordova samples, calls normally originate from a serv
 | User action | SDK call |
 |---|---|
 | Apply settings | `Pushwoosh.media.setRichMediaPresentationStyle(_:)` + `Pushwoosh.media.richMediaPresentationStyle()` (read-back) + `modalRichMedia.configure/setAnimationDuration/setDismissSwipeDirections/setHapticFeedbackType/setCornerType/close(after:)` + `PWRichMediaManager.shared().richMediaStyle = PWRichMediaStyle()` (backgroundColor/closeButtonPresentingDelay/shouldHideStatusBar/allowsInlineMediaPlayback/mediaPlaybackRequiresUserAction) |
-| Mock rich-media buttons | `PWInAppManager.shared().postEvent("showRichMedia…")` (via local mock server, `PWMockServerEnabled`) |
+| Mock rich-media buttons | `PWInAppManager.shared().postEvent("showRichMedia…")` (answered by the local mock server the selected region points at) |
 | Native in-app (split) button | `PWInAppManager.shared().postEvent("showNativeInApp")` — mock serves a ZIP carrying `native-config.json`; the SDK splitter routes it to the native PushwooshInApp module instead of HTML rich media |
 
 ## Push custom-data deep links — `Helpers/DeepLinkRouter.swift`
@@ -225,5 +232,12 @@ Note: like the Android and Cordova samples, calls normally originate from a serv
 | User action | SDK call |
 |---|---|
 | Log level chip | `Pushwoosh.debug.setLogLevel(.PW_LL_*)` |
+| Switch variants → "Application only" | `Pushwoosh.configure.setAppCode(_:baseUrl:)` with the other region's code and the current endpoint — a code-only switch: unregisters from the previous application, clears its queued events and inbox, re-registers through the app-code KVO path |
+| Switch variants → "Endpoint only" | `Pushwoosh.configure.setAppCode(_:baseUrl:)` with the same code and a moved host — nothing but re-pointing: no unregister, no re-registration, queued events are re-addressed to the new host |
+| Switch variants → "Repeat the selected pair" | `Pushwoosh.configure.setAppCode(_:baseUrl:)` with the region pair the app itself chose — the shape wrappers call on every launch. A full no-op while that endpoint is the one in effect, and a one-call return to it after a server rotation. Deliberately not `getBaseUrl()`, which reports the endpoint in effect and would record a rotation as the app's own choice |
+| Switch variants → "No endpoint supplied" | `Pushwoosh.configure.setAppCode(code, baseUrl: nil)` — identical to the one-argument `setAppCode(code)`, so with the code already selected nothing changes at all. An empty or whitespace-only string is read the same way. Mirrors `setAppId(appId, null)` on Android, so a binding forwarding an absent optional cannot damage the selection |
+| Switch variants → "Invalid endpoint" | `Pushwoosh.configure.setAppCode(code, baseUrl: "ftp://…")` — rejected, nothing changes |
+| Selected pair → status rows (also on appear) | `Pushwoosh.configure.getAppCode()` + `Pushwoosh.configure.getBaseUrl()` |
+| Mock server controls → "Rotate base_url on next unregister" / "Stop/Start the Honduras server" | No SDK call — failure-mode switches on the built-in mock backend, used by scenario 18 to watch the unregister-reply rotation guard and the A→B→A survivor drop work |
 | Reload in-app resources | `PWInAppManager.shared().reloadInApps { }` |
 | SDK version row | `Pushwoosh.configure.version()` |

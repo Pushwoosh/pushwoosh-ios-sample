@@ -9,7 +9,7 @@ import SwiftUI
 import PushwooshFramework
 
 // Persisted onboarding / identity store. The app code the shopper connects with
-// is remembered here and read back by ServerRouting so the SDK talks to the right
+// is remembered here and applied through setAppCode so the SDK talks to the right
 // project. There is no bundled working code any more — it is entered during
 // onboarding (PushOn-style auth), so infoPlistAppCode is normally empty.
 enum PushMartStore {
@@ -25,6 +25,58 @@ enum PushMartStore {
     static var appCode: String {
         let stored = UserDefaults.standard.string(forKey: appCodeKey)
         return (stored?.isEmpty == false) ? stored! : infoPlistAppCode
+    }
+}
+
+// Two-region deployment, written the way a customer writes it: the shopper picks the country they
+// shop in, and each country is a separate Pushwoosh application living behind its own API endpoint.
+// The pair travels in one call, so the device is never registered into one region's application at
+// another region's host. A real deployment would carry that region's own hosts here; the demo points
+// at the bundled mock servers so a switch can be followed end to end.
+enum StoreRegion: String, CaseIterable {
+    case unitedStates
+    case honduras
+
+    static let storageKey = "nuvo.region"
+
+    var title: String {
+        switch self {
+        case .unitedStates: return "United States"
+        case .honduras:     return "Honduras"
+        }
+    }
+
+    var flag: String {
+        switch self {
+        case .unitedStates: return "🇺🇸"
+        case .honduras:     return "🇭🇳"
+        }
+    }
+
+    var appCode: String {
+        switch self {
+        case .unitedStates: return "USAAA-00000"
+        case .honduras:     return "HNDRS-11111"
+        }
+    }
+
+    var baseUrl: String {
+        switch self {
+        case .unitedStates: return "http://127.0.0.1:9595/json/1.3/"
+        case .honduras:     return "http://127.0.0.1:9596/json/1.3/"
+        }
+    }
+
+    // nil until the shopper has chosen, so a fresh install keeps using the onboarding app code.
+    static var stored: StoreRegion? {
+        guard let raw = UserDefaults.standard.string(forKey: storageKey) else { return nil }
+        return StoreRegion(rawValue: raw)
+    }
+
+    // Safe to call on every launch: repeating the pair the SDK already holds is a no-op.
+    func apply() {
+        UserDefaults.standard.set(rawValue, forKey: Self.storageKey)
+        Pushwoosh.configure.setAppCode(appCode, baseUrl: baseUrl)
     }
 }
 
@@ -72,7 +124,7 @@ struct AppGate: View {
 // PWPreferences path the SDK uses, so Info.plist Pushwoosh_APPID is only a first-run
 // fallback. Switching account re-points the SDK at another Pushwoosh app at runtime,
 // mirroring PushOn's flow on the modern configure API: unregister from the current app →
-// switch app code → re-route the reverse proxy → set identity → register with the new app
+// switch app code → set identity → register with the new app
 // → resync the inbox.
 enum AccountManager {
 
@@ -93,9 +145,8 @@ enum AccountManager {
             await MainActor.run {
                 // 2. Switch the app code — the SDK resets per-app state when it changes.
                 PushwooshHelper.safeCall { Pushwoosh.configure.setAppCode(code) }
-                // 3. Persist + re-route the reverse proxy to the new app code.
+                // 3. Persist the code the shopper connected with.
                 UserDefaults.standard.set(code, forKey: PushMartStore.appCodeKey)
-                ServerRouting.apply()
                 // 4. Identity for the new account.
                 if !cleanEmail.isEmpty {
                     PushwooshHelper.safeCall { Pushwoosh.configure.setEmail(cleanEmail) }
@@ -132,6 +183,7 @@ struct SwitchAccountSheet: View {
     @State private var appCode = ""
     @State private var name = ""
     @State private var email = ""
+    @State private var region = StoreRegion.stored
 
     var body: some View {
         ZStack {
@@ -145,6 +197,11 @@ struct SwitchAccountSheet: View {
                             .fixedSize(horizontal: false, vertical: true)
                     }
                     .padding(.top, 8)
+
+                    regionSection
+
+                    Text("Or connect to a project by app code")
+                        .font(PushMart.body(13)).foregroundStyle(PushMart.textSecondary)
 
                     PushMartField(placeholder: "App code (XXXXX-XXXXX)", text: $appCode, icon: "qrcode")
                     PushMartField(placeholder: "Name (optional)", text: $name, icon: "person")
@@ -177,9 +234,41 @@ struct SwitchAccountSheet: View {
         }
         .onAppear {
             appCode = PushwooshHelper.safeCall(nil) { Pushwoosh.configure.getApplicationCode() } ?? ""
+            region = StoreRegion.stored
         }
         .dismissKeyboardOnTap()
         .presentationDragIndicator(.visible)
+    }
+
+    private var regionSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Region").font(PushMart.headline(16)).foregroundStyle(PushMart.textPrimary)
+            Text("Where do you shop? Each country is served by its own Pushwoosh application, so switching moves the device to that country's application.")
+                .font(PushMart.body(13)).foregroundStyle(PushMart.textSecondary)
+                .fixedSize(horizontal: false, vertical: true)
+
+            ForEach(StoreRegion.allCases, id: \.rawValue) { candidate in
+                PushMartButton(title: "\(candidate.flag)  \(candidate.title)",
+                               icon: region == candidate ? "checkmark.circle.fill" : "circle",
+                               style: .secondary) {
+                    candidate.apply()
+                    region = candidate
+                    PushMartResult.shared.success("Region: \(candidate.title)")
+                    dismiss()
+                }
+            }
+            .sdkNote(
+                "Pushwoosh.configure.setAppCode(_:baseUrl:)",
+                "Moves the application code and its API endpoint as one unit.",
+                docs: "Called once per region choice and again on every launch with the stored region; repeating the same pair is a no-op, so it is safe to apply at startup.",
+                calls: [
+                    SDKCallItem(code: "setAppCode(\"HNDRS-11111\", baseUrl: \"https://…/json/1.3/\")",
+                                note: "Region switch - the device is unregistered from the previous region's application and registered in the new one."),
+                    SDKCallItem(code: "setAppCode(code, baseUrl: nil)",
+                                note: "Default endpoint - falls back to Info.plist Pushwoosh_BASEURL, else https://<appCode>.api.pushwoosh.com/json/1.3/.")
+                ]
+            )
+        }
     }
 }
 
